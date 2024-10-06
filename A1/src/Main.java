@@ -7,8 +7,24 @@
 
 **/
 
+import Repository.*;
+import Controller.*;
+import View.*;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        // Application startup
+        UserInterface app = new UserInterface();
+
+        // Run application until user triggers exit status
+        int status = 0;
+        do {
+
+            // Get application status
+            status = app.parkingLotOptions();
+
+        }while (status != 0);
     }
+
 }

@@ -25,4 +25,7 @@ public class Car implements Vehicle {
     public boolean isMotorized() {
         return isMotorized;
     }
+
+    @Override
+    public String toString() { return "Car (" + color + ")"; }
 }

@@ -9,10 +9,11 @@ public class ParkingLot {
     public ParkingLot(int capacity) {
         this.capacity = capacity;
         this.parkedVehicles = new Vehicle[capacity];
+        this.occupiedLots = 0;
     }
 
-    private boolean isOccupied(int position) {
-        return this.parkedVehicles[position] == null;
+    public boolean isOccupied(int position) {
+        return this.parkedVehicles[position] != null;
     }
 
     public void addVehicle(Vehicle vehicle, int position) throws ParkingException {
@@ -24,6 +25,7 @@ public class ParkingLot {
 
         // Park in the specified position
         this.parkedVehicles[position] = vehicle;
+        this.occupiedLots += 1;
     }
 
     public void removeVehicle(int position) throws ParkingException {
@@ -32,7 +34,12 @@ public class ParkingLot {
             throw new ParkingException("There is no vehicle in this lot");
         }
 
-        // Park in the specified position
+        // Remove vehicle from the specified position
         this.parkedVehicles[position] = null;
+        this.occupiedLots -= 1;
     }
+
+    public Vehicle[] getParkedVehicles() { return this.parkedVehicles; }
+    public int getOccupiedLots() { return this.occupiedLots; };
+    public int getCapacity() { return this.capacity; };
 }

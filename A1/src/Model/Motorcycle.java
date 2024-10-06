@@ -27,4 +27,7 @@ public class Motorcycle implements Vehicle
         return isMotorized;
     }
 
+    @Override
+    public String toString() { return "Motorcycle (" + color + ")"; }
+
 }
