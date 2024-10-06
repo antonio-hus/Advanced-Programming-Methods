@@ -7,10 +7,15 @@
 
 **/
 
-import Repository.*;
-import Controller.*;
+////////////////////////////////
+// IMPORTS & PACKAGES SECTION //
+////////////////////////////////
 import View.*;
 
+
+////////////////////////
+// PROGRAM CONTROLLER //
+////////////////////////
 public class Main {
     public static void main(String[] args) {
 
@@ -26,5 +31,4 @@ public class Main {
 
         }while (status != 0);
     }
-
 }

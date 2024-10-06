@@ -1,21 +1,38 @@
+////////////////////////////////
+// IMPORTS & PACKAGES SECTION //
+////////////////////////////////
+// Project Packages
 package View;
-import Controller.*;
-import Model.Bicycle;
-import Model.Car;
-import Model.Motorcycle;
-import Model.Vehicle;
+import Model.*;
 import Repository.ParkingException;
-
+import Controller.*;
+// Java Packages
 import java.util.Scanner;
 
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
 public class UserInterface {
 
+    // User Interface Attributes
+    // MVC Design - UserInterface uses a controller to get information about the application
     ParkingController controller;
+
+
+    // Constructor
     public UserInterface() {
+
+        // Welcome Screen
         this.welcomeScreen();
+
+        // Setup Screen
         this.parkingLotSetup();
     }
 
+
+    // User Interface Views ( Screens )
+    // Welcome Screen
     public void welcomeScreen() {
         System.out.println("Welcome to the Parking Lot Management Application");
         System.out.println("Made by Antonio Hus, Group 924/1");
@@ -27,24 +44,33 @@ public class UserInterface {
         scanner.nextLine();
     }
 
+    // Setup Screen
     public void parkingLotSetup() {
         System.out.println("Let's setup the Parking Lot");
         System.out.println("Please enter capacity: ");
 
+        // Get desired parking lot capacity
         Scanner scanner = new Scanner(System.in);
         int capacity = scanner.nextInt();
+
+        // Initialize controller for requested parking lot
         this.controller = new ParkingController(capacity);
     }
 
+    // Parking Lot Visual Interpretation
     public void parkingLotView() {
+
+        // Parking Lot Information
         System.out.println("Parking lot status:");
         System.out.printf("%d out of %d lots are occupied", this.controller.getOccupied(), this.controller.getCapacity());
         System.out.println();
 
-        // Draw Parking Lot
+        // Parking Lot Visual Interpretation
+        // Upper border
         for(int i=0; i<this.controller.getCapacity(); i+=1) { System.out.print("____"); }
         System.out.println("_");
 
+        // Occupied Lots Visualization
         for(int i=0; i<this.controller.getCapacity(); i+=1) {
             if(this.controller.isOccupied(i)) System.out.print("| X ");
             else System.out.print("|   ");
@@ -55,8 +81,8 @@ public class UserInterface {
 
     public int parkingLotOptions() {
 
+        // User Options
         this.parkingLotView();
-
         System.out.println("1. Park a new Car");
         System.out.println("2. Park a new Bicycle");
         System.out.println("3. Park a new Motorcycle");
@@ -65,6 +91,7 @@ public class UserInterface {
         System.out.println("0. Exit");
         System.out.println();
 
+        // Get user option and redirect new screen
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
         switch (option) {
@@ -73,21 +100,23 @@ public class UserInterface {
             case 3: this.addVehicleView("Motorcycle"); break;
             case 4: this.removeVehicleView(); break;
             case 5: this.getVehiclesByColorView("red"); break;
-            case 0: return 0; // Exit action
+            case 0: return 0;
         }
-
         return 1;
     }
 
     public void addVehicleView(String type) {
 
+        // Display parking lot information
         this.parkingLotView();
 
+        // Get new vehicle details
         Vehicle newVehicle = null;
         System.out.println("Please enter the color of the new vehicle");
         Scanner scanner = new Scanner(System.in);
         String color = scanner.nextLine();
 
+        // Create new vehicle of the given type and color
         newVehicle = switch (type) {
             case "Car" -> new Car(color);
             case "Bicycle" -> new Bicycle(color);
@@ -95,9 +124,9 @@ public class UserInterface {
             default -> newVehicle;
         };
 
+        // Add new vehicle to the parking lot
         System.out.println("Choose where to park the vehicle:");
         int position = scanner.nextInt();
-
         try {
             this.controller.addVehicle(newVehicle, position);
         } catch (ParkingException e) {
@@ -106,12 +135,16 @@ public class UserInterface {
     }
 
     public void removeVehicleView() {
+
+        // Display parking lot information
         this.parkingLotView();
 
+        // Get position information
         System.out.println("Choose where to remove the vehicle from:");
         Scanner scanner = new Scanner(System.in);
         int position = scanner.nextInt();
 
+        // Remove vehicle from the parking lot
         try {
             this.controller.removeVehicle(position);
         } catch (ParkingException e) {
@@ -121,8 +154,10 @@ public class UserInterface {
 
     public void getVehiclesByColorView(String color) {
 
+        // Display parking lot information
         this.parkingLotView();
 
+        // Display vehicles information
         System.out.println("The following vehicles are of color" + color + ":");
         int i = 0;
         for(Vehicle vehicle: this.controller.getVehiclesByColor(color)) {
@@ -131,6 +166,5 @@ public class UserInterface {
                 i += 1;
             }
         }
-
     }
 }

@@ -1,21 +1,53 @@
+////////////////////////////////
+// IMPORTS & PACKAGES SECTION //
+////////////////////////////////
 package Repository;
 import Model.*;
 
-public class ParkingLot {
-    private final Vehicle[] parkedVehicles;
-    int capacity;
-    int occupiedLots;
 
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
+public class ParkingLot {
+
+    // Parking Lot Attributes
+    // Generic Information
+    private final int capacity;
+    private int occupiedLots;
+    // Specific Information
+    private final Vehicle[] parkedVehicles;
+
+
+    // Constructors
     public ParkingLot(int capacity) {
-        this.capacity = capacity;
-        this.parkedVehicles = new Vehicle[capacity];
+
+        // New parking lots are initially empty
         this.occupiedLots = 0;
+        this.capacity = capacity;
+
+        // Allocate space for the vehicles
+        this.parkedVehicles = new Vehicle[capacity];
     }
 
+    // Parking Lot Attribute Getters
+    // Generic Information
+    // Returns the capacity of the parking lot
+    public int getCapacity() { return this.capacity; }
+    // Specific Information
+    // Returns the number of occupied lots in the parking lot
+    public int getOccupiedLots() { return this.occupiedLots; }
+    // Returns true if the specified parking lot is occupied, false otherwise
     public boolean isOccupied(int position) {
         return this.parkedVehicles[position] != null;
     }
+    // Returns the list of vehicles in the parking lot ( may include null elements if lot is empty )
+    public Vehicle[] getParkedVehicles() { return this.parkedVehicles; }
 
+
+    // Parking Lot CRUD Operations
+    // Add a new vehicle
+    // Adds a new vehicle to the specified position
+    // Throws ParkingException if lot is already occupied
     public void addVehicle(Vehicle vehicle, int position) throws ParkingException {
 
         // Check if position is not already occupied
@@ -28,6 +60,9 @@ public class ParkingLot {
         this.occupiedLots += 1;
     }
 
+    // Remove a vehicle
+    // Removes a vehicle from the specified position
+    // Throws ParkingException if the lot is not occupied
     public void removeVehicle(int position) throws ParkingException {
         // Check if there is any vehicle in the specified position
         if(!this.isOccupied(position)) {
@@ -38,8 +73,4 @@ public class ParkingLot {
         this.parkedVehicles[position] = null;
         this.occupiedLots -= 1;
     }
-
-    public Vehicle[] getParkedVehicles() { return this.parkedVehicles; }
-    public int getOccupiedLots() { return this.occupiedLots; };
-    public int getCapacity() { return this.capacity; };
 }
