@@ -31,21 +31,35 @@ public class UserInterface {
     }
 
 
+    // User Experience Methods - CLI Specific
+    // Simulates clearing the console
+    public static void clearScreen() {
+        for (int i = 0; i < 50; ++i) {
+            System.out.println();
+        }
+    }
+    // Simulates proceeding on pressing enter
+    public static void proceedEnter() {
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+    }
+
+
     // User Interface Views ( Screens )
     // Welcome Screen
     public void welcomeScreen() {
+        clearScreen();
         System.out.println("Welcome to the Parking Lot Management Application");
         System.out.println("Made by Antonio Hus, Group 924/1");
         System.out.println();
         System.out.println();
         System.out.println("Press 'Enter' to proceed");
-
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
+        proceedEnter();
     }
 
     // Setup Screen
     public void parkingLotSetup() {
+        clearScreen();
         System.out.println("Let's setup the Parking Lot");
         System.out.println("Please enter capacity: ");
 
@@ -59,6 +73,7 @@ public class UserInterface {
 
     // Parking Lot Visual Interpretation
     public void parkingLotView() {
+        clearScreen();
 
         // Parking Lot Information
         System.out.println("Parking lot status:");
@@ -129,9 +144,12 @@ public class UserInterface {
         int position = scanner.nextInt();
         try {
             this.controller.addVehicle(newVehicle, position);
+            System.out.println("Vehicle was added successfully to position: " + position);
         } catch (ParkingException e) {
             System.out.println("This parking lot is already occupied! Vehicle was not added!");
         }
+
+        proceedEnter();
     }
 
     public void removeVehicleView() {
@@ -147,9 +165,12 @@ public class UserInterface {
         // Remove vehicle from the parking lot
         try {
             this.controller.removeVehicle(position);
+            System.out.println("Vehicle was successfully remove from position: " + position);
         } catch (ParkingException e) {
             System.out.println("This parking lot is not occupied! No vehicle was removed!");
         }
+
+        proceedEnter();
     }
 
     public void getVehiclesByColorView(String color) {
@@ -158,13 +179,13 @@ public class UserInterface {
         this.parkingLotView();
 
         // Display vehicles information
-        System.out.println("The following vehicles are of color" + color + ":");
-        int i = 0;
+        System.out.println("The following vehicles are of color " + color + ":");
         for(Vehicle vehicle: this.controller.getVehiclesByColor(color)) {
             if(vehicle != null) {
-                System.out.println(i+". " + vehicle);
-                i += 1;
+                System.out.println(vehicle);
             }
         }
+
+        proceedEnter();
     }
 }

@@ -1,10 +1,7 @@
 /**
-
  A1:
- Intr-o parcare exista masini, motociclete
- si biciclete. Sa se afiseze toate vehiculele
- de culoare rosie.
-
+ Intr-o parcare exista masini, motociclete si biciclete.
+ Sa se afiseze toate vehiculele de culoare rosie.
 **/
 
 ////////////////////////////////
