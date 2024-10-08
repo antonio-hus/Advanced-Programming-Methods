@@ -7,6 +7,8 @@ import Model.*;
 import Repository.ParkingException;
 import Controller.*;
 // Java Packages
+import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -59,13 +61,31 @@ public class UserInterface {
 
     // Setup Screen
     public void parkingLotSetup() {
-        clearScreen();
-        System.out.println("Let's setup the Parking Lot");
-        System.out.println("Please enter capacity: ");
 
         // Get desired parking lot capacity
         Scanner scanner = new Scanner(System.in);
-        int capacity = scanner.nextInt();
+        int capacity = -1;
+
+        while (true) {
+            try {
+                clearScreen();
+                System.out.println("Let's setup the Parking Lot");
+                System.out.println("Please enter capacity: ");
+
+                // Get the input and parse it as an integer
+                String input = scanner.nextLine();
+                capacity = Integer.parseInt(input); // Attempt to convert input to an integer
+
+                if (capacity <= 0) { // Check if capacity is positive
+                    throw new NumberFormatException("Capacity should be a positive number. Please try again.");
+                }
+
+                break; // Exit the loop if valid integer is entered
+            } catch (NumberFormatException exc) { // Handle invalid integer input
+                System.out.println("Invalid input. Please enter a valid integer: " + exc);
+                proceedEnter();
+            }
+        }
 
         // Initialize controller for requested parking lot
         this.controller = new ParkingController(capacity);
@@ -95,29 +115,54 @@ public class UserInterface {
     }
 
     public int parkingLotOptions() {
-
-        // User Options
-        this.parkingLotView();
-        System.out.println("1. Park a new Car");
-        System.out.println("2. Park a new Bicycle");
-        System.out.println("3. Park a new Motorcycle");
-        System.out.println("4. Remove a vehicle");
-        System.out.println("5. Get red vehicles");
-        System.out.println("0. Exit");
-        System.out.println();
-
-        // Get user option and redirect new screen
         Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        switch (option) {
-            case 1: this.addVehicleView("Car"); break;
-            case 2: this.addVehicleView("Bicycle"); break;
-            case 3: this.addVehicleView("Motorcycle"); break;
-            case 4: this.removeVehicleView(); break;
-            case 5: this.getVehiclesByColorView("red"); break;
-            case 0: return 0;
+        int option = -1;
+
+        while (true) {
+            try {
+                // Display User Options
+                this.parkingLotView();
+                System.out.println("1. Park a new Car");
+                System.out.println("2. Park a new Bicycle");
+                System.out.println("3. Park a new Motorcycle");
+                System.out.println("4. Remove a vehicle");
+                System.out.println("5. Get red vehicles");
+                System.out.println("0. Exit");
+                System.out.println();
+
+                // Get user option
+                System.out.print("Please choose an option: ");
+                option = scanner.nextInt();
+
+                // Redirect based on the option
+                switch (option) {
+                    case 1:
+                        this.addVehicleView("Car");
+                        break;
+                    case 2:
+                        this.addVehicleView("Bicycle");
+                        break;
+                    case 3:
+                        this.addVehicleView("Motorcycle");
+                        break;
+                    case 4:
+                        this.removeVehicleView();
+                        break;
+                    case 5:
+                        this.getVehiclesByColorView("red");
+                        break;
+                    case 0:
+                        System.out.println("Exiting...");
+                        return 0; // Exit the menu
+                    default:
+                        throw new InputMismatchException("Invalid option. Please choose a number between 0 and 5.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.nextLine(); // Clear the invalid input by consuming the entire line
+                proceedEnter();
+            }
         }
-        return 1;
     }
 
     public void addVehicleView(String type) {
@@ -146,7 +191,7 @@ public class UserInterface {
             this.controller.addVehicle(newVehicle, position);
             System.out.println("Vehicle was added successfully to position: " + position);
         } catch (ParkingException e) {
-            System.out.println("This parking lot is already occupied! Vehicle was not added!");
+            System.out.println("There was an error: " + e);
         }
 
         proceedEnter();
@@ -167,7 +212,7 @@ public class UserInterface {
             this.controller.removeVehicle(position);
             System.out.println("Vehicle was successfully remove from position: " + position);
         } catch (ParkingException e) {
-            System.out.println("This parking lot is not occupied! No vehicle was removed!");
+            System.out.println("There was an error: " + e);
         }
 
         proceedEnter();

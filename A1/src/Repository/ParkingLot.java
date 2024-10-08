@@ -49,6 +49,10 @@ public class ParkingLot {
     // Adds a new vehicle to the specified position
     // Throws ParkingException if lot is already occupied
     public void addVehicle(Vehicle vehicle, int position) throws ParkingException {
+        // Check position index is valid
+        if(position < 0 || position >= this.getCapacity()){
+            throw new ParkingException("Position is invalid");
+        }
 
         // Check if position is not already occupied
         if(this.isOccupied(position)) {
@@ -64,6 +68,11 @@ public class ParkingLot {
     // Removes a vehicle from the specified position
     // Throws ParkingException if the lot is not occupied
     public void removeVehicle(int position) throws ParkingException {
+        // Check position index is valid
+        if(position < 0 || position >= this.getCapacity()){
+            throw new ParkingException("Position is invalid");
+        }
+
         // Check if there is any vehicle in the specified position
         if(!this.isOccupied(position)) {
             throw new ParkingException("There is no vehicle in this lot");
