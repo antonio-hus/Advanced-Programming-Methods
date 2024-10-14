@@ -29,4 +29,7 @@ public class PrgState {
         return this.exeStack;
     }
 
+    public MyIDictionary<String, Value> getSymTable() {
+        return this.symTable;
+    }
 }

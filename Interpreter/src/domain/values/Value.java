@@ -4,8 +4,11 @@
 package domain.values;
 
 
+import domain.types.Type;
+
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
 public interface Value {
+    Type getType();
 }

@@ -45,6 +45,19 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
         return dictionary.remove(key);
     }
 
+    // Update
+    // Updates a (key, value) pair in the dictionary
+    // Throws an exception if the key is not already present inside the dictionary
+    public V update(K key, V newValue) throws MyDictionaryException {
+
+        // Check if the key is present inside the dictionary
+        if(!this.containsKey(key))
+            throw new MyDictionaryException("Key was not found inside the Dictionary");
+
+        // Updates a (key, value) pair in the dictionary
+        return dictionary.replace(key, newValue);
+    }
+
     // Contains Key
     // Return True if the key is present inside the dictionary
     // Returns False otherwise

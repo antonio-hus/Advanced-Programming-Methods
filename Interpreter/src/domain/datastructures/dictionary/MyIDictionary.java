@@ -21,6 +21,11 @@ public interface MyIDictionary<K, V> {
     // Throws an exception if the key is not present inside the dictionary
     V remove(K key) throws MyDictionaryException;
 
+    // Update
+    // Updates a (key, value) pair in the dictionary
+    // Throws an exception if the key is not already present inside the dictionary
+    V update(K key, V newValue) throws MyDictionaryException;
+
     // Contains Key
     // Return True if the key is present inside the dictionary
     // Returns False otherwise
