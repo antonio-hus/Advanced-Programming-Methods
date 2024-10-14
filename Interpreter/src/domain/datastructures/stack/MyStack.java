@@ -1,0 +1,64 @@
+////////////////////////
+// PACKAGES & IMPORTS //
+////////////////////////
+package domain.datastructures.stack;
+import java.util.LinkedList;
+
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
+public class MyStack<T> implements MyIStack<T> {
+
+    // MY STACK STRUCTURE
+    // Stack - based on linked list
+    LinkedList<T> stack;
+
+
+    // MY STACK METHODS
+    // Top
+    // Returns the top of the stack
+    // Throws an exception if the stack is empty
+    @Override
+    public T top() throws MyStackException {
+
+        // Check if stack has a top (contains elements)
+        if(this.isEmpty())
+            throw new MyStackException("Stack is empty");
+
+        // Returns the top of the stack
+        return stack.getFirst();
+    }
+
+    // Pop
+    // Removes and returns the top of the stack
+    // Throws an exception if the stack is empty
+    @Override
+    public T pop() throws MyStackException {
+
+        // Check if stack has a top (contains elements)
+        if(this.isEmpty())
+            throw new MyStackException("Stack is empty");
+
+        // Pop the top of the stack
+        return stack.pop();
+    }
+
+    // Push
+    // Pushes a new element on the top of the stack
+    @Override
+    public void push(T v) {
+        stack.push(v);
+    }
+
+    // Is Empty
+    // Returns True if the structure is empty
+    // Returns False otherwise
+    @Override
+    public boolean isEmpty() { return stack.isEmpty(); }
+
+    // Size
+    // Returns the size of the structure ( number of elements in the collection )
+    @Override
+    public int size() { return stack.size(); }
+}

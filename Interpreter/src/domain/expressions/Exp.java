@@ -1,11 +1,11 @@
 ////////////////////////
 // PACKAGES & IMPORTS //
 ////////////////////////
-package domain.values;
+package domain.expressions;
 
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
-public interface Value {
+public interface Exp {
 }

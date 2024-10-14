@@ -1,4 +1,4 @@
 package domain.expressions;
 
-public interface Expression {
+public class ValueExp {
 }

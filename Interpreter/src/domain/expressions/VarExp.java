@@ -1,4 +1,4 @@
 package domain.expressions;
 
-public class LogicExpression {
+public class VarExp {
 }

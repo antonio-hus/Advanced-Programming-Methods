@@ -1,4 +1,4 @@
 package domain.statements;
 
-public interface Statement {
+public class PrintStmt {
 }

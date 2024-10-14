@@ -1,4 +1,4 @@
 package domain.statements;
 
-public class PrintStatement {
+public class IfStmt {
 }

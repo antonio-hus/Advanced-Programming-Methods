@@ -1,4 +1,4 @@
-package domain.exceptions;
+package domain.expressions;
 
 public class LogicException {
 }

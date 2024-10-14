@@ -1,4 +1,4 @@
 package domain.expressions;
 
-public class ValueExpression {
+public class ArithExp {
 }
