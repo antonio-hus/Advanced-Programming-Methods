@@ -16,8 +16,11 @@ public interface Repository {
     // Add new Program State
     void addPrgState(PrgState newProgramState);
 
+    // Add new Program State at a given index
+    void addPrgState(PrgState newProgramState, int index) throws MyListException;
+
     // Remove a Program State
-    void removePrgState(int index);
+    void removePrgState(int index) throws MyListException;
 
     // Gets the currently running program
     PrgState getCrtPrg() throws MyListException;

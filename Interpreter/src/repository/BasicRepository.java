@@ -24,10 +24,16 @@ public class BasicRepository implements Repository {
         programStates.add(newProgramState);
     }
 
+    // Add new Program State at a given index
+    @Override
+    public void addPrgState(PrgState newProgramState, int index) throws MyListException {
+        programStates.add(index, newProgramState);
+    }
+
     // Remove a Program State
     @Override
-    public void removePrgState(int index) {
-
+    public void removePrgState(int index) throws MyListException {
+        programStates.remove(index);
     }
 
     // Gets the currently running program
