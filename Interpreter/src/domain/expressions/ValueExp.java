@@ -20,15 +20,15 @@ public class ValueExp implements Exp {
 
 
     // VALUE EXPRESSION METHODS
-    // Evaluates the given expression as a constant value
-    @Override
-    public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
-        return value;
-    }
-
     // String Formatting
     @Override
     public String toString() {
         return value.toString();
+    }
+
+    // Evaluates the given expression as a constant value
+    @Override
+    public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
+        return value;
     }
 }

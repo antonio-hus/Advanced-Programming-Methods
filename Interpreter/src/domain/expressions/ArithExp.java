@@ -49,6 +49,12 @@ public class ArithExp implements Exp {
 
 
     // ARITHMETIC EXPRESSION METHODS
+    // String Formatting
+    @Override
+    public String toString() {
+        return e1.toString() + optionChar + e2.toString();
+    }
+
     // Evaluates the given expression given the values in symbolsTable
     @Override
     public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
@@ -88,11 +94,5 @@ public class ArithExp implements Exp {
             // Operation not found
             default: throw new ArithException("Operation type not specified or not correct");
         }
-    }
-
-    // String Formatting
-    @Override
-    public String toString() {
-        return e1.toString() + optionChar + e2.toString();
     }
 }

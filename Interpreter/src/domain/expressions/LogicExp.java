@@ -21,15 +21,27 @@ public class LogicExp implements Exp {
     Exp e1, e2;
     // Option can be: AND (1), OR (2)
     int option;
+    String optionChar;
 
     // LOGIC EXPRESSION CONSTRUCTORS
     LogicExp(Exp firstExpression, Exp secondExpression, int op) {
         e1 = firstExpression;
         e2 = secondExpression;
         option = op;
+
+        switch (op){
+            case 1: optionChar="and"; break;
+            case 2: optionChar="or"; break;
+        }
     }
 
     // LOGIC EXPRESSION METHODS
+    // String Formatting
+    @Override
+    public String toString() {
+        return e1.toString() + " " + optionChar + " " + e2.toString();
+    }
+
     // Evaluates the given expression given the values in symbolsTable
     @Override
     public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
@@ -64,5 +76,4 @@ public class LogicExp implements Exp {
             default: throw new LogicException("Operation type not specified or not correct");
         }
     }
-
 }

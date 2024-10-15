@@ -22,6 +22,12 @@ public class VarExp implements Exp {
 
 
     // VARIABLE EXPRESSION METHODS
+    // String Formatting
+    @Override
+    public String toString() {
+        return variableName;
+    }
+
     // Evaluates the variable given the values in symbolsTable
     @Override
     public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
@@ -32,11 +38,5 @@ public class VarExp implements Exp {
         } catch (MyDictionaryException exception) {
             throw new ExpException(exception.toString());
         }
-    }
-
-    // String Formatting
-    @Override
-    public String toString() {
-        return variableName;
     }
 }

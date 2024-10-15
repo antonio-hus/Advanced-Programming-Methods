@@ -220,6 +220,8 @@ public class UserInterface {
             return;
         }
 
+        // TODO: Add option to choose what program to run
+
         try {
             if(option == 0) {
                 this.controller.oneStep();
