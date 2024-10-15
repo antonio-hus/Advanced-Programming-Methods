@@ -7,5 +7,4 @@ package domain.types;
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
-public interface Type {
-}
+public interface Type {}

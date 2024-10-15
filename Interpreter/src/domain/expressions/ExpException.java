@@ -7,16 +7,16 @@ package domain.expressions;
 //////////////////////////
 // CLASS IMPLEMENTATION //
 //////////////////////////
-public class LogicException extends ExpException{
+public class ExpException extends Exception {
 
-    // LOGIC EXPRESSION EXCEPTION METHODS
+    // EXPRESSION EXCEPTION METHODS
     // Default Exception Constructor
-    LogicException() {
+    ExpException() {
         super();
     }
 
     // Message Exception Constructor
-    LogicException(String message) {
+    ExpException(String message) {
         super(message);
     }
 }

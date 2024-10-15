@@ -11,5 +11,5 @@ import domain.values.Value;
 // INTERFACE DESCRIPTION //
 ///////////////////////////
 public interface Exp {
-    Value eval(MyIDictionary<String, Value> symTbl);
+    Value eval(MyIDictionary<String, Value> symbolsTable);
 }
