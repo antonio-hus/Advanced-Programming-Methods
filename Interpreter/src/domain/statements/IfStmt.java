@@ -40,7 +40,6 @@ public class IfStmt implements IStmt {
         MyIStack<IStmt> stk = state.getExeStack();
         MyIDictionary<String, Value> symTbl = state.getSymTable();
 
-        Value val = expression.eval(symTbl);
         return state;
     }
 

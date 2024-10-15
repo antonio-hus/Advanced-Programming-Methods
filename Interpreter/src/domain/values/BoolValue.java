@@ -18,12 +18,12 @@ public class BoolValue implements Value {
 
 
     // BOOLEAN VALUE CONSTRUCTORS
-    BoolValue(Boolean v) { value = v; }
+    public BoolValue(Boolean v) { value = v; }
 
 
     // INT VALUE METHODS
     // Returns the boolean value stored
-    Boolean getValue() { return value; }
+    public Boolean getValue() { return value; }
 
     // Returns a string form of the boolean value stored
     @Override

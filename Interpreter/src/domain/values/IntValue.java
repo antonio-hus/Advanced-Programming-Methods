@@ -17,12 +17,12 @@ public class IntValue implements Value {
 
 
     // INT VALUE CONSTRUCTORS
-    IntValue(Integer v) { value = v; }
+    public IntValue(Integer v) { value = v; }
 
 
     // INT VALUE METHODS
     // Returns the integer value stored
-    Integer getValue() { return value; }
+    public Integer getValue() { return value; }
 
     // Returns a string form of the integer value stored
     @Override

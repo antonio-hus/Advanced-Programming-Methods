@@ -11,5 +11,7 @@ import domain.values.Value;
 // INTERFACE DESCRIPTION //
 ///////////////////////////
 public interface Exp {
-    Value eval(MyIDictionary<String, Value> symbolsTable);
+
+    // Evaluates the given expression given the values in symbolsTable
+    Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException;
 }
