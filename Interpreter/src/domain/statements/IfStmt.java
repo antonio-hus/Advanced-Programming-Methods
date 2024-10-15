@@ -6,6 +6,10 @@ import domain.PrgState;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
+import domain.expressions.ExpException;
+import domain.types.BoolType;
+import domain.types.*;
+import domain.values.BoolValue;
 import domain.values.Value;
 
 
@@ -34,12 +38,32 @@ public class IfStmt implements IStmt {
 
     // Executes the statement of the program defined by Program State
     @Override
-    public PrgState execute(PrgState state) throws StmtException {
+    public PrgState execute(PrgState state) throws StmtException, ExpException {
 
         // Get the current stack and symbols table
-        MyIStack<IStmt> stk = state.getExeStack();
-        MyIDictionary<String, Value> symTbl = state.getSymTable();
+        MyIStack<IStmt> stk = state.getExecutionStack();
+        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
 
+        // Evaluate expression to decide what statement to follow
+        Value result = expression.eval(symTbl);
+        Type resultType = result.getType();
+
+        // Expression must be of type bool
+        if(!resultType.equals(new BoolType())) {
+            throw new StmtException("Expression is not of boolean type");
+        }
+
+        // Safely cast to boolean type
+        BoolValue boolValue = (BoolValue) result;
+
+        // Add the statement based on the expression evaluation result
+        if(boolValue.getValue()) {
+            stk.push(thenStatement);
+        } else {
+            stk.push(elseStatement);
+        }
+
+        // Return the new state
         return state;
     }
 

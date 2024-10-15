@@ -27,7 +27,7 @@ public class CompStmt implements IStmt {
     // Executes the statement of the program defined by Program State
     @Override
     public PrgState execute(PrgState state) throws StmtException {
-        MyIStack<IStmt> stack = state.getExeStack();
+        MyIStack<IStmt> stack = state.getExecutionStack();
         stack.push(secondIStmt);
         stack.push(firstIStmt);
         return state;

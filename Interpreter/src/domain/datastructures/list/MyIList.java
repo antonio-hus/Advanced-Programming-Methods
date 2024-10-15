@@ -23,17 +23,17 @@ public interface MyIList<T> {
     // Remove
     // Removes the element found at the specified index
     // Throws an exception if specified index is invalid
-    Object remove(int index) throws MyListException;
+    T remove(int index) throws MyListException;
 
     // Set
     // Updates the element found at the specified position
     // Throws an exception if specified index is invalid
-    Object set(int index, T newObject) throws MyListException;
+    T set(int index, T newObject) throws MyListException;
 
     // Get
     // Gets the element found at the specified position
     // Throws an exception if specified index is invalid
-    Object get(int index) throws MyListException;
+    T get(int index) throws MyListException;
 
     // Is Empty
     // Returns True if the structure is empty

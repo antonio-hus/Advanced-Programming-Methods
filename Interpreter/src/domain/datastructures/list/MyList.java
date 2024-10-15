@@ -35,7 +35,7 @@ public class MyList<T> implements MyIList<T> {
     // Removes the element found at the specified index
     // Throws an exception if specified index is invalid
     @Override
-    public Object remove(int index) throws MyListException {
+    public T remove(int index) throws MyListException {
 
         // Check the specified index
         if( index < 0 || index > this.size())
@@ -49,7 +49,7 @@ public class MyList<T> implements MyIList<T> {
     // Updates the element found at the specified position
     // Throws an exception if specified index is invalid
     @Override
-    public Object set(int index, T newObject) throws MyListException {
+    public T set(int index, T newObject) throws MyListException {
 
         // Check the specified index
         if( index < 0 || index > this.size())
@@ -63,7 +63,7 @@ public class MyList<T> implements MyIList<T> {
     // Gets the element found at the specified position
     // Throws an exception if specified index is invalid
     @Override
-    public Object get(int index) throws MyListException {
+    public T get(int index) throws MyListException {
 
         // Check the specified index
         if( index < 0 || index > this.size())
@@ -83,4 +83,30 @@ public class MyList<T> implements MyIList<T> {
     // Returns the size of the structure ( number of elements in the collection )
     @Override
     public int size() { return list.size(); }
+
+    // String Formatting
+    @Override
+    public String toString() {
+
+        // Creating the String format of the Stack
+        // Adding Start
+        StringBuilder state = new StringBuilder("{");
+
+        // Adding all elements inside the list
+        for(T elem: list) {
+            state.append(elem.toString());
+            state.append(",");
+        }
+
+        // Removing last extra ","
+        if (!list.isEmpty()) {
+            state.deleteCharAt(state.length() - 1);
+        }
+
+        // Adding End
+        state.append("}");
+
+        // Returning the State
+        return state.toString();
+    }
 }

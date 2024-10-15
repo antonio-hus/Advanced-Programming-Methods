@@ -61,4 +61,30 @@ public class MyStack<T> implements MyIStack<T> {
     // Returns the size of the structure ( number of elements in the collection )
     @Override
     public int size() { return stack.size(); }
+
+    // String Formatting
+    @Override
+    public String toString() {
+
+        // Creating the String format of the Stack
+        // Adding Start
+        StringBuilder state = new StringBuilder("{");
+
+        // Adding all elements inside the stack
+        for(T elem: stack) {
+            state.append(elem.toString());
+            state.append("|");
+        }
+
+        // Removing last extra "|"
+        if (!stack.isEmpty()) {
+            state.deleteCharAt(state.length() - 1);
+        }
+
+        // Adding End
+        state.append("}");
+
+        // Returning the State
+        return state.toString();
+    }
 }

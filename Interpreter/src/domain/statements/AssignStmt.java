@@ -7,6 +7,7 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
+import domain.expressions.ExpException;
 import domain.types.Type;
 import domain.values.Value;
 
@@ -29,21 +30,21 @@ public class AssignStmt {
     }
 
     // Executes the statement of the program defined by Program State
-    PrgState execute(PrgState state) throws StmtException, MyDictionaryException {
+    PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
 
         // Get the current stack and symbols table
-        MyIStack<IStmt> stk = state.getExeStack();
-        MyIDictionary<String, Value> symTbl = state.getSymTable();
+        MyIStack<IStmt> stk = state.getExecutionStack();
+        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
 
         // Check if the variable name is in the symbols table
         if(!symTbl.containsKey(id))
-            throw new StmtException("the used variable" +id + " was not declared before");
+            throw new StmtException("The used variable " + id + " was not declared before");
 
         // Match the type of the new value to that of the old value for type compatibility
         Value val = expression.eval(symTbl);
         Type typId= (symTbl.get(id)).getType();
         if(!val.getType().equals(typId))
-            throw new StmtException("declared type of variable"+id+" and type of the assigned expression do not match");
+            throw new StmtException("Declared type of variable " + id + " and type of the assigned expression do not match");
 
         // Update the variable in the symbolic table
         symTbl.update(id, val);

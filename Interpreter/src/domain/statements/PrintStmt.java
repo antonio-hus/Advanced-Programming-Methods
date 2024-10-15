@@ -3,7 +3,10 @@
 ////////////////////////
 package domain.statements;
 import domain.PrgState;
-import domain.expressions.Exp;
+import domain.datastructures.dictionary.MyIDictionary;
+import domain.datastructures.list.MyIList;
+import domain.values.*;
+import domain.expressions.*;
 
 
 //////////////////////////
@@ -24,7 +27,17 @@ public class PrintStmt implements IStmt {
 
     // Executes the statement of the program defined by Program State
     @Override
-    public PrgState execute(PrgState state) throws StmtException {
+    public PrgState execute(PrgState state) throws StmtException, ExpException {
+
+        // Get the current program state
+        MyIList<Value> outputList = state.getOutputList();
+        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
+
+        // Evaluate the expression and add result to output list
+        Value result = expression.eval(symTbl);
+        outputList.add(result);
+
+        // Return the new state
         return state;
     }
 

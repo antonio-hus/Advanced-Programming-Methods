@@ -93,4 +93,29 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     public int size() {
         return dictionary.size();
     }
+
+    // String Formatting
+    @Override
+    public String toString() {
+        // Creating the String format of the Stack
+        // Adding Start
+        StringBuilder state = new StringBuilder("{");
+
+        // Adding all elements inside the dictionary
+        for (K key : dictionary.keySet()) {
+            V value = dictionary.get(key);
+            state.append(key).append("->").append(value).append(", ");
+        }
+
+        // Removing the last comma and space if dictionary is not empty
+        if (!dictionary.isEmpty()) {
+            state.setLength(state.length() - 2); // Remove the last ", "
+        }
+
+        // Adding End
+        state.append("}");
+
+        // Returning the State
+        return state.toString();
+    }
 }
