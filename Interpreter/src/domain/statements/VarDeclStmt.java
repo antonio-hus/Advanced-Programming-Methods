@@ -25,7 +25,7 @@ public class VarDeclStmt implements IStmt {
 
 
     // VARIABLE DECLARATION CONSTRUCTOR
-    VarDeclStmt(String variableName, Type variableType) {
+    public VarDeclStmt(String variableName, Type variableType) {
         this.variableName = variableName;
         this.variableType = variableType;
     }
@@ -35,7 +35,7 @@ public class VarDeclStmt implements IStmt {
     // To String Method
     @Override
     public String toString() {
-        return variableType.toString() + " " + variableName + ";";
+        return variableType.toString() + " " + variableName;
     }
 
     // Executes the statement of the program defined by Program State
@@ -46,7 +46,7 @@ public class VarDeclStmt implements IStmt {
         MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
 
         // Check if the variable name is in the symbols table
-        if(!symTbl.containsKey(variableName))
+        if(symTbl.containsKey(variableName))
             throw new StmtException("The variable was already declared");
 
         // Add the new variable to the symbols table

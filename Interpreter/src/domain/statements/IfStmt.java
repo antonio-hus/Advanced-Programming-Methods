@@ -26,7 +26,7 @@ public class IfStmt implements IStmt {
 
 
     // IF STATEMENT CONSTRUCTOR
-    IfStmt(Exp e, IStmt t, IStmt el) {expression=e; thenStatement=t;elseStatement=el;}
+    public IfStmt(Exp e, IStmt t, IStmt el) {expression=e; thenStatement=t;elseStatement=el;}
 
 
     // IF STATEMENT METHODS

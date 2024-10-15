@@ -18,13 +18,33 @@ public class ArithExp implements Exp {
     Exp e1, e2;
     // Option can be: Addition (1), Subtraction (2), Multiplication (3), Division (4)
     int option;
+    String optionChar;
 
 
     // ARITHMETIC EXPRESSION CONSTRUCTOR
-    ArithExp(Exp firstExpression, Exp secondExpression, int op) {
+    public ArithExp(Exp firstExpression, Exp secondExpression, int op) {
         e1 = firstExpression;
         e2 = secondExpression;
         option = op;
+
+        switch (op){
+            case 1: optionChar = "+"; break;
+            case 2: optionChar = "-"; break;
+            case 3: optionChar = "*"; break;
+            case 4: optionChar = "/"; break;
+        }
+    }
+
+    public ArithExp(Exp firstExpression, Exp secondExpression, String opCh) {
+        e1 = firstExpression;
+        e2 = secondExpression;
+        optionChar = opCh;
+        switch (optionChar) {
+            case "+": option = 1; break;
+            case "-": option = 2; break;
+            case "*": option = 3; break;
+            case "/": option = 4; break;
+        }
     }
 
 
@@ -68,5 +88,11 @@ public class ArithExp implements Exp {
             // Operation not found
             default: throw new ArithException("Operation type not specified or not correct");
         }
+    }
+
+    // String Formatting
+    @Override
+    public String toString() {
+        return e1.toString() + optionChar + e2.toString();
     }
 }

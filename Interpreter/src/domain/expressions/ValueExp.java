@@ -16,7 +16,7 @@ public class ValueExp implements Exp {
 
 
     // VALUE EXPRESSION CONSTRUCTORS
-    ValueExp(Value val) { value = val; }
+    public ValueExp(Value val) { value = val; }
 
 
     // VALUE EXPRESSION METHODS
@@ -24,5 +24,11 @@ public class ValueExp implements Exp {
     @Override
     public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
         return value;
+    }
+
+    // String Formatting
+    @Override
+    public String toString() {
+        return value.toString();
     }
 }

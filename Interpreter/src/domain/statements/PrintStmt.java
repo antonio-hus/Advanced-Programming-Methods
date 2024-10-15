@@ -18,6 +18,10 @@ public class PrintStmt implements IStmt {
     // A Print Statement is formed of an expression to print
     Exp expression;
 
+    public PrintStmt(Exp e) {
+        expression = e;
+    }
+
     // PRINT STATEMENT METHODS
     // To String Method
     @Override

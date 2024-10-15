@@ -17,6 +17,13 @@ public class CompStmt implements IStmt {
     IStmt secondIStmt;
 
 
+    // COMPOSED STATEMENT CONSTRUCTORS
+    public CompStmt(IStmt st1, IStmt st2) {
+        firstIStmt = st1;
+        secondIStmt = st2;
+    }
+
+
     // COMPOSED STATEMENT METHODS
     // To String Method
     @Override

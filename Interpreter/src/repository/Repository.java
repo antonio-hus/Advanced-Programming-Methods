@@ -23,7 +23,7 @@ public interface Repository {
     void removePrgState(int index) throws MyListException;
 
     // Gets the currently running program
-    PrgState getCrtPrg() throws MyListException;
+    PrgState getCrtPrg(int index) throws MyListException;
 
     // Gets all programs
     MyIList<PrgState> getPrgStates();

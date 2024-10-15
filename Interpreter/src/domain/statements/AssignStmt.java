@@ -8,6 +8,7 @@ import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
+import domain.expressions.ValueExp;
 import domain.types.Type;
 import domain.values.Value;
 
@@ -15,12 +16,17 @@ import domain.values.Value;
 //////////////////////////
 // CLASS IMPLEMENTATION //
 //////////////////////////
-public class AssignStmt {
+public class AssignStmt implements IStmt {
 
     // ASSIGNMENT STATEMENT STRUCTURE
     // An Assignment Statement is formed of an expression to print
     String id;
     Exp expression;
+
+    public AssignStmt(String v, Exp e) {
+        id = v;
+        expression = e;
+    }
 
     // ASSIGNMENT STATEMENT METHODS
     // To String Method
@@ -30,7 +36,7 @@ public class AssignStmt {
     }
 
     // Executes the statement of the program defined by Program State
-    PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
+    public PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
 
         // Get the current stack and symbols table
         MyIStack<IStmt> stk = state.getExecutionStack();

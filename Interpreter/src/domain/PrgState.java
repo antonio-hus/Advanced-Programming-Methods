@@ -26,7 +26,7 @@ public class PrgState {
     IStmt originalProgram;
 
     // PROGRAM STATE CONSTRUCTOR
-    PrgState(MyIStack<IStmt> stack, MyIDictionary<String,Value> symTable, MyIList<Value> outputs, IStmt prg){
+    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> outputs, IStmt prg){
 
         // Set the Program State Attributes
         executionStack = stack;
@@ -77,17 +77,17 @@ public class PrgState {
         StringBuilder state = new StringBuilder();
 
         // Execution Stack
-        state.append("Execution Stack =");
+        state.append("Execution Stack = ");
         state.append(executionStack.toString());
         state.append("\n");
 
         // Symbols Table
-        state.append("Symbols Table =");
+        state.append("Symbols Table = ");
         state.append(symbolsTable.toString());
         state.append("\n");
 
         // Output List
-        state.append("Output List =");
+        state.append("Output List = ");
         state.append(outputList.toString());
         state.append("\n");
 

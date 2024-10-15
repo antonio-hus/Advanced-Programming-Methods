@@ -9,6 +9,12 @@ public class MyList<T> implements MyIList<T> {
     ArrayList<T> list;
 
 
+    // MY LIST CONSTRUCTORS
+    public MyList() {
+        list = new ArrayList<>();
+    }
+
+
     // MY LIST METHODS
     // Add
     // Adds a new element to the end of the list

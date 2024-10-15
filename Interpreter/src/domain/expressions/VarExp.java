@@ -18,7 +18,7 @@ public class VarExp implements Exp {
 
 
     // VARIABLE EXPRESSION CONSTRUCTORS
-    VarExp(String variableName) { this.variableName = variableName; }
+    public VarExp(String variableName) { this.variableName = variableName; }
 
 
     // VARIABLE EXPRESSION METHODS
@@ -32,5 +32,11 @@ public class VarExp implements Exp {
         } catch (MyDictionaryException exception) {
             throw new ExpException(exception.toString());
         }
+    }
+
+    // String Formatting
+    @Override
+    public String toString() {
+        return variableName;
     }
 }

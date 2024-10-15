@@ -15,6 +15,12 @@ public class MyStack<T> implements MyIStack<T> {
     LinkedList<T> stack;
 
 
+    // MY STACK CONSTRUCTOR
+    public MyStack() {
+        stack = new LinkedList<>();
+    }
+
+
     // MY STACK METHODS
     // Top
     // Returns the top of the stack

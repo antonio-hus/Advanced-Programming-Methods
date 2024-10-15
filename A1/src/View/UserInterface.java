@@ -12,9 +12,9 @@ import java.util.Objects;
 import java.util.Scanner;
 
 
-//////////////////////////
-// CLASS IMPLEMENTATION //
-//////////////////////////
+    //////////////////////////
+    // CLASS IMPLEMENTATION //
+    //////////////////////////
 public class UserInterface {
 
     // User Interface Attributes

@@ -15,7 +15,7 @@ public class NopStmt implements IStmt {
     // To String Method
     @Override
     public String toString() {
-        return "\n";
+        return "Nop Statement";
     }
 
     // Executes the statement of the program defined by Program State

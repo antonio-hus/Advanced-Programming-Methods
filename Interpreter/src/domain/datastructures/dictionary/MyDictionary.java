@@ -15,6 +15,12 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     HashMap<K, V> dictionary;
 
 
+    // MY DICTIONARY CONSTRUCTORS
+    public MyDictionary() {
+        dictionary = new HashMap<>();
+    }
+
+
     // MY DICTIONARY METHODS
     // Put
     // Adds a new (key, value) pair to the dictionary
