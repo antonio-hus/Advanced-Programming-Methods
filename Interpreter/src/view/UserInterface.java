@@ -14,6 +14,7 @@ import domain.statements.*;
 import domain.values.*;
 import domain.types.*;
 
+import java.io.BufferedReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -184,19 +185,20 @@ public class UserInterface {
                 MyIStack<IStmt> stack = new MyStack<IStmt>();
                 MyIDictionary<String, Value> symbolsTable = new MyDictionary<String, Value>();
                 MyIList<Value> out = new MyList<Value>();
+                MyIDictionary<StringValue, BufferedReader> fileTable = new MyDictionary<StringValue, BufferedReader>();
                 IStmt initialStatement;
                 switch (option) {
                     case 1:
                         initialStatement = new CompStmt(new VarDeclStmt("v",new IntType()), new CompStmt(new AssignStmt("v",new ValueExp(new IntValue(2))), new PrintStmt(new VarExp("v"))));
-                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, initialStatement));
+                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, fileTable, initialStatement));
                         break;
                     case 2:
                         initialStatement = new CompStmt( new VarDeclStmt("a",new IntType()), new CompStmt(new VarDeclStmt("b",new IntType()), new CompStmt(new AssignStmt("a", new ArithExp(new ValueExp(new IntValue(2)),new ArithExp(new ValueExp(new IntValue(3)), new ValueExp(new IntValue(5)), 3), 1)), new CompStmt(new AssignStmt("b",new ArithExp(new VarExp("a"), new ValueExp(new IntValue(1)), 1)), new PrintStmt(new VarExp("b"))))));
-                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, initialStatement));
+                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, fileTable, initialStatement));
                         break;
                     case 3:
                         initialStatement = new CompStmt(new VarDeclStmt("a",new BoolType()), new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new AssignStmt("a", new ValueExp(new BoolValue(true))), new CompStmt(new IfStmt(new VarExp("a"),new AssignStmt("v",new ValueExp(new IntValue(2))), new AssignStmt("v", new ValueExp(new IntValue(3)))), new PrintStmt(new VarExp("v"))))));
-                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, initialStatement));
+                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, fileTable, initialStatement));
                         break;
                     default: throw new InputMismatchException();
                 }

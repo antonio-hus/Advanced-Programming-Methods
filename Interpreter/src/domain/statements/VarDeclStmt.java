@@ -51,16 +51,7 @@ public class VarDeclStmt implements IStmt {
 
         // Add the new variable to the symbols table
         // Use default values for their types
-
-        // Int Type
-        if(variableType.equals(new IntType())) {
-            symTbl.put(variableName, new IntValue(0));
-        }
-
-        // Bool Type
-        else if(variableType.equals(new BoolType())) {
-            symTbl.put(variableName, new BoolValue(false));
-        }
+        symTbl.put(variableName, variableType.defaultValue());
 
         // Return the new state
         return state;

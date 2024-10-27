@@ -4,6 +4,9 @@
 package domain.types;
 
 
+import domain.values.BoolValue;
+import domain.values.Value;
+
 //////////////////////////
 // CLASS IMPLEMENTATION //
 //////////////////////////
@@ -19,4 +22,10 @@ public class BoolType implements Type {
     // Returns a string format for the BoolType
     @Override
     public String toString() { return "bool";}
+
+    // Returns the default value of a boolean type
+    @Override
+    public Value defaultValue() {
+        return new BoolValue(false);
+    }
 }

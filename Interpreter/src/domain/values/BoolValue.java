@@ -29,6 +29,21 @@ public class BoolValue implements Value {
     @Override
     public String toString() { return value.toString(); }
 
+    // Returns true if the other object's type is BoolValue
+    @Override
+    public boolean equals(Object other) {
+
+        // Check the type of other object
+        if(!(other instanceof BoolValue otherValueType))
+            return false;
+
+        // Safely cast to BoolValue
+        Boolean otherValue = otherValueType.getValue();
+
+        // Check equality and return
+        return otherValue.equals(this.value);
+    }
+
     // Returns the type of the value - Boolean
     @Override
     public Type getType() {

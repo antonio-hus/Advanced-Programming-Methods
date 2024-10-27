@@ -28,6 +28,21 @@ public class IntValue implements Value {
     @Override
     public String toString() { return value.toString(); }
 
+    // Returns true if the other object's type is IntValue
+    @Override
+    public boolean equals(Object other) {
+
+        // Check the type of other object
+        if(!(other instanceof IntValue otherValueType))
+            return false;
+
+        // Safely cast to IntValue
+        Integer otherValue = otherValueType.getValue();
+
+        // Check equality and return
+        return otherValue.equals(this.value);
+    }
+
     // Returns the type of the value - Integer
     @Override
     public Type getType() {

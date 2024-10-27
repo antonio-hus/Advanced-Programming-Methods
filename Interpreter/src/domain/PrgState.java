@@ -7,6 +7,7 @@ import domain.datastructures.list.*;
 import domain.datastructures.stack.*;
 import domain.statements.*;
 import domain.values.*;
+import java.io.BufferedReader;
 
 
 //////////////////////////
@@ -22,16 +23,19 @@ public class PrgState {
     MyIDictionary<String, Value> symbolsTable;
     // Output List
     MyIList<Value> outputList;
+    // File Table Dictionary
+    MyIDictionary<StringValue, BufferedReader> fileTable;
     // We also need to keep track of the original program state
     IStmt originalProgram;
 
     // PROGRAM STATE CONSTRUCTOR
-    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> outputs, IStmt prg){
+    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> outputs, MyIDictionary<StringValue, BufferedReader> fileTable, IStmt prg){
 
         // Set the Program State Attributes
-        executionStack = stack;
-        symbolsTable = symTable;
-        outputList = outputs;
+        this.executionStack = stack;
+        this.symbolsTable = symTable;
+        this.outputList = outputs;
+        this.fileTable = fileTable;
 
         // Keep track of the original Program State
         // Recreate the entire original Program State
@@ -57,6 +61,7 @@ public class PrgState {
         return this.symbolsTable;
     }
     public MyIList<Value> getOutputList() {return this.outputList; }
+    public MyIDictionary<StringValue, BufferedReader> getFileTable() { return this.fileTable; }
 
     // Setters
     public void setExecutionStack(MyIStack<IStmt> newExecutionStack) {
@@ -68,6 +73,7 @@ public class PrgState {
     public void setOutputList(MyIList<Value> newOutputList) {
         this.outputList = newOutputList;
     }
+    public void setFileTable(MyIDictionary<StringValue, BufferedReader> newFileTable) { this.fileTable = newFileTable; }
 
     // String Formatting
     @Override
@@ -89,6 +95,11 @@ public class PrgState {
         // Output List
         state.append("Output List = ");
         state.append(outputList.toString());
+        state.append("\n");
+
+        // File Table
+        state.append("File Table = ");
+        state.append(fileTable.toString());
         state.append("\n");
 
         state.append("====================>");
