@@ -27,6 +27,6 @@ public class StringType implements Type {
     // Returns the default value of a string type
     @Override
     public Value defaultValue() {
-        return new StringValue("");
+        return new StringValue("\"\"");
     }
 }

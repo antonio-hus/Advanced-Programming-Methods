@@ -10,6 +10,7 @@ import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
 import domain.types.IntType;
+import domain.types.StringType;
 import domain.values.StringValue;
 import domain.values.Value;
 import java.io.BufferedReader;
@@ -47,7 +48,7 @@ public class CloseRFileStmt implements IStmt {
 
         // Check type of the value
         // Must be string
-        if(!val.getType().equals(new IntType())) {
+        if(!val.getType().equals(new StringType())) {
             throw new StmtException("Filename must be of type String");
         }
 

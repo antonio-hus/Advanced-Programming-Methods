@@ -178,6 +178,10 @@ public class UserInterface {
                 System.out.println("bool a;\nint v;\na=true;\n(if a then v=2 else v=3);\nprint(v);");
                 System.out.println();
 
+                System.out.println("Example 4:");
+                System.out.println("string varf;\nvarf=test.in\nopenRFile(varf);\nint varc;\nreadFile(varf, varc);\nprint(varc);\nreadFile(varf, varc);\nprint(varc);\ncloseRFile(varf);");
+                System.out.println();
+
                 // Get user option
                 System.out.print("Please choose an example to add: ");
                 option = scanner.nextInt();
@@ -199,6 +203,10 @@ public class UserInterface {
                         break;
                     case 3:
                         initialStatement = new CompStmt(new VarDeclStmt("a",new BoolType()), new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new AssignStmt("a", new ValueExp(new BoolValue(true))), new CompStmt(new IfStmt(new VarExp("a"),new AssignStmt("v",new ValueExp(new IntValue(2))), new AssignStmt("v", new ValueExp(new IntValue(3)))), new PrintStmt(new VarExp("v"))))));
+                        this.controller.addPrgState(new PrgState(stack, symbolsTable, out, fileTable, initialStatement));
+                        break;
+                    case 4:
+                        initialStatement = new CompStmt(new VarDeclStmt("varf", new StringType()), new CompStmt(new AssignStmt("varf", new ValueExp(new StringValue("C:\\Users\\anton\\OneDrive\\Documents\\GitHub\\Advanced-Programming-Methods\\Interpreter\\files\\test1.in"))), new CompStmt(new OpenRFileStmt(new VarExp("varf")), new CompStmt(new VarDeclStmt("varc", new IntType()), new CompStmt(new ReadFileStmt(new VarExp("varf"), "varc"), new CompStmt(new PrintStmt(new VarExp("varc")), new CompStmt(new ReadFileStmt(new VarExp("varf"), "varc"), new CompStmt(new PrintStmt(new VarExp("varc")), new CloseRFileStmt(new VarExp("varf"))))))))));
                         this.controller.addPrgState(new PrgState(stack, symbolsTable, out, fileTable, initialStatement));
                         break;
                     default: throw new InputMismatchException();

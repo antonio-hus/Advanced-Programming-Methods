@@ -10,6 +10,7 @@ import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
 import domain.types.IntType;
+import domain.types.StringType;
 import domain.values.IntValue;
 import domain.values.StringValue;
 import domain.values.Value;
@@ -64,7 +65,7 @@ public class ReadFileStmt implements IStmt {
 
         // Check type of the value
         // Must be string
-        if(!val.getType().equals(new IntType())) {
+        if(!val.getType().equals(new StringType())) {
             throw new StmtException("Filename must be of type String");
         }
 
@@ -72,14 +73,14 @@ public class ReadFileStmt implements IStmt {
         StringValue s = (StringValue) val;
 
         // Check if file is not already in the file table
-        if(fileTable.containsKey(s))
-            throw new StmtException("File is already open inside the file table");
+        if(!fileTable.containsKey(s))
+            throw new StmtException("File is not open inside the file table");
 
         // Read from file with Buffered Reader into variable
         try {
 
             // Read a line from the file
-            BufferedReader br = new BufferedReader(new FileReader(s.getValue()));
+            BufferedReader br = fileTable.get(s);
             String line = br.readLine();
 
             // Get the contents of the new line
