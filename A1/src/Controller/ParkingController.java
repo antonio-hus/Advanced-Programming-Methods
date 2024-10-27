@@ -15,7 +15,7 @@ import java.util.Objects;
 public class ParkingController {
 
     // Parking Lot Attributes
-    ParkingLot repository;
+    IParkingLot repository;
 
 
     // Constructor

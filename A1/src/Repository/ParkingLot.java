@@ -8,7 +8,7 @@ import Model.*;
 //////////////////////////
 // CLASS IMPLEMENTATION //
 //////////////////////////
-public class ParkingLot {
+public class ParkingLot implements IParkingLot {
 
     // Parking Lot Attributes
     // Generic Information
