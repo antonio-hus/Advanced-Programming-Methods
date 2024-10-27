@@ -31,5 +31,5 @@ public interface Repository {
     MyIList<PrgState> getPrgStates();
 
     // Logs Repository State to file
-    void logPrgStateExec() throws RepositoryException, IOException;
+    void logPrgStateExec() throws RepositoryException;
 }

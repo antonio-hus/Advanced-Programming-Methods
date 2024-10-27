@@ -65,7 +65,27 @@ public class BasicRepository implements Repository {
     }
 
     // Logs Repository state to a file
-    public void logPrgStateExec() throws RepositoryException, IOException {
-        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
+    public void logPrgStateExec() throws RepositoryException {
+
+        try {
+
+            // Create output stream
+            PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
+
+            // Get the currently running program
+            PrgState program = this.getCrtPrg(this.getPrgStates().size() - 1);
+
+            // Write the contents of the current program
+            logFile.write(program.toString());
+
+            // Close output stream
+            logFile.close();
+
+        } catch (IOException e) {
+            throw new RepositoryException("There was an error logging data about the currently running program: " + e);
+        } catch (MyListException e) {
+            throw new RepositoryException("There was an error getting data about the currently running program: " + e);
+        }
+
     }
 }

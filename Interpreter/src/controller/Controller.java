@@ -11,6 +11,7 @@ import domain.datastructures.list.MyListException;
 import domain.datastructures.stack.MyStackException;
 import domain.expressions.ExpException;
 import domain.statements.StmtException;
+import repository.RepositoryException;
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -31,11 +32,11 @@ public interface Controller {
 
     // Program State Execution Methods
     // Execute one step - one statement - specific program state
-    PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException;
+    PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
     // Execute one step - one statement
-    void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException;
+    void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
     // Execute entire program - all statements
-    void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException;
+    void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
 
     // Flags Related Methods
     // Display Mode

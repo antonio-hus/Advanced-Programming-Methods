@@ -13,6 +13,7 @@ import domain.statements.IStmt;
 import domain.statements.StmtException;
 import repository.BasicRepository;
 import repository.Repository;
+import repository.RepositoryException;
 
 
 //////////////////////////
@@ -29,7 +30,7 @@ public class BasicController implements Controller {
     public BasicController(int flagConfiguration) {
 
         // Set up repository
-        repository = new BasicRepository("/logs");
+        repository = new BasicRepository("C:\\Users\\anton\\OneDrive\\Documents\\GitHub\\Advanced-Programming-Methods\\Interpreter\\logs\\programState.log");
 
         // Set display flag
         switch (flagConfiguration){
@@ -66,7 +67,7 @@ public class BasicController implements Controller {
     }
     // Execute one step - one statement
     @Override
-    public PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException {
+    public PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
 
         // Get the current program state
         MyIStack<IStmt> stack = state.getExecutionStack();
@@ -84,11 +85,14 @@ public class BasicController implements Controller {
         if(displayFlag)
             System.out.println(newState);
 
+        // Log to file
+        this.repository.logPrgStateExec();
+
         // Return new state
         return newState;
     }
     // Execute one step - one statement
-    public void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException {
+    public void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
         // Get the current program state - the one last added into the list
         PrgState program = repository.getCrtPrg(repository.getPrgStates().size()-1);
 
@@ -104,13 +108,19 @@ public class BasicController implements Controller {
         // Display state if in Display Mode
         if(displayFlag)
             System.out.println(newState);
+
+        // Log to file
+        this.repository.logPrgStateExec();
     }
     // Execute entire program - all statements
     @Override
-    public void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException {
+    public void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
 
         // Get the current program state - the one last added into the list
         PrgState program = repository.getCrtPrg(repository.getPrgStates().size()-1);
+
+        // Log to file
+        this.repository.logPrgStateExec();
 
         while(!program.getExecutionStack().isEmpty()){
             oneStep(program);

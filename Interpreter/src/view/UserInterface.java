@@ -13,6 +13,7 @@ import domain.expressions.*;
 import domain.statements.*;
 import domain.values.*;
 import domain.types.*;
+import repository.RepositoryException;
 
 import java.io.BufferedReader;
 import java.util.InputMismatchException;
@@ -235,8 +236,9 @@ public class UserInterface {
             if(this.controller.getCrtPrg(this.controller.getPrgStates().size() - 1).getExecutionStack().isEmpty())
                 this.controller.removePrgState(this.controller.getPrgStates().size() - 1);
 
-        }catch (MyStackException | ControllerException | StmtException | ExpException | MyDictionaryException | MyListException e) {
-            System.out.println("There was an error executing the last Program from the execution list");
+        }catch (MyStackException | ControllerException | StmtException | ExpException | MyDictionaryException | MyListException |
+        RepositoryException e) {
+            System.out.println("There was an error executing the last program from the execution list: " + e);
         }
     }
 }
