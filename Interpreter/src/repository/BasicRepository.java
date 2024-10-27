@@ -7,6 +7,11 @@ import domain.datastructures.list.MyIList;
 import domain.datastructures.list.MyList;
 import domain.datastructures.list.MyListException;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 
 //////////////////////////
 // CLASS IMPLEMENTATION //
@@ -16,11 +21,13 @@ public class BasicRepository implements Repository {
     // BASIC REPOSITORY STRUCTURE
     // The basic repository is based on a list of PrgStates
     MyIList<PrgState> programStates;
+    String logFilePath;
 
 
     // BASIC REPOSITORY CONSTRUCTOR
-    public BasicRepository() {
-        programStates = new MyList<>();
+    public BasicRepository(String logFilePath) {
+        this.programStates = new MyList<>();
+        this.logFilePath = logFilePath;
     }
 
 
@@ -55,5 +62,10 @@ public class BasicRepository implements Repository {
     @Override
     public MyIList<PrgState> getPrgStates() {
         return programStates;
+    }
+
+    // Logs Repository state to a file
+    public void logPrgStateExec() throws RepositoryException, IOException {
+        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
     }
 }

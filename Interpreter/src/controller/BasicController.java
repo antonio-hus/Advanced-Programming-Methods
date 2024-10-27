@@ -29,7 +29,7 @@ public class BasicController implements Controller {
     public BasicController(int flagConfiguration) {
 
         // Set up repository
-        repository = new BasicRepository();
+        repository = new BasicRepository("/logs");
 
         // Set display flag
         switch (flagConfiguration){

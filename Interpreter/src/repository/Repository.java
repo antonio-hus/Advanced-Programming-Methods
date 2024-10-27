@@ -6,6 +6,8 @@ import domain.PrgState;
 import domain.datastructures.list.MyIList;
 import domain.datastructures.list.MyListException;
 
+import java.io.IOException;
+
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -27,4 +29,7 @@ public interface Repository {
 
     // Gets all programs
     MyIList<PrgState> getPrgStates();
+
+    // Logs Repository State to file
+    void logPrgStateExec() throws RepositoryException, IOException;
 }
