@@ -120,6 +120,7 @@ public class BasicController implements Controller {
         PrgState program = repository.getCrtPrg(repository.getPrgStates().size()-1);
 
         // Log to file
+        this.repository.clearLogFile();
         this.repository.logPrgStateExec();
 
         while(!program.getExecutionStack().isEmpty()){

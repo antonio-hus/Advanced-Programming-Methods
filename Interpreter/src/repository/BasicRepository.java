@@ -64,6 +64,19 @@ public class BasicRepository implements Repository {
         return programStates;
     }
 
+    // Clear log file
+    public void clearLogFile() throws RepositoryException {
+        try (FileWriter fileWriter = new FileWriter(this.logFilePath, false)) {
+
+            // Opening the file in overwrite mode with no content will clear it.
+            // Clear the file by writing an empty string.
+            fileWriter.write("");
+
+        } catch (IOException e) {
+            throw new RepositoryException("There was an error clearing the log file: " + e);
+        }
+    }
+
     // Logs Repository state to a file
     public void logPrgStateExec() throws RepositoryException {
 

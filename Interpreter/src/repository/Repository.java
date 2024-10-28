@@ -30,6 +30,10 @@ public interface Repository {
     // Gets all programs
     MyIList<PrgState> getPrgStates();
 
+    // Log File Operations
+    // Clear log file
+    void clearLogFile() throws RepositoryException;
+
     // Logs Repository State to file
     void logPrgStateExec() throws RepositoryException;
 }
