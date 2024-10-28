@@ -27,10 +27,10 @@ public class BasicController implements Controller {
 
 
     // BASIC CONTROLLER CONSTRUCTOR
-    public BasicController(int flagConfiguration) {
+    public BasicController(int flagConfiguration, String logFilePath) {
 
         // Set up repository
-        repository = new BasicRepository("C:\\Users\\anton\\OneDrive\\Documents\\GitHub\\Advanced-Programming-Methods\\Interpreter\\logs\\programState.log");
+        repository = new BasicRepository(logFilePath);
 
         // Set display flag
         switch (flagConfiguration){

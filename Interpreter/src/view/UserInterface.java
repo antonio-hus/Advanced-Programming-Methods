@@ -93,7 +93,7 @@ public class UserInterface {
         }
 
         // Initialize controller for requested parking lot
-        this.controller = new BasicController(flagConfiguration);
+        this.controller = new BasicController(flagConfiguration, "C:\\Users\\anton\\OneDrive\\Documents\\GitHub\\Advanced-Programming-Methods\\Interpreter\\logs\\programState.log");
         clearScreen();
     }
 

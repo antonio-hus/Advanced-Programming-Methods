@@ -23,7 +23,10 @@ public class TextMenu {
     }
 
     // TEXT MENU METHODS
+    // Add a new command to the text menu
     public void addCommand(Command c){commands.put(c.getKey(), c); }
+
+    // Print the current menu
     private void printMenu() {
         for(Command command: commands.values()) {
             String line = String.format("%4s: %s", command.getKey(), command.getDescription());
@@ -31,9 +34,11 @@ public class TextMenu {
         }
     }
 
+    // Show the menu
     public void show() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            TextMenu.clearScreen();
             printMenu();
             System.out.print("Input the option: ");
             String key = scanner.nextLine();
@@ -43,6 +48,20 @@ public class TextMenu {
                 continue;
             }
             command.execute();
+            TextMenu.proceedEnter();
         }
+    }
+
+    // User Experience Methods - CLI Specific
+    // Simulates clearing the console
+    public static void clearScreen() {
+        for (int i = 0; i < 50; ++i) {
+            System.out.println();
+        }
+    }
+    // Simulates proceeding on pressing enter
+    public static void proceedEnter() {
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 }
