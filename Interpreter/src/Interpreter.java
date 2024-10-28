@@ -1,25 +1,17 @@
 ////////////////////////
 // PACKAGES & IMPORTS //
 ////////////////////////
-import controller.BasicController;
-import controller.Controller;
+import controller.*;
 import domain.PrgState;
-import domain.datastructures.dictionary.MyDictionary;
-import domain.datastructures.list.MyList;
-import domain.datastructures.stack.MyStack;
-import domain.expressions.ArithExp;
-import domain.expressions.ValueExp;
-import domain.expressions.VarExp;
+import domain.datastructures.dictionary.*;
+import domain.datastructures.list.*;
+import domain.datastructures.stack.*;
+import domain.expressions.*;
 import domain.statements.*;
-import domain.types.BoolType;
-import domain.types.IntType;
-import domain.types.StringType;
-import domain.values.BoolValue;
-import domain.values.IntValue;
-import domain.values.StringValue;
+import domain.types.*;
+import domain.values.*;
 import view.TextMenu;
-import view.commands.ExitCommand;
-import view.commands.RunExample;
+import view.commands.*;
 
 
 //////////////////////////
