@@ -28,4 +28,10 @@ public class BoolType implements Type {
     public Value defaultValue() {
         return new BoolValue(false);
     }
+
+    // Returns a copy of the type
+    @Override
+    public Type deepCopy() {
+        return new BoolType();
+    }
 }

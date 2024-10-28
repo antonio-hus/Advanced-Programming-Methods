@@ -3,6 +3,8 @@
 ////////////////////////
 package domain.expressions;
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.statements.AssignStmt;
+import domain.statements.IStmt;
 import domain.types.IntType;
 import domain.values.IntValue;
 import domain.values.Value;
@@ -94,5 +96,11 @@ public class ArithExp implements Exp {
             // Operation not found
             default: throw new ArithException("Operation type not specified or not correct");
         }
+    }
+
+    // Returns a copy of the type
+    @Override
+    public Exp deepCopy() {
+        return new ArithExp(this.e1.deepCopy(), this.e2.deepCopy(), this.option);
     }
 }

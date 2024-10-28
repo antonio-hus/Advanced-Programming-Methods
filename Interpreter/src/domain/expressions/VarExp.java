@@ -39,4 +39,10 @@ public class VarExp implements Exp {
             throw new ExpException(exception.toString());
         }
     }
+
+    // Returns a copy of the type
+    @Override
+    public Exp deepCopy() {
+        return new VarExp(this.variableName);
+    }
 }

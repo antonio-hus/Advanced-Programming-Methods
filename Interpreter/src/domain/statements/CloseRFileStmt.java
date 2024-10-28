@@ -78,4 +78,10 @@ public class CloseRFileStmt implements IStmt {
         // Return the new state
         return state;
     }
+
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new CloseRFileStmt(this.expression.deepCopy());
+    }
 }

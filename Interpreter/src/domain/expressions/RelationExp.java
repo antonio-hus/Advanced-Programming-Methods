@@ -101,4 +101,10 @@ public class RelationExp implements Exp {
             default -> throw new RelationException("Operation type not specified or not correct");
         };
     }
+
+    // Returns a copy of the type
+    @Override
+    public Exp deepCopy() {
+        return new RelationExp(this.e1.deepCopy(), this.e2.deepCopy(), this.option);
+    }
 }

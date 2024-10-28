@@ -104,4 +104,9 @@ public class ReadFileStmt implements IStmt {
         return state;
     }
 
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new ReadFileStmt(this.expression.deepCopy(), this.variableName);
+    }
 }

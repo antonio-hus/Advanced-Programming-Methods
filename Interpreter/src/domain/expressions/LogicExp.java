@@ -76,4 +76,10 @@ public class LogicExp implements Exp {
             default: throw new LogicException("Operation type not specified or not correct");
         }
     }
+
+    // Returns a copy of the type
+    @Override
+    public Exp deepCopy() {
+        return new LogicExp(this.e1.deepCopy(), this.e2.deepCopy(), this.option);
+    }
 }

@@ -29,4 +29,10 @@ public class IntType implements Type {
     public Value defaultValue() {
         return new IntValue(0);
     }
+
+    // Returns a copy of the type
+    @Override
+    public Type deepCopy() {
+        return new IntType();
+    }
 }

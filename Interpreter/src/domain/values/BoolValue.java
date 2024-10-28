@@ -49,4 +49,10 @@ public class BoolValue implements Value {
     public Type getType() {
         return new BoolType();
     }
+
+    // Returns a copy of the value
+    @Override
+    public Value deepCopy() {
+        return new BoolValue(this.value);
+    }
 }

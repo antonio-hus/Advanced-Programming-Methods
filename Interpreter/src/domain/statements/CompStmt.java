@@ -39,4 +39,10 @@ public class CompStmt implements IStmt {
         stack.push(firstIStmt);
         return state;
     }
+
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new CompStmt(this.firstIStmt.deepCopy(), this.secondIStmt.deepCopy());
+    }
 }

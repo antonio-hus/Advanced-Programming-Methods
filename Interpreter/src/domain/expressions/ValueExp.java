@@ -31,4 +31,10 @@ public class ValueExp implements Exp {
     public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
         return value;
     }
+
+    // Returns a copy of the type
+    @Override
+    public Exp deepCopy() {
+        return new ValueExp(this.value.deepCopy());
+    }
 }

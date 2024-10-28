@@ -48,4 +48,10 @@ public class IntValue implements Value {
     public Type getType() {
         return new IntType();
     }
+
+    // Returns a copy of the value
+    @Override
+    public Value deepCopy() {
+        return new IntValue(this.value);
+    }
 }

@@ -25,4 +25,10 @@ public class NopStmt implements IStmt {
         // Nop Statement has no effect
         return state;
     }
+
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new NopStmt();
+    }
 }

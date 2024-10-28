@@ -74,4 +74,10 @@ public class OpenRFileStmt implements IStmt {
         return state;
     }
 
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new OpenRFileStmt(this.expression.deepCopy());
+    }
+
 }

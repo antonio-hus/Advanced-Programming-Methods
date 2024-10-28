@@ -56,4 +56,10 @@ public class VarDeclStmt implements IStmt {
         // Return the new state
         return state;
     }
+
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new VarDeclStmt(this.variableName, this.variableType.deepCopy());
+    }
 }

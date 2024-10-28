@@ -9,6 +9,7 @@ import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
 import domain.expressions.ValueExp;
+import domain.types.StringType;
 import domain.types.Type;
 import domain.values.Value;
 
@@ -60,5 +61,11 @@ public class AssignStmt implements IStmt {
 
         // Return the new state
         return state;
+    }
+
+    // Returns a copy of the type
+    @Override
+    public IStmt deepCopy() {
+        return new AssignStmt(this.id, this.expression.deepCopy());
     }
 }

@@ -14,4 +14,7 @@ public interface Exp {
 
     // Evaluates the given expression given the values in symbolsTable
     Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException;
+
+    // Returns a copy of the expression
+    Exp deepCopy();
 }

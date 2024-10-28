@@ -50,7 +50,7 @@ public class PrgState {
     // Private Helper Methods
     private IStmt deepCopy(IStmt prg) {
 
-        return prg;
+        return prg.deepCopy();
     }
 
     // Public Methods
