@@ -14,13 +14,28 @@ import domain.values.Value;
 public class Heap implements IHeap {
 
     // HEAP STRUCTURE
+    // Heap is based on a <integer, value> map
     MyIDictionary<Integer, Value> heap;
+    // Heap keeps track of the next free location in memory
+    int nextFree;
 
     // HEAP CONSTRUCTOR
-    public Heap() { this.heap = new MyDictionary<>(); }
+    public Heap() {
+        this.heap = new MyDictionary<>();
+        nextFree = 1;
+    }
 
 
     // HEAP METHODS
+    // Put
+    // Adds a new value to the dictionary in the next free "address"
+    public Integer put(Value value) throws MyDictionaryException {
+        this.heap.put(this.nextFree, value);
+        this.nextFree += 1;
+
+        return this.nextFree - 1;
+    }
+
     // Put
     // Adds a new (key, value) pair to the dictionary
     // Throws an exception if the key is already present inside the dictionary

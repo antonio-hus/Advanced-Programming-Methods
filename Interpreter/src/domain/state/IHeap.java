@@ -14,6 +14,10 @@ public interface IHeap {
     // HEAP METHODS
 
     // Put
+    // Adds a new value to the dictionary in the next free "address"
+    Integer put(Value value) throws MyDictionaryException;
+
+    // Put
     // Adds a new (key, value) pair to the dictionary
     // Throws an exception if the key is already present inside the dictionary
     void put(Integer key, Value value) throws MyDictionaryException;

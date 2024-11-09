@@ -26,17 +26,20 @@ public class PrgState {
     IOutList outputList;
     // File Table Dictionary
     IFileTable fileTable;
+    // Heap Map
+    IHeap heap;
     // We also need to keep track of the original program state
     IStmt originalProgram;
 
     // PROGRAM STATE CONSTRUCTOR
-    public PrgState(ExeStack stack, SymTable symTable, OutList outputs, FileTable fileTable, IStmt prg){
+    public PrgState(ExeStack stack, SymTable symTable, OutList outputs, FileTable fileTable, IHeap heap, IStmt prg){
 
         // Set the Program State Attributes
         this.executionStack = stack;
         this.symbolsTable = symTable;
         this.outputList = outputs;
         this.fileTable = fileTable;
+        this.heap = heap;
 
         // Keep track of the original Program State
         // Recreate the entire original Program State
@@ -64,6 +67,7 @@ public class PrgState {
     }
     public IOutList getOutputList() {return this.outputList; }
     public IFileTable getFileTable() { return this.fileTable; }
+    public IHeap getHeap() { return this.heap; }
 
     // Setters
     public void setExecutionStack(IExeStack newExecutionStack) {
@@ -76,6 +80,7 @@ public class PrgState {
         this.outputList = newOutputList;
     }
     public void setFileTable(IFileTable newFileTable) { this.fileTable = newFileTable; }
+    public void setHeap(IHeap heap) { this.heap = heap; }
 
     // String Formatting
     @Override
@@ -102,6 +107,11 @@ public class PrgState {
         // File Table
         state.append("File Table = ");
         state.append(fileTable.toString());
+        state.append("\n");
+
+        // Heap
+        state.append("Heap = ");
+        state.append(heap.toString());
         state.append("\n");
 
         state.append("====================>");
