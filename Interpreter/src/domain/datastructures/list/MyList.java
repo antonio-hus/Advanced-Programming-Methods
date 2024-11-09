@@ -1,7 +1,13 @@
+////////////////////////
+// PACKAGES & IMPORTS //
+////////////////////////
 package domain.datastructures.list;
-
 import java.util.ArrayList;
 
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
 public class MyList<T> implements MyIList<T> {
 
     // MY LIST STRUCTURE

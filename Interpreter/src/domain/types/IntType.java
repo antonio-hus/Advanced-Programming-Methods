@@ -2,11 +2,9 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package domain.types;
-
-
-import domain.values.BoolValue;
 import domain.values.IntValue;
 import domain.values.Value;
+
 
 //////////////////////////
 // CLASS IMPLEMENTATION //
