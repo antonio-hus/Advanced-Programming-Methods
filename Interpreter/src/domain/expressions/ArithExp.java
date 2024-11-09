@@ -3,6 +3,7 @@
 ////////////////////////
 package domain.expressions;
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.state.IHeap;
 import domain.state.ISymTable;
 import domain.statements.AssignStmt;
 import domain.statements.IStmt;
@@ -60,12 +61,12 @@ public class ArithExp implements Exp {
 
     // Evaluates the given expression given the values in symbolsTable
     @Override
-    public Value eval(ISymTable symbolsTable) throws ExpException {
+    public Value eval(ISymTable symbolsTable, IHeap heap) throws ExpException {
 
         // Evaluate the expressions for the operands
         Value v1, v2;
-        v1 = e1.eval(symbolsTable);
-        v2 = e2.eval(symbolsTable);
+        v1 = e1.eval(symbolsTable, heap);
+        v2 = e2.eval(symbolsTable, heap);
 
         // Check type of the operands
         // Must be integers

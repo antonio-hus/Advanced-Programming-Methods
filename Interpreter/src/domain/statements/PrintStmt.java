@@ -40,7 +40,7 @@ public class PrintStmt implements IStmt {
         ISymTable symTbl = state.getSymbolsTable();
 
         // Evaluate the expression and add result to output list
-        Value result = expression.eval(symTbl);
+        Value result = expression.eval(symTbl, state.getHeap());
         outputList.add(result);
 
         // Return the new state

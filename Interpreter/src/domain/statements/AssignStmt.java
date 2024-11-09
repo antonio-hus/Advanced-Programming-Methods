@@ -53,7 +53,7 @@ public class AssignStmt implements IStmt {
             throw new StmtException("The used variable " + id + " was not declared before");
 
         // Match the type of the new value to that of the old value for type compatibility
-        Value val = expression.eval(symTbl);
+        Value val = expression.eval(symTbl, state.getHeap());
         Type typId= (symTbl.get(id)).getType();
         if(!val.getType().equals(typId))
             throw new StmtException("Declared type of variable " + id + " and type of the assigned expression do not match");

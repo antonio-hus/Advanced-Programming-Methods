@@ -46,7 +46,7 @@ public class CloseRFileStmt implements IStmt {
         IFileTable fileTable = state.getFileTable();
 
         // Evaluate the expression of the RFile
-        Value val = expression.eval(symTbl);
+        Value val = expression.eval(symTbl, state.getHeap());
 
         // Check type of the value
         // Must be string

@@ -47,7 +47,7 @@ public class IfStmt implements IStmt {
         ISymTable symTbl = state.getSymbolsTable();
 
         // Evaluate expression to decide what statement to follow
-        Value result = expression.eval(symTbl);
+        Value result = expression.eval(symTbl, state.getHeap());
         Type resultType = result.getType();
 
         // Expression must be of type bool

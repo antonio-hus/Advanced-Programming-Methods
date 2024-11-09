@@ -9,7 +9,6 @@ import domain.expressions.ExpException;
 import domain.state.IHeap;
 import domain.state.ISymTable;
 import domain.types.RefType;
-import domain.types.StringType;
 import domain.values.RefValue;
 import domain.values.Value;
 
@@ -57,7 +56,7 @@ public class HeapAllocStmt implements IStmt {
         RefValue refVal = (RefValue) val;
 
         // Evaluate new expression
-        Value expVal = expression.eval(symTbl);
+        Value expVal = expression.eval(symTbl, heap);
         if(!expVal.getType().equals(refVal.getLocationType()))
             throw new StmtException("HEAP ALLOCATION ERROR - The expression does not match variable inner type");
 
@@ -69,7 +68,7 @@ public class HeapAllocStmt implements IStmt {
         return state;
     }
 
-    // Returns a copy of the type
+    // Returns a copy of the statement
     @Override
     public IStmt deepCopy() {
         return new HeapAllocStmt(variableName, expression.deepCopy());
