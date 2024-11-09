@@ -27,18 +27,22 @@ public class RefValue implements Value {
     public Integer getAddress() { return this.address; }
 
     // Returns the type of the location inside the heap memory
-    public Type getLocationType() { return new RefType(locationType); }
+    public Type getLocationType() { return locationType; }
 
     // Returns the type of the value - RefType
     @Override
     public Type getType() {
-        return null;
+        return new RefType(locationType);
     }
 
     // Returns a copy of the value
     @Override
     public Value deepCopy() {
-        return new RefValue(this.address, new RefType(locationType));
+        return new RefValue(this.address, locationType.deepCopy());
     }
+
+    // Returns a string form of the integer value stored
+    @Override
+    public String toString() { return "(" + this.address + ", " +  this.locationType.toString() + ")"; }
 
 }

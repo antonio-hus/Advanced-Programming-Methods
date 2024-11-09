@@ -45,10 +45,11 @@ public class Interpreter {
         // LOG FILE - C:\\Users\\anton\\OneDrive\\Documents\\GitHub\\Advanced-Programming-Methods\\Interpreter\\logs\\programState.log
         TextMenu.clearScreen();
         String logFilePath;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the log file path: ");
-        logFilePath = scanner.nextLine();
-        TextMenu.proceedEnter();
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("Please enter the log file path: ");
+        // logFilePath = scanner.nextLine();
+        logFilePath = "C:\\\\Users\\\\anton\\\\OneDrive\\\\Documents\\\\GitHub\\\\Advanced-Programming-Methods\\\\Interpreter\\\\logs\\\\programState.log";
+        // TextMenu.proceedEnter();
 
         // Example 1
         IStmt ex1 = new CompStmt(new VarDeclStmt("v",new IntType()), new CompStmt(new AssignStmt("v",new ValueExp(new IntValue(2))), new PrintStmt(new VarExp("v"))));
@@ -74,6 +75,12 @@ public class Interpreter {
         Controller controller4 = new BasicController(1, logFilePath);
         controller4.addPrgState(prg4);
 
+        // Example 5
+        IStmt ex5 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(20))), new CompStmt(new VarDeclStmt("a", new RefType(new RefType(new IntType()))), new CompStmt(new HeapAllocStmt("a", new VarExp("v")), new CompStmt(new PrintStmt(new VarExp("v")), new PrintStmt(new VarExp("a")))))));
+        PrgState prg5 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex5);
+        Controller controller5 = new BasicController(1, logFilePath);
+        controller5.addPrgState(prg5);
+
         // Text Menu
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -81,6 +88,7 @@ public class Interpreter {
         menu.addCommand(new RunExample("2",ex2.toString(),controller2));
         menu.addCommand(new RunExample("3",ex3.toString(),controller3));
         menu.addCommand(new RunExample("4",ex4.toString(),controller4));
+        menu.addCommand(new RunExample("5",ex5.toString(),controller5));
         menu.show();
     }
 }
