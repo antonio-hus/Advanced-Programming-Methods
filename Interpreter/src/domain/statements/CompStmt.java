@@ -4,6 +4,7 @@
 package domain.statements;
 import domain.PrgState;
 import domain.datastructures.stack.*;
+import domain.state.IExeStack;
 
 
 //////////////////////////
@@ -34,7 +35,7 @@ public class CompStmt implements IStmt {
     // Executes the statement of the program defined by Program State
     @Override
     public PrgState execute(PrgState state) throws StmtException {
-        MyIStack<IStmt> stack = state.getExecutionStack();
+        IExeStack stack = state.getExecutionStack();
         stack.push(secondIStmt);
         stack.push(firstIStmt);
         return state;

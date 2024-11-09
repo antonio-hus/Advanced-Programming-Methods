@@ -9,6 +9,8 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
+import domain.state.IFileTable;
+import domain.state.ISymTable;
 import domain.types.IntType;
 import domain.types.StringType;
 import domain.values.StringValue;
@@ -40,8 +42,8 @@ public class CloseRFileStmt implements IStmt {
     public PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
 
         // Get the current stack, symTable and file table
-        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
-        MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
+        ISymTable symTbl = state.getSymbolsTable();
+        IFileTable fileTable = state.getFileTable();
 
         // Evaluate the expression of the RFile
         Value val = expression.eval(symTbl);

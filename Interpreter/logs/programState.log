@@ -1,90 +1,55 @@
-Execution Stack = {(String varf;(varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in;(openRFile(varf);(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf)))))))))}
+Execution Stack = {(bool a;(int v;(a=true;((IF(a) THEN(v=2)ELSE(v=3));print(v)))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {String varf|(varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in;(openRFile(varf);(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))))))}
+Execution Stack = {bool a|(int v;(a=true;((IF(a) THEN(v=2)ELSE(v=3));print(v))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {(varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in;(openRFile(varf);(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))))))}
-Symbols Table = {varf->""}
+Execution Stack = {(int v;(a=true;((IF(a) THEN(v=2)ELSE(v=3));print(v))))}
+Symbols Table = {a->false}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in|(openRFile(varf);(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf)))))))}
-Symbols Table = {varf->""}
+Execution Stack = {int v|(a=true;((IF(a) THEN(v=2)ELSE(v=3));print(v)))}
+Symbols Table = {a->false}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {(openRFile(varf);(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf)))))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Execution Stack = {(a=true;((IF(a) THEN(v=2)ELSE(v=3));print(v)))}
+Symbols Table = {a->false, v->0}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {openRFile(varf)|(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Execution Stack = {a=true|((IF(a) THEN(v=2)ELSE(v=3));print(v))}
+Symbols Table = {a->false, v->0}
 Output List = {}
 File Table = {}
 ====================>
-Execution Stack = {(int varc;(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Execution Stack = {((IF(a) THEN(v=2)ELSE(v=3));print(v))}
+Symbols Table = {a->true, v->0}
 Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
+File Table = {}
 ====================>
-Execution Stack = {int varc|(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf)))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Execution Stack = {(IF(a) THEN(v=2)ELSE(v=3))|print(v)}
+Symbols Table = {a->true, v->0}
 Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
+File Table = {}
 ====================>
-Execution Stack = {(readFile(varf,varc);(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf)))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Execution Stack = {v=2|print(v)}
+Symbols Table = {a->true, v->0}
 Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
+File Table = {}
 ====================>
-Execution Stack = {readFile(varf,varc)|(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Execution Stack = {print(v)}
+Symbols Table = {a->true, v->2}
 Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {(print(varc);(readFile(varf,varc);(print(varc);closeRFile(varf))))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
-Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {print(varc)|(readFile(varf,varc);(print(varc);closeRFile(varf)))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
-Output List = {}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {(readFile(varf,varc);(print(varc);closeRFile(varf)))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
-Output List = {15}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {readFile(varf,varc)|(print(varc);closeRFile(varf))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
-Output List = {15}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {(print(varc);closeRFile(varf))}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
-Output List = {15}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {print(varc)|closeRFile(varf)}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
-Output List = {15}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
-====================>
-Execution Stack = {closeRFile(varf)}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
-Output List = {15,50}
-File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5f4da5c3}
+File Table = {}
 ====================>
 Execution Stack = {}
-Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
-Output List = {15,50}
+Symbols Table = {a->true, v->2}
+Output List = {2}
 File Table = {}
 ====================>

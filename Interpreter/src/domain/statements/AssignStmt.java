@@ -9,6 +9,8 @@ import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
 import domain.expressions.ValueExp;
+import domain.state.IExeStack;
+import domain.state.ISymTable;
 import domain.types.StringType;
 import domain.types.Type;
 import domain.values.Value;
@@ -43,8 +45,8 @@ public class AssignStmt implements IStmt {
     public PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
 
         // Get the current stack and symbols table
-        MyIStack<IStmt> stk = state.getExecutionStack();
-        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
+        IExeStack stk = state.getExecutionStack();
+        ISymTable symTbl = state.getSymbolsTable();
 
         // Check if the variable name is in the symbols table
         if(!symTbl.containsKey(id))

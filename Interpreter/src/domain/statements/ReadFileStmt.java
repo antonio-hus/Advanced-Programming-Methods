@@ -9,6 +9,8 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
+import domain.state.IFileTable;
+import domain.state.ISymTable;
 import domain.types.IntType;
 import domain.types.StringType;
 import domain.values.IntValue;
@@ -47,8 +49,8 @@ public class ReadFileStmt implements IStmt {
     public PrgState execute(PrgState state) throws StmtException, MyDictionaryException, ExpException {
 
         // Get the current stack, symTable and file table
-        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
-        MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
+        ISymTable symTbl = state.getSymbolsTable();
+        IFileTable fileTable = state.getFileTable();
 
         // Check if variable exists inside the symTable
         if(!symTbl.containsKey(variableName))

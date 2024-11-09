@@ -7,6 +7,7 @@ import domain.datastructures.list.*;
 import domain.datastructures.stack.*;
 import domain.statements.*;
 import domain.values.*;
+import domain.state.*;
 import java.io.BufferedReader;
 
 
@@ -18,18 +19,18 @@ public class PrgState {
     // PROGRAM STATE STRUCTURE
     // Program State is based on:
     // Execution Stack
-    MyIStack<IStmt> executionStack;
+    IExeStack executionStack;
     // Symbols Table Dictionary
-    MyIDictionary<String, Value> symbolsTable;
+    ISymTable symbolsTable;
     // Output List
-    MyIList<Value> outputList;
+    IOutList outputList;
     // File Table Dictionary
-    MyIDictionary<StringValue, BufferedReader> fileTable;
+    IFileTable fileTable;
     // We also need to keep track of the original program state
     IStmt originalProgram;
 
     // PROGRAM STATE CONSTRUCTOR
-    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> outputs, MyIDictionary<StringValue, BufferedReader> fileTable, IStmt prg){
+    public PrgState(ExeStack stack, SymTable symTable, OutList outputs, FileTable fileTable, IStmt prg){
 
         // Set the Program State Attributes
         this.executionStack = stack;
@@ -55,26 +56,26 @@ public class PrgState {
 
     // Public Methods
     // Getters
-    public MyIStack<IStmt> getExecutionStack() {
+    public IExeStack getExecutionStack() {
         return this.executionStack;
     }
-    public MyIDictionary<String, Value> getSymbolsTable() {
+    public ISymTable getSymbolsTable() {
         return this.symbolsTable;
     }
-    public MyIList<Value> getOutputList() {return this.outputList; }
-    public MyIDictionary<StringValue, BufferedReader> getFileTable() { return this.fileTable; }
+    public IOutList getOutputList() {return this.outputList; }
+    public IFileTable getFileTable() { return this.fileTable; }
 
     // Setters
-    public void setExecutionStack(MyIStack<IStmt> newExecutionStack) {
+    public void setExecutionStack(IExeStack newExecutionStack) {
         this.executionStack = newExecutionStack;
     }
-    public void setSymbolsTable(MyIDictionary<String, Value> newSymTable) {
+    public void setSymbolsTable(ISymTable newSymTable) {
         this.symbolsTable = newSymTable;
     }
-    public void setOutputList(MyIList<Value> newOutputList) {
+    public void setOutputList(IOutList newOutputList) {
         this.outputList = newOutputList;
     }
-    public void setFileTable(MyIDictionary<StringValue, BufferedReader> newFileTable) { this.fileTable = newFileTable; }
+    public void setFileTable(IFileTable newFileTable) { this.fileTable = newFileTable; }
 
     // String Formatting
     @Override

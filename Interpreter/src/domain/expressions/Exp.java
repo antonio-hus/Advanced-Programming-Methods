@@ -5,6 +5,7 @@ package domain.expressions;
 
 
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.state.ISymTable;
 import domain.values.Value;
 
 ///////////////////////////
@@ -13,7 +14,7 @@ import domain.values.Value;
 public interface Exp {
 
     // Evaluates the given expression given the values in symbolsTable
-    Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException;
+    Value eval(ISymTable symbolsTable) throws ExpException;
 
     // Returns a copy of the expression
     Exp deepCopy();

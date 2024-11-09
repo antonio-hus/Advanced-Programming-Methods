@@ -5,6 +5,7 @@ package domain.expressions;
 
 
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.state.ISymTable;
 import domain.types.IntType;
 import domain.values.BoolValue;
 import domain.values.IntValue;
@@ -65,7 +66,7 @@ public class RelationExp implements Exp {
 
     // Evaluates the given expression given the values in symbolsTable
     @Override
-    public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
+    public Value eval(ISymTable symbolsTable) throws ExpException {
 
         // Evaluate the expressions for the operands
         Value v1, v2;

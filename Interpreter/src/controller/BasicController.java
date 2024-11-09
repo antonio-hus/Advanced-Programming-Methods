@@ -9,6 +9,7 @@ import domain.datastructures.list.MyListException;
 import domain.datastructures.stack.MyIStack;
 import domain.datastructures.stack.MyStackException;
 import domain.expressions.ExpException;
+import domain.state.IExeStack;
 import domain.statements.IStmt;
 import domain.statements.StmtException;
 import repository.BasicRepository;
@@ -70,7 +71,7 @@ public class BasicController implements Controller {
     public PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
 
         // Get the current program state
-        MyIStack<IStmt> stack = state.getExecutionStack();
+        IExeStack stack = state.getExecutionStack();
 
         // Check if there are statements left to execute
         if(stack.isEmpty()){

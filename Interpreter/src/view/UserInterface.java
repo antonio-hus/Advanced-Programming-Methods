@@ -10,6 +10,7 @@ import domain.datastructures.dictionary.*;
 import domain.datastructures.list.*;
 import domain.datastructures.stack.*;
 import domain.expressions.*;
+import domain.state.*;
 import domain.statements.*;
 import domain.values.*;
 import domain.types.*;
@@ -187,10 +188,10 @@ public class UserInterface {
                 option = scanner.nextInt();
 
                 // Add new programs
-                MyIStack<IStmt> stack = new MyStack<IStmt>();
-                MyIDictionary<String, Value> symbolsTable = new MyDictionary<String, Value>();
-                MyIList<Value> out = new MyList<Value>();
-                MyIDictionary<StringValue, BufferedReader> fileTable = new MyDictionary<StringValue, BufferedReader>();
+                ExeStack stack = new ExeStack();
+                SymTable symbolsTable = new SymTable();
+                OutList out = new OutList();
+                FileTable fileTable = new FileTable();
                 IStmt initialStatement;
                 switch (option) {
                     case 1:

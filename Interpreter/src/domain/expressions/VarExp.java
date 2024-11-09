@@ -4,6 +4,7 @@
 package domain.expressions;
 import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.state.ISymTable;
 import domain.values.Value;
 
 
@@ -30,7 +31,7 @@ public class VarExp implements Exp {
 
     // Evaluates the variable given the values in symbolsTable
     @Override
-    public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
+    public Value eval(ISymTable symbolsTable) throws ExpException {
 
         // Gets the value associated to the symbol in the table
         try {

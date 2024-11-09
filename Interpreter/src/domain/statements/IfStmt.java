@@ -7,6 +7,8 @@ import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.MyIStack;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
+import domain.state.IExeStack;
+import domain.state.ISymTable;
 import domain.types.BoolType;
 import domain.types.*;
 import domain.values.BoolValue;
@@ -41,8 +43,8 @@ public class IfStmt implements IStmt {
     public PrgState execute(PrgState state) throws StmtException, ExpException {
 
         // Get the current stack and symbols table
-        MyIStack<IStmt> stk = state.getExecutionStack();
-        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
+        IExeStack stk = state.getExecutionStack();
+        ISymTable symTbl = state.getSymbolsTable();
 
         // Evaluate expression to decide what statement to follow
         Value result = expression.eval(symTbl);

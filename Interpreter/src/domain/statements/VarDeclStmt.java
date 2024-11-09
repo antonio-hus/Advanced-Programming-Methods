@@ -7,6 +7,7 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.MyIStack;
 import domain.expressions.ExpException;
+import domain.state.ISymTable;
 import domain.types.*;
 import domain.values.BoolValue;
 import domain.values.IntValue;
@@ -43,7 +44,7 @@ public class VarDeclStmt implements IStmt {
     public PrgState execute(PrgState state) throws StmtException, ExpException, MyDictionaryException {
 
         // Get the current stack and symbols table
-        MyIDictionary<String, Value> symTbl = state.getSymbolsTable();
+        ISymTable symTbl = state.getSymbolsTable();
 
         // Check if the variable name is in the symbols table
         if(symTbl.containsKey(variableName))

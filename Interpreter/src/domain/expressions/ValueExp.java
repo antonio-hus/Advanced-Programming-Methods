@@ -3,6 +3,7 @@
 ////////////////////////
 package domain.expressions;
 import domain.datastructures.dictionary.MyIDictionary;
+import domain.state.ISymTable;
 import domain.values.Value;
 
 
@@ -28,7 +29,7 @@ public class ValueExp implements Exp {
 
     // Evaluates the given expression as a constant value
     @Override
-    public Value eval(MyIDictionary<String, Value> symbolsTable) throws ExpException {
+    public Value eval(ISymTable symbolsTable) throws ExpException {
         return value;
     }
 
