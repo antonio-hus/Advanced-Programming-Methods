@@ -1,5 +1,7 @@
+////////////////////////
+// PACKAGES & IMPORTS //
+////////////////////////
 package domain.statements;
-
 import domain.PrgState;
 import domain.datastructures.dictionary.MyDictionaryException;
 import domain.expressions.Exp;
@@ -10,6 +12,10 @@ import domain.types.RefType;
 import domain.values.RefValue;
 import domain.values.Value;
 
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
 public class HeapWriteStmt implements IStmt {
 
     // HEAP WRITE STATEMENT STRUCTURE

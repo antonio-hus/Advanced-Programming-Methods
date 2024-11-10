@@ -93,6 +93,18 @@ public class Interpreter {
         Controller controller7 = new BasicController(1, logFilePath);
         controller7.addPrgState(prg7);
 
+        // Example 8
+        IStmt ex8 = new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(4))), new CompStmt(new WhileStmt(new RelationExp(new VarExp("v"), new ValueExp(new IntValue(0)), ">"), new CompStmt(new PrintStmt(new VarExp("v")), new AssignStmt("v", new ArithExp(new VarExp("v"), new ValueExp(new IntValue(1)), 2)))), new PrintStmt(new VarExp("v")))));
+        PrgState prg8 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex8);
+        Controller controller8 = new BasicController(1, logFilePath);
+        controller8.addPrgState(prg8);
+
+        // Example 9 - shall throw error !
+        IStmt ex9 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(20))), new CompStmt(new VarDeclStmt("a", new RefType(new RefType(new IntType()))), new CompStmt(new HeapAllocStmt("a", new VarExp("v")), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(30))), new PrintStmt(new HeapReadExp(new HeapReadExp(new VarExp("a")))))))));
+        PrgState prg9 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex9);
+        Controller controller9 = new BasicController(1, logFilePath);
+        controller9.addPrgState(prg9);
+
         // Text Menu
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -103,7 +115,8 @@ public class Interpreter {
         menu.addCommand(new RunExample("5",ex5.toString(),controller5));
         menu.addCommand(new RunExample("6", ex6.toString(), controller6));
         menu.addCommand(new RunExample("7", ex7.toString(), controller7));
-
+        menu.addCommand(new RunExample("8", ex8.toString(), controller8));
+        menu.addCommand(new RunExample("9", ex9.toString(), controller9));
         menu.show();
     }
 }

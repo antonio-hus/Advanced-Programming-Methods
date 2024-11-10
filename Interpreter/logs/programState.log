@@ -1,60 +1,144 @@
-Execution Stack = {(Ref(int) v;(new(v, 20);(print(rH(v));(wH(30);print(rH(v)+5)))))}
+Execution Stack = {(int v;(v=4;(while(v>0) (print(v);v=v-1);print(v))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {Ref(int) v|(new(v, 20);(print(rH(v));(wH(30);print(rH(v)+5))))}
+Execution Stack = {int v|(v=4;(while(v>0) (print(v);v=v-1);print(v)))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {(new(v, 20);(print(rH(v));(wH(30);print(rH(v)+5))))}
-Symbols Table = {v->(0, int)}
+Execution Stack = {(v=4;(while(v>0) (print(v);v=v-1);print(v)))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {new(v, 20)|(print(rH(v));(wH(30);print(rH(v)+5)))}
-Symbols Table = {v->(0, int)}
+Execution Stack = {v=4|(while(v>0) (print(v);v=v-1);print(v))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {(print(rH(v));(wH(30);print(rH(v)+5)))}
-Symbols Table = {v->(1, int)}
+Execution Stack = {(while(v>0) (print(v);v=v-1);print(v))}
+Symbols Table = {v->4}
 Output List = {}
 File Table = {}
-Heap = {1->20}
+Heap = {}
 ====================>
-Execution Stack = {print(rH(v))|(wH(30);print(rH(v)+5))}
-Symbols Table = {v->(1, int)}
+Execution Stack = {while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->4}
 Output List = {}
 File Table = {}
-Heap = {1->20}
+Heap = {}
 ====================>
-Execution Stack = {(wH(30);print(rH(v)+5))}
-Symbols Table = {v->(1, int)}
-Output List = {20}
+Execution Stack = {(print(v);v=v-1)|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->4}
+Output List = {}
 File Table = {}
-Heap = {1->20}
+Heap = {}
 ====================>
-Execution Stack = {wH(30)|print(rH(v)+5)}
-Symbols Table = {v->(1, int)}
-Output List = {20}
+Execution Stack = {print(v)|v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->4}
+Output List = {}
 File Table = {}
-Heap = {1->20}
+Heap = {}
 ====================>
-Execution Stack = {print(rH(v)+5)}
-Symbols Table = {v->(1, int)}
-Output List = {20}
+Execution Stack = {v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->4}
+Output List = {4}
 File Table = {}
-Heap = {1->30}
+Heap = {}
+====================>
+Execution Stack = {while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->3}
+Output List = {4}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {(print(v);v=v-1)|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->3}
+Output List = {4}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {print(v)|v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->3}
+Output List = {4}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->3}
+Output List = {4,3}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->2}
+Output List = {4,3}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {(print(v);v=v-1)|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->2}
+Output List = {4,3}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {print(v)|v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->2}
+Output List = {4,3}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->2}
+Output List = {4,3,2}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->1}
+Output List = {4,3,2}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {(print(v);v=v-1)|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->1}
+Output List = {4,3,2}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {print(v)|v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->1}
+Output List = {4,3,2}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {v=v-1|while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->1}
+Output List = {4,3,2,1}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {while(v>0) (print(v);v=v-1)|print(v)}
+Symbols Table = {v->0}
+Output List = {4,3,2,1}
+File Table = {}
+Heap = {}
+====================>
+Execution Stack = {print(v)}
+Symbols Table = {v->0}
+Output List = {4,3,2,1}
+File Table = {}
+Heap = {}
 ====================>
 Execution Stack = {}
-Symbols Table = {v->(1, int)}
-Output List = {20,35}
+Symbols Table = {v->0}
+Output List = {4,3,2,1,0}
 File Table = {}
-Heap = {1->30}
+Heap = {}
 ====================>
