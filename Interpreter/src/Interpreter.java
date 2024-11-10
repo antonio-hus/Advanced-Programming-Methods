@@ -81,6 +81,18 @@ public class Interpreter {
         Controller controller5 = new BasicController(1, logFilePath);
         controller5.addPrgState(prg5);
 
+        // Example 6
+        IStmt ex6 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(20))), new CompStmt(new VarDeclStmt("a", new RefType(new RefType(new IntType()))), new CompStmt(new HeapAllocStmt("a", new VarExp("v")), new CompStmt(new PrintStmt(new HeapReadExp(new VarExp("v"))), new PrintStmt(new ArithExp(new HeapReadExp(new HeapReadExp(new VarExp("a"))), new ValueExp(new IntValue(5)), 1)))))));
+        PrgState prg6 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex6);
+        Controller controller6 = new BasicController(1, logFilePath);
+        controller6.addPrgState(prg6);
+
+        // Example 7
+        IStmt ex7 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(20))), new CompStmt(new PrintStmt(new HeapReadExp(new VarExp("v"))), new CompStmt(new HeapWriteStmt("v", new ValueExp(new IntValue(30))), new PrintStmt(new ArithExp(new HeapReadExp(new VarExp("v")), new ValueExp(new IntValue(5)), 1))))));
+        PrgState prg7 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex7);
+        Controller controller7 = new BasicController(1, logFilePath);
+        controller7.addPrgState(prg7);
+
         // Text Menu
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -89,6 +101,9 @@ public class Interpreter {
         menu.addCommand(new RunExample("3",ex3.toString(),controller3));
         menu.addCommand(new RunExample("4",ex4.toString(),controller4));
         menu.addCommand(new RunExample("5",ex5.toString(),controller5));
+        menu.addCommand(new RunExample("6", ex6.toString(), controller6));
+        menu.addCommand(new RunExample("7", ex7.toString(), controller7));
+
         menu.show();
     }
 }
