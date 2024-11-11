@@ -4,8 +4,12 @@
 package domain.state;
 
 
+import domain.datastructures.dictionary.MyDictionary;
 import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.values.Value;
+
+import java.util.HashMap;
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -38,6 +42,10 @@ public interface ISymTable {
     // Gets the value associated to the given key from the dictionary
     // Throws an exception if the key is not present inside the dictionary
     Value get(String key) throws MyDictionaryException;
+
+    // Get Content
+    // Returns the hash map of all values
+    MyIDictionary<String, Value> getContent();
 
     // Is Empty
     // Returns True if the structure is empty

@@ -12,9 +12,14 @@ import domain.expressions.ExpException;
 import domain.state.IExeStack;
 import domain.statements.IStmt;
 import domain.statements.StmtException;
+import domain.values.RefValue;
+import domain.values.Value;
 import repository.BasicRepository;
 import repository.Repository;
 import repository.RepositoryException;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 //////////////////////////
@@ -89,6 +94,12 @@ public class BasicController implements Controller {
         // Log to file
         this.repository.logPrgStateExec();
 
+        // Run Garbage Collector
+        state.getHeap().setContent(unsafeGarbageCollector(getAddrFromSymTable(state.getSymbolsTable().getContent().getContent().values()), state.getHeap().getContent()));
+
+        // Log to file
+        this.repository.logPrgStateExec();
+
         // Return new state
         return newState;
     }
@@ -112,6 +123,12 @@ public class BasicController implements Controller {
 
         // Log to file
         this.repository.logPrgStateExec();
+
+        // Run Garbage Collector
+        newState.getHeap().setContent(unsafeGarbageCollector(getAddrFromSymTable(newState.getSymbolsTable().getContent().getContent().values()), newState.getHeap().getContent()));
+
+        // Log to file
+        this.repository.logPrgStateExec();
     }
     // Execute entire program - all statements
     @Override
@@ -127,6 +144,63 @@ public class BasicController implements Controller {
         while(!program.getExecutionStack().isEmpty()){
             oneStep(program);
         }
+    }
+
+    // Garbage Collector Related Methods
+    @Override
+    public Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap) {
+
+        // Get all reachable addresses by including those in the heap cells
+        List<Integer> reachable = getReachableAddresses(symTableAddr, heap);
+
+        // Filter the heap based on reachable addresses
+        return heap.entrySet().stream()
+                .filter(e -> reachable.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    @Override
+    public List<Integer> getAddrFromSymTable(Collection<Value> symTableValues) {
+        return symTableValues.stream()
+                .filter(v-> v instanceof RefValue)
+                .map(v-> {RefValue v1 = (RefValue)v; return v1.getAddress();})
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Integer> getReachableAddresses(List<Integer> symTableAddr, Map<Integer, Value> heap) {
+
+        // Initialize with symTable addresses
+        List<Integer> reachable = new ArrayList<>(symTableAddr);
+
+        // Track visited addresses to avoid loops
+        Set<Integer> visited = new HashSet<>(reachable);
+
+        // Traverse all reachable addresses
+        for (int i = 0; i < reachable.size(); i++) {
+            Integer addr = reachable.get(i);
+            Value value = heap.get(addr);
+
+            // Continue exploring as long as the value is a RefValue
+            while (value instanceof RefValue) {
+                Integer refAddr = ((RefValue) value).getAddress();
+
+                // If this address has not been visited, add it to explore further
+                if (visited.add(refAddr)) {
+                    reachable.add(refAddr);
+
+                    // Update value to follow the reference
+                    value = heap.get(refAddr);
+                }
+
+                // If already visited, avoid re-processing
+                else {
+                    break;
+                }
+            }
+        }
+
+        return reachable;
     }
 
     // Flags Related Methods

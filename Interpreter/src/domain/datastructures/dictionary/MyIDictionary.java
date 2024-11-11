@@ -4,6 +4,8 @@
 package domain.datastructures.dictionary;
 
 
+import java.util.HashMap;
+
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
@@ -35,6 +37,10 @@ public interface MyIDictionary<K, V> {
     // Gets the value associated to the given key from the dictionary
     // Throws an exception if the key is not present inside the dictionary
     V get(K key) throws MyDictionaryException;
+
+    // Get Content
+    // Returns the hash map of all values
+    HashMap<K, V> getContent();
 
     // Is Empty
     // Returns True if the structure is empty

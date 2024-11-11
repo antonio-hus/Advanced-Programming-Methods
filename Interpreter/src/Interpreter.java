@@ -99,7 +99,7 @@ public class Interpreter {
         Controller controller8 = new BasicController(1, logFilePath);
         controller8.addPrgState(prg8);
 
-        // Example 9 - shall throw error !
+        // Example 9
         IStmt ex9 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(20))), new CompStmt(new VarDeclStmt("a", new RefType(new RefType(new IntType()))), new CompStmt(new HeapAllocStmt("a", new VarExp("v")), new CompStmt(new HeapAllocStmt("v", new ValueExp(new IntValue(30))), new PrintStmt(new HeapReadExp(new HeapReadExp(new VarExp("a")))))))));
         PrgState prg9 = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), ex9);
         Controller controller9 = new BasicController(1, logFilePath);

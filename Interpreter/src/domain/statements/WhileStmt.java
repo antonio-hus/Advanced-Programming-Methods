@@ -53,8 +53,8 @@ public class WhileStmt implements IStmt {
         BoolValue boolValue = (BoolValue) val;
 
         // If the value is true
-        // Push Statement to execution stack
         // Push While Statement to execution stack
+        // Push Statement to execution stack
         if(boolValue.getValue()){
             exeStack.push(new WhileStmt(this.expression, this.statement));
             exeStack.push(this.statement);

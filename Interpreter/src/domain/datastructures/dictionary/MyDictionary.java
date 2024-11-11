@@ -85,6 +85,13 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
         return dictionary.get(key);
     }
 
+    // Get Content
+    // Returns the hash map of all values
+    @Override
+    public HashMap<K, V> getContent() {
+        return this.dictionary;
+    }
+
     // Is Empty
     // Returns True if the structure is empty
     // Returns False otherwise

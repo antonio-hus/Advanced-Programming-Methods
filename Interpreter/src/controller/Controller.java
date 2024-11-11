@@ -2,8 +2,6 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package controller;
-
-
 import domain.PrgState;
 import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.list.MyIList;
@@ -11,7 +9,12 @@ import domain.datastructures.list.MyListException;
 import domain.datastructures.stack.MyStackException;
 import domain.expressions.ExpException;
 import domain.statements.StmtException;
+import domain.values.Value;
 import repository.RepositoryException;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -37,6 +40,11 @@ public interface Controller {
     void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
     // Execute entire program - all statements
     void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
+
+    // Garbage Collector Related Methods
+    Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
+    public List<Integer> getReachableAddresses(List<Integer> symTableAddr, Map<Integer, Value> heap);
+    List<Integer> getAddrFromSymTable(Collection<Value> symTableValues);
 
     // Flags Related Methods
     // Display Mode

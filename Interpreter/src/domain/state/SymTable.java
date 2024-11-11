@@ -7,6 +7,8 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.values.Value;
 
+import java.util.HashMap;
+
 
 //////////////////////////
 // CLASS IMPLEMENTATION //
@@ -58,6 +60,13 @@ public class SymTable implements ISymTable {
     @Override
     public Value get(String key) throws MyDictionaryException {
         return this.symbolsTable.get(key);
+    }
+
+    // Get Content
+    // Returns the hash map of all values
+    @Override
+    public MyIDictionary<String, Value> getContent() {
+        return this.symbolsTable;
     }
 
     // Is Empty
