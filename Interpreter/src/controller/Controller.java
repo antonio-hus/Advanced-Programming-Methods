@@ -43,6 +43,7 @@ public interface Controller {
 
     // Garbage Collector Related Methods
     Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
+    Map<Integer, Value> safeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
     public List<Integer> getReachableAddresses(List<Integer> symTableAddr, Map<Integer, Value> heap);
     List<Integer> getAddrFromSymTable(Collection<Value> symTableValues);
 

@@ -95,7 +95,7 @@ public class BasicController implements Controller {
         this.repository.logPrgStateExec();
 
         // Run Garbage Collector
-        state.getHeap().setContent(unsafeGarbageCollector(getAddrFromSymTable(state.getSymbolsTable().getContent().getContent().values()), state.getHeap().getContent()));
+        state.getHeap().setContent(safeGarbageCollector(getAddrFromSymTable(state.getSymbolsTable().getContent().getContent().values()), state.getHeap().getContent()));
 
         // Log to file
         this.repository.logPrgStateExec();
@@ -125,7 +125,7 @@ public class BasicController implements Controller {
         this.repository.logPrgStateExec();
 
         // Run Garbage Collector
-        newState.getHeap().setContent(unsafeGarbageCollector(getAddrFromSymTable(newState.getSymbolsTable().getContent().getContent().values()), newState.getHeap().getContent()));
+        newState.getHeap().setContent(safeGarbageCollector(getAddrFromSymTable(newState.getSymbolsTable().getContent().getContent().values()), newState.getHeap().getContent()));
 
         // Log to file
         this.repository.logPrgStateExec();
@@ -149,6 +149,15 @@ public class BasicController implements Controller {
     // Garbage Collector Related Methods
     @Override
     public Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap) {
+
+        // Filter the heap based on symbolic table reachable addresses
+        return heap.entrySet().stream()
+                .filter(e -> symTableAddr.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    @Override
+    public Map<Integer, Value> safeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap) {
 
         // Get all reachable addresses by including those in the heap cells
         List<Integer> reachable = getReachableAddresses(symTableAddr, heap);
