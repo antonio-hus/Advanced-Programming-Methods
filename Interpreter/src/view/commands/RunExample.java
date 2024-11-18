@@ -35,7 +35,7 @@ public class RunExample extends Command {
         try{
             controller.allStep();
         }
-        catch (MyStackException | ControllerException | StmtException | ExpException | RepositoryException | MyDictionaryException | MyListException e)  {
+        catch (ControllerException e)  {
             System.out.println("There was an error running the current program: " + e);
         }
     }

@@ -51,4 +51,36 @@ public class ExeStack implements IExeStack {
     // String Formatting
     @Override
     public String toString() { return this.executionStack.toString(); }
+
+
+    // Deep Copy
+    @Override
+    public IExeStack deepCopy() {
+
+        IExeStack newStack = new ExeStack();
+        MyIStack<IStmt> tempStack = new MyStack<>();
+
+        // Move all elements from the current stack to the temporary stack
+        while (!this.executionStack.isEmpty()) {
+            try {
+                IStmt stmt = this.executionStack.pop();
+                tempStack.push(stmt);
+            } catch (MyStackException e) {
+                throw new RuntimeException("Error during deep copy: " + e.getMessage());
+            }
+        }
+
+        // Restore the original stack and populate the new stack in the same order
+        while (!tempStack.isEmpty()) {
+            try {
+                IStmt stmt = tempStack.pop();
+                this.executionStack.push(stmt);
+                newStack.push(stmt.deepCopy());
+            } catch (MyStackException e) {
+                throw new RuntimeException("Error during deep copy: " + e.getMessage());
+            }
+        }
+
+        return newStack;
+    }
 }

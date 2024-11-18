@@ -79,4 +79,22 @@ public class OutList implements IOutList {
     public String toString() {
         return this.outputList.toString();
     }
+
+    // Deep Copy
+    // Returns a deep copy of the structure
+    @Override
+    public IOutList deepCopy() {
+        OutList newOutList = new OutList();
+
+        for (int i = 0; i < this.outputList.size(); i++) {
+            try {
+                Value value = this.outputList.get(i);
+                newOutList.add(value.deepCopy());
+            } catch (MyListException e) {
+                throw new RuntimeException("Error during OutList deep copy: " + e.getMessage());
+            }
+        }
+
+        return newOutList;
+    }
 }

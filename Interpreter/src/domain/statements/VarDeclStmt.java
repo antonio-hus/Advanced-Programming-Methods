@@ -54,8 +54,8 @@ public class VarDeclStmt implements IStmt {
         // Use default values for their types
         symTbl.put(variableName, variableType.defaultValue());
 
-        // Return the new state
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type

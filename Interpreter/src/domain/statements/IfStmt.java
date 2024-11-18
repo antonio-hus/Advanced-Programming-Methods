@@ -65,11 +65,11 @@ public class IfStmt implements IStmt {
             stk.push(elseStatement);
         }
 
-        // Return the new state
-        return state;
+        // Return null
+        return null;
     }
 
-    // Returns a copy of the type
+    // Returns a copy of the statement
     @Override
     public IStmt deepCopy() {
         return new IfStmt(this.expression.deepCopy(), this.thenStatement.deepCopy(), this.elseStatement.deepCopy());

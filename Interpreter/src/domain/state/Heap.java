@@ -156,4 +156,20 @@ public class Heap implements IHeap {
     public String toString() {
         return this.heap.toString();
     }
+
+    // Deep Copy
+    // Returns a deep copy of the structure
+    @Override
+    public IHeap deepCopy() throws MyDictionaryException {
+        Heap newHeap = new Heap();
+
+        for (Map.Entry<Integer, Value> entry : this.heap.entrySet()) {
+            Integer key = entry.getKey();
+            Value value = entry.getValue().deepCopy();
+            newHeap.put(key, value);
+        }
+
+        newHeap.nextFree = this.nextFree;
+        return newHeap;
+    }
 }

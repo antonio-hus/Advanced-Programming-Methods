@@ -65,7 +65,9 @@ public class HeapAllocStmt implements IStmt {
 
         // Updating the symbols table
         symTbl.update(variableName, new RefValue(address, refVal.getLocationType()));
-        return state;
+
+        // Return null
+        return null;
     }
 
     // Returns a copy of the statement

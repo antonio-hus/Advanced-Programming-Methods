@@ -3,22 +3,16 @@
 ////////////////////////
 package controller;
 import domain.PrgState;
-import domain.datastructures.dictionary.MyDictionaryException;
-import domain.datastructures.list.MyIList;
-import domain.datastructures.list.MyListException;
-import domain.datastructures.stack.MyIStack;
-import domain.datastructures.stack.MyStackException;
-import domain.expressions.ExpException;
-import domain.state.IExeStack;
-import domain.statements.IStmt;
-import domain.statements.StmtException;
 import domain.values.RefValue;
 import domain.values.Value;
 import repository.BasicRepository;
 import repository.Repository;
 import repository.RepositoryException;
-
 import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 
@@ -29,14 +23,15 @@ public class BasicController implements Controller {
 
     // BASIC CONTROLLER STRUCTURE
     Repository repository;
+    ExecutorService executor;
     boolean displayFlag;
 
 
     // BASIC CONTROLLER CONSTRUCTOR
-    public BasicController(int flagConfiguration, String logFilePath) {
+    public BasicController(int flagConfiguration, String logFilePath, PrgState prgState) {
 
         // Set up repository
-        repository = new BasicRepository(logFilePath);
+        repository = new BasicRepository(logFilePath, prgState);
 
         // Set display flag
         switch (flagConfiguration){
@@ -46,107 +41,128 @@ public class BasicController implements Controller {
     }
 
     // BASIC CONTROLLER METHODS
-    // Add new Program State
+    // Management Methods
     @Override
-    public void addPrgState(PrgState newProgramState) {
-        this.repository.addPrgState(newProgramState);
+    public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {
+        return inPrgList.stream().filter(PrgState::isNotCompleted).collect(Collectors.toList());
     }
-    // Add new Program State at a given index
-    @Override
-    public void addPrgState(PrgState newProgramState, int index) throws MyListException {
-        this.repository.addPrgState(newProgramState, index);
-    }
-    // Remove a Program State
-    @Override
-    public void removePrgState(int index) throws MyListException {
-        this.repository.removePrgState(index);
-    }
-    // Gets the currently running program on the given index
-    @Override
-    public PrgState getCrtPrg(int index) throws MyListException {
-        return repository.getCrtPrg(index);
-    }
-    // Gets all programs
-    @Override
-    public MyIList<PrgState> getPrgStates() {
-        return repository.getPrgStates();
-    }
-    // Execute one step - one statement
-    @Override
-    public PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
 
-        // Get the current program state
-        IExeStack stack = state.getExecutionStack();
+    // Execution Methods
+    // Execute one step for all program states
+    @Override
+    public void oneStepForAllPrg(List<PrgState> prgStateList) throws ControllerException {
 
-        // Check if there are statements left to execute
-        if(stack.isEmpty()){
-            throw new ControllerException("Program State Error - Execution Stack is Empty");
+        // Save to log file before execution
+        prgStateList.forEach(prg -> {
+            try {
+                repository.logPrgStateExec(prg);
+            } catch (RepositoryException e) {
+                System.out.println("There was an error executing one step for all programs: " + e);
+            }
+        });
+
+        // Run concurrently one step for each existing program state
+        // Prepare the list of callables
+        List<Callable<PrgState>> callableList = prgStateList.stream().map((PrgState p) -> (Callable<PrgState>)(p::oneStep)).toList();
+
+        // Start the execution of the callables
+        // It returns the list of newly created PrgStates (namely threads)
+        List<PrgState> newPrgList;
+        try {
+            newPrgList = executor.invokeAll(callableList).stream()
+                            .map(future -> {try {
+                                return future.get();
+                            } catch (ExecutionException | InterruptedException e) {
+                                throw new RuntimeException(String.valueOf(e));
+                            }
+                            }).filter(Objects::nonNull).toList();
+        } catch (InterruptedException e) {
+            throw new ControllerException(String.valueOf(e));
         }
 
-        // Execute one statement
-        IStmt currentStatement = stack.pop();
-        PrgState newState = currentStatement.execute(state);
+        // Add the new created threads to the list of existing threads
+        prgStateList.addAll(newPrgList);
 
-        // Display state if in Display Mode
-        if(displayFlag)
-            System.out.println(newState);
+        // Save to log file after execution
+        prgStateList.forEach(prg -> {
+            try {
+                repository.logPrgStateExec(prg);
+            } catch (RepositoryException e) {
+                System.out.println("There was an error executing one step for all programs: " + e);
+            }
+        });
 
-        // Log to file
-        this.repository.logPrgStateExec();
-
-        // Run Garbage Collector
-        state.getHeap().setContent(safeGarbageCollector(getAddrFromSymTable(state.getSymbolsTable().getContent().getContent().values()), state.getHeap().getContent()));
-
-        // Log to file
-        this.repository.logPrgStateExec();
-
-        // Return new state
-        return newState;
+        // Save the current programs in the repository
+        repository.setPrgList(prgStateList);
     }
-    // Execute one step - one statement
-    public void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
-        // Get the current program state - the one last added into the list
-        PrgState program = repository.getCrtPrg(repository.getPrgStates().size()-1);
 
-        // Check if there are statements left to execute
-        if(program.getExecutionStack().isEmpty()){
-            throw new ControllerException("Program State Error - Execution Stack is Empty");
-        }
-
-        // Execute one statement
-        IStmt currentStatement = program.getExecutionStack().pop();
-        PrgState newState = currentStatement.execute(program);
-
-        // Display state if in Display Mode
-        if(displayFlag)
-            System.out.println(newState);
-
-        // Log to file
-        this.repository.logPrgStateExec();
-
-        // Run Garbage Collector
-        newState.getHeap().setContent(safeGarbageCollector(getAddrFromSymTable(newState.getSymbolsTable().getContent().getContent().values()), newState.getHeap().getContent()));
-
-        // Log to file
-        this.repository.logPrgStateExec();
-    }
     // Execute entire program - all statements
     @Override
-    public void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException {
+    public void allStep() throws ControllerException {
 
-        // Get the current program state - the one last added into the list
-        PrgState program = repository.getCrtPrg(repository.getPrgStates().size()-1);
-
-        // Log to file
-        this.repository.clearLogFile();
-        this.repository.logPrgStateExec();
-
-        while(!program.getExecutionStack().isEmpty()){
-            oneStep(program);
+        // Clear log file first
+        try {
+            this.repository.clearLogFile();
+        } catch (RepositoryException e) {
+            throw new ControllerException("LOG ERROR: " + e);
         }
+
+        // Create new thread pool
+        executor = Executors.newFixedThreadPool(2);
+
+        // Remove the completed programs
+        List<PrgState> prgStateList = removeCompletedPrg(repository.getPrgList());
+
+        // Display the current states before beginning work
+        prgStateList.forEach(System.out::println);
+
+        // Execute until all threads have finished working
+        while(!prgStateList.isEmpty()) {
+
+            // Call conservative garbage collector
+            conservativeGarbageCollector(prgStateList);
+
+            // Execute one step of the program
+            oneStepForAllPrg(prgStateList);
+
+            // Display the current states
+            prgStateList.forEach(System.out::println);
+
+            // Remove the completed programs
+            prgStateList = removeCompletedPrg(repository.getPrgList());
+        }
+
+        // Shutdown the thread pool now
+        executor.shutdownNow();
+
+        // Here the repository still contains at least one Completed Prg
+        // and its List<PrgState> is not empty. Note that oneStepForAllPrg calls the method
+        // setPrgList of repository in order to change the repository
+
+        // Update the repository state
+        repository.setPrgList(prgStateList);
     }
 
     // Garbage Collector Related Methods
+    @Override
+    public void conservativeGarbageCollector(List<PrgState> prgList) {
+
+        // Collect all addresses from all program states' symbol tables
+        List<Integer> symTableAddresses = prgList.stream()
+                .flatMap(prg -> getAddrFromSymTable(prg.getSymbolsTable().getContent().values()).stream())
+                .collect(Collectors.toList());
+
+        // Get the shared heap from any program state (since it's shared)
+        Map<Integer, Value> heap = prgList.getFirst().getHeap().getContent();
+
+        // Use the safe garbage collector to filter the heap
+        Map<Integer, Value> filteredHeap = safeGarbageCollector(symTableAddresses, heap);
+
+        // Update the heap in all program states
+        prgList.forEach(prg -> prg.getHeap().setContent(filteredHeap));
+    }
+
+
     @Override
     public Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap) {
 

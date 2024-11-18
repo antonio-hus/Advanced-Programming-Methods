@@ -61,8 +61,8 @@ public class AssignStmt implements IStmt {
         // Update the variable in the symbolic table
         symTbl.update(id, val);
 
-        // Return the new state
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type

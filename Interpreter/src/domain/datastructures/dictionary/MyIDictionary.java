@@ -4,7 +4,11 @@
 package domain.datastructures.dictionary;
 
 
+import domain.values.StringValue;
+
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Set;
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -42,6 +46,14 @@ public interface MyIDictionary<K, V> {
     // Returns the hash map of all values
     HashMap<K, V> getContent();
 
+    // Get KeySet
+    // Returns the set of keys
+    Set<K> keySet();
+
+    // Get Values
+    // Returns the collection of values
+    Collection<V> values();
+
     // Is Empty
     // Returns True if the structure is empty
     // Returns False otherwise
@@ -50,5 +62,4 @@ public interface MyIDictionary<K, V> {
     // Size
     // Returns the size of the structure ( number of elements in the collection )
     int size();
-
 }

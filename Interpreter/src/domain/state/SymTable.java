@@ -89,4 +89,22 @@ public class SymTable implements ISymTable {
     public String toString() {
         return this.symbolsTable.toString();
     }
+
+    // Deep Copy
+    // Returns a deep copy of the structure
+    @Override
+    public ISymTable deepCopy() {
+        SymTable newSymTable = new SymTable();
+
+        for (String key : this.symbolsTable.getContent().keySet()) {
+            try {
+                Value value = this.symbolsTable.get(key);
+                newSymTable.put(key, value.deepCopy());
+            } catch (MyDictionaryException e) {
+                throw new RuntimeException("Error during SymTable deep copy: " + e.getMessage());
+            }
+        }
+
+        return newSymTable;
+    }
 }

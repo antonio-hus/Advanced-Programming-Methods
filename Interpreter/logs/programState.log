@@ -1,138 +1,287 @@
-Execution Stack = {(Ref(int) v;(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a))))))))}
+ID = 10
+Execution Stack = {(int v;(Ref(int) a;(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {Ref(int) v|(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a)))))))}
+ID = 10
+Execution Stack = {int v|(Ref(int) a;(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {Ref(int) v|(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a)))))))}
+ID = 10
+Execution Stack = {int v|(Ref(int) a;(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))))}
 Symbols Table = {}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a)))))))}
-Symbols Table = {v->(0, int)}
+ID = 10
+Execution Stack = {(Ref(int) a;(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a)))))))}
-Symbols Table = {v->(0, int)}
+ID = 10
+Execution Stack = {(Ref(int) a;(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {new(v, 20)|(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a))))))}
-Symbols Table = {v->(0, int)}
+ID = 10
+Execution Stack = {Ref(int) a|(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {new(v, 20)|(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a))))))}
-Symbols Table = {v->(0, int)}
+ID = 10
+Execution Stack = {Ref(int) a|(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))))}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
 ====================>
-Execution Stack = {(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a))))))}
-Symbols Table = {v->(1, int)}
+ID = 10
+Execution Stack = {(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))))}
+Symbols Table = {a->(0, int), v->0}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {(Ref(Ref(int)) a;(new(a, v);(new(v, 30);print(rH(rH(a))))))}
-Symbols Table = {v->(1, int)}
+ID = 10
+Execution Stack = {(v=10;(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))))}
+Symbols Table = {a->(0, int), v->0}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {Ref(Ref(int)) a|(new(a, v);(new(v, 30);print(rH(rH(a)))))}
-Symbols Table = {v->(1, int)}
+ID = 10
+Execution Stack = {v=10|(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))}
+Symbols Table = {a->(0, int), v->0}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {Ref(Ref(int)) a|(new(a, v);(new(v, 30);print(rH(rH(a)))))}
-Symbols Table = {v->(1, int)}
+ID = 10
+Execution Stack = {v=10|(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))}
+Symbols Table = {a->(0, int), v->0}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {(new(a, v);(new(v, 30);print(rH(rH(a)))))}
-Symbols Table = {a->(0, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))}
+Symbols Table = {a->(0, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {(new(a, v);(new(v, 30);print(rH(rH(a)))))}
-Symbols Table = {a->(0, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {(new(a, 22);(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a)))))}
+Symbols Table = {a->(0, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {new(a, v)|(new(v, 30);print(rH(rH(a))))}
-Symbols Table = {a->(0, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {new(a, 22)|(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))}
+Symbols Table = {a->(0, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {new(a, v)|(new(v, 30);print(rH(rH(a))))}
-Symbols Table = {a->(0, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {new(a, 22)|(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))}
+Symbols Table = {a->(0, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
-Execution Stack = {(new(v, 30);print(rH(rH(a))))}
-Symbols Table = {a->(2, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int)}
+Heap = {1=22}
 ====================>
-Execution Stack = {(new(v, 30);print(rH(rH(a))))}
-Symbols Table = {a->(2, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {(fork((wH(a,30);(v=32;(print(v);print(rH(a))))));(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int)}
+Heap = {1=22}
 ====================>
-Execution Stack = {new(v, 30)|print(rH(rH(a)))}
-Symbols Table = {a->(2, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {fork((wH(a,30);(v=32;(print(v);print(rH(a))))))|(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int)}
+Heap = {1=22}
 ====================>
-Execution Stack = {new(v, 30)|print(rH(rH(a)))}
-Symbols Table = {a->(2, Ref(int)), v->(1, int)}
+ID = 10
+Execution Stack = {fork((wH(a,30);(v=32;(print(v);print(rH(a))))))|(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int)}
+Heap = {1=22}
 ====================>
-Execution Stack = {print(rH(rH(a)))}
-Symbols Table = {a->(2, Ref(int)), v->(3, int)}
+ID = 10
+Execution Stack = {(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int), 3=30}
+Heap = {1=22}
 ====================>
-Execution Stack = {print(rH(rH(a)))}
-Symbols Table = {a->(2, Ref(int)), v->(3, int)}
+ID = 11
+Execution Stack = {(wH(a,30);(v=32;(print(v);print(rH(a)))))}
+Symbols Table = {a->(1, int), v->10}
 Output List = {}
 File Table = {}
-Heap = {1=20, 2=(1, int), 3=30}
+Heap = {1=22}
 ====================>
+ID = 10
+Execution Stack = {(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 11
+Execution Stack = {(wH(a,30);(v=32;(print(v);print(rH(a)))))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 10
+Execution Stack = {print(v)|print(rH(a))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 11
+Execution Stack = {wH(a,30)|(v=32;(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 10
+Execution Stack = {print(v)|print(rH(a))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 11
+Execution Stack = {wH(a,30)|(v=32;(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+ID = 10
+Execution Stack = {print(rH(a))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {(v=32;(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 10
+Execution Stack = {print(rH(a))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {(v=32;(print(v);print(rH(a))))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 10
 Execution Stack = {}
-Symbols Table = {a->(2, Ref(int)), v->(3, int)}
-Output List = {20}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
 File Table = {}
-Heap = {1=20, 2=(1, int), 3=30}
+Heap = {1=30}
 ====================>
-Execution Stack = {}
-Symbols Table = {a->(2, Ref(int)), v->(3, int)}
-Output List = {20}
+ID = 11
+Execution Stack = {v=32|(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
 File Table = {}
-Heap = {1=20, 2=(1, int), 3=30}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {v=32|(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {(print(v);print(rH(a)))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {print(v)|print(rH(a))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {print(v)|print(rH(a))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {print(rH(a))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {print(rH(a))}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+ID = 11
+Execution Stack = {}
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32,30}
+File Table = {}
+Heap = {1=30}
 ====================>

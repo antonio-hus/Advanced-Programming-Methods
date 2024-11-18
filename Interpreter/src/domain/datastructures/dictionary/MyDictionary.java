@@ -2,7 +2,9 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package domain.datastructures.dictionary;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Set;
 
 
 //////////////////////////
@@ -91,6 +93,18 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     public HashMap<K, V> getContent() {
         return this.dictionary;
     }
+
+    // Get KeySet
+    // Returns the set of keys
+    @Override
+    public Set<K> keySet() {
+        return this.dictionary.keySet();
+    }
+
+    // Get Values
+    // Returns the collection of values
+    @Override
+    public Collection<V> values() { return this.dictionary.values(); }
 
     // Is Empty
     // Returns True if the structure is empty

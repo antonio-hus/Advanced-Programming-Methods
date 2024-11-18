@@ -4,6 +4,8 @@
 package domain.datastructures.stack;
 
 
+import domain.state.IHeap;
+
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////

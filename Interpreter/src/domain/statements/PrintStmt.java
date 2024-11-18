@@ -43,8 +43,8 @@ public class PrintStmt implements IStmt {
         Value result = expression.eval(symTbl, state.getHeap());
         outputList.add(result);
 
-        // Return the new state
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type

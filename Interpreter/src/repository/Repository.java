@@ -3,10 +3,7 @@
 ////////////////////////
 package repository;
 import domain.PrgState;
-import domain.datastructures.list.MyIList;
-import domain.datastructures.list.MyListException;
-
-import java.io.IOException;
+import java.util.List;
 
 
 ///////////////////////////
@@ -15,25 +12,16 @@ import java.io.IOException;
 public interface Repository {
 
     // REPOSITORY METHODS
-    // Add new Program State
-    void addPrgState(PrgState newProgramState);
+    // Gets the list of all programs
+    List<PrgState> getPrgList();
 
-    // Add new Program State at a given index
-    void addPrgState(PrgState newProgramState, int index) throws MyListException;
-
-    // Remove a Program State
-    void removePrgState(int index) throws MyListException;
-
-    // Gets the currently running program
-    PrgState getCrtPrg(int index) throws MyListException;
-
-    // Gets all programs
-    MyIList<PrgState> getPrgStates();
+    // Sets the list of all programs
+    void setPrgList(List<PrgState> prgList);
 
     // Log File Operations
     // Clear log file
     void clearLogFile() throws RepositoryException;
 
     // Logs Repository State to file
-    void logPrgStateExec() throws RepositoryException;
+    void logPrgStateExec(PrgState state) throws RepositoryException;
 }

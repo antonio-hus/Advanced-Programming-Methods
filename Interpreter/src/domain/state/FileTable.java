@@ -81,4 +81,24 @@ public class FileTable implements IFileTable {
     public String toString() {
         return this.fileTable.toString();
     }
+
+    // Deep Copy
+    // Returns a deep copy of the structure
+    @Override
+    public IFileTable deepCopy() {
+        FileTable newFileTable = new FileTable();
+
+        for (StringValue key : this.fileTable.keySet()) {
+            try {
+                BufferedReader value = this.fileTable.get(key);
+
+                // BufferedReaders are immutable
+                newFileTable.put((StringValue) key.deepCopy(), value);
+            } catch (MyDictionaryException e) {
+                throw new RuntimeException("Error during FileTable deep copy: " + e.getMessage());
+            }
+        }
+
+        return newFileTable;
+    }
 }

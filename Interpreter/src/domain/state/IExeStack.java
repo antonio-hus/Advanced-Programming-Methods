@@ -35,4 +35,8 @@ public interface IExeStack {
     // Returns the size of the structure ( number of elements in the collection )
     int size();
 
+    // Deep Copy
+    // Returns a deep copy of the structure
+    IExeStack deepCopy();
+
 }

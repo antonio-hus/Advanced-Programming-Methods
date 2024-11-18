@@ -38,7 +38,9 @@ public class CompStmt implements IStmt {
         IExeStack stack = state.getExecutionStack();
         stack.push(secondIStmt);
         stack.push(firstIStmt);
-        return state;
+
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type

@@ -3,6 +3,7 @@
 ////////////////////////
 package domain.datastructures.list;
 import java.util.ArrayList;
+import java.util.List;
 
 
 //////////////////////////
@@ -12,7 +13,7 @@ public class MyList<T> implements MyIList<T> {
 
     // MY LIST STRUCTURE
     // List - based on array list
-    ArrayList<T> list;
+    List<T> list;
 
 
     // MY LIST CONSTRUCTORS
@@ -84,6 +85,16 @@ public class MyList<T> implements MyIList<T> {
         // Get the object at the specified index
         return list.get(index);
     }
+
+    // Get Content
+    // Returns the content of the list as a List Object
+    @Override
+    public List<T> getContent() { return this.list; }
+
+    // Set Content
+    // Sets the content of the list to the new contents
+    @Override
+    public void setContent(List<T> newContent) { this.list = newContent; }
 
     // Is Empty
     // Returns True if the structure is empty

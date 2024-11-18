@@ -22,8 +22,8 @@ public class NopStmt implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws StmtException, ExpException {
 
-        // Nop Statement has no effect
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type

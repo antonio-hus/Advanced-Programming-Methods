@@ -60,8 +60,8 @@ public class WhileStmt implements IStmt {
             exeStack.push(this.statement);
         }
 
-        // Return new state
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the statement

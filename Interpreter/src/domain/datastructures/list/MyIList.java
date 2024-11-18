@@ -4,6 +4,8 @@
 package domain.datastructures.list;
 
 
+import java.util.List;
+
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
@@ -34,6 +36,14 @@ public interface MyIList<T> {
     // Gets the element found at the specified position
     // Throws an exception if specified index is invalid
     T get(int index) throws MyListException;
+
+    // Get Content
+    // Returns the content of the list as a List Object
+    List<T> getContent();
+
+    // Set Content
+    // Sets the content of the list to the new contents
+    void setContent(List<T> newContent);
 
     // Is Empty
     // Returns True if the structure is empty

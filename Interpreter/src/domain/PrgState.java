@@ -2,12 +2,16 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package domain;
+import controller.ControllerException;
 import domain.datastructures.dictionary.*;
 import domain.datastructures.list.*;
 import domain.datastructures.stack.*;
+import domain.expressions.ExpException;
 import domain.statements.*;
 import domain.values.*;
 import domain.state.*;
+import repository.RepositoryException;
+
 import java.io.BufferedReader;
 
 
@@ -17,7 +21,12 @@ import java.io.BufferedReader;
 public class PrgState {
 
     // PROGRAM STATE STRUCTURE
-    // Program State is based on:
+    // Static ID for all Program States
+    static Integer id = 0;
+
+    // Program State Attributes
+    // Program ID
+    Integer programID;
     // Execution Stack
     IExeStack executionStack;
     // Symbols Table Dictionary
@@ -32,7 +41,7 @@ public class PrgState {
     IStmt originalProgram;
 
     // PROGRAM STATE CONSTRUCTOR
-    public PrgState(ExeStack stack, SymTable symTable, OutList outputs, FileTable fileTable, IHeap heap, IStmt prg){
+    public PrgState(IExeStack stack, ISymTable symTable, IOutList outputs, IFileTable fileTable, IHeap heap, IStmt prg){
 
         // Set the Program State Attributes
         this.executionStack = stack;
@@ -40,6 +49,7 @@ public class PrgState {
         this.outputList = outputs;
         this.fileTable = fileTable;
         this.heap = heap;
+        this.programID = getNextId();
 
         // Keep track of the original Program State
         // Recreate the entire original Program State
@@ -59,6 +69,7 @@ public class PrgState {
 
     // Public Methods
     // Getters
+    public Integer getProgramID() { return this.programID; }
     public IExeStack getExecutionStack() {
         return this.executionStack;
     }
@@ -82,12 +93,38 @@ public class PrgState {
     public void setFileTable(IFileTable newFileTable) { this.fileTable = newFileTable; }
     public void setHeap(IHeap heap) { this.heap = heap; }
 
+    // State Information Getters
+    public Boolean isNotCompleted() { return !executionStack.isEmpty(); }
+
+    // State Information Setters
+    public static synchronized int getNextId() {
+        return ++id;
+    }
+
+    // State Execution
+    public PrgState oneStep() throws StmtException, ExpException, MyDictionaryException, PrgStateException, MyStackException {
+
+        // Check if there are statements left to execute
+        if(this.getExecutionStack().isEmpty()){
+            throw new PrgStateException("Program State Error - Execution Stack is Empty");
+        }
+
+        // Execute one statement
+        IStmt currentStatement = this.getExecutionStack().pop();
+        return currentStatement.execute(this);
+    }
+
     // String Formatting
     @Override
     public String toString() {
 
         // Creating the string format of the state
         StringBuilder state = new StringBuilder();
+
+        // Id
+        state.append("ID = ");
+        state.append(programID.toString());
+        state.append("\n");
 
         // Execution Stack
         state.append("Execution Stack = ");

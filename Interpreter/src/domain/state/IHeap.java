@@ -68,4 +68,8 @@ public interface IHeap {
     Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
     List<Integer> getAddrFromSymTable(Collection<Value> symTableValues);
     public List<Integer> getReachableAddresses(List<Integer> symTableAddr, Map<Integer, Value> heap);
+
+    // Deep Copy
+    // Returns a deep copy of the structure
+    IHeap deepCopy() throws MyDictionaryException;
 }

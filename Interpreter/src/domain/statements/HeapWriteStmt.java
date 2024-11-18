@@ -29,7 +29,7 @@ public class HeapWriteStmt implements IStmt {
     // To String Method
     @Override
     public String toString() {
-        return "wH(" + this.expression.toString() + ")";
+        return "wH(" +  this.variableName + "," + this.expression.toString() + ")";
     }
 
     // Executes the statement of the program defined by Program State
@@ -66,7 +66,9 @@ public class HeapWriteStmt implements IStmt {
 
         // Updating the heap
         heap.update(address, expVal);
-        return state;
+
+        // Return null
+        return null;
     }
 
     // Returns a copy of the statement

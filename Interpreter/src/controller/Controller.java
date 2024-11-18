@@ -22,26 +22,17 @@ import java.util.Map;
 public interface Controller {
 
     // CONTROLLER METHODS
-    // Add new Program State
-    void addPrgState(PrgState newProgramState);
-    // Add new Program State at a given index
-    void addPrgState(PrgState newProgramState, int index) throws MyListException;
-    // Remove a Program State
-    void removePrgState(int index) throws MyListException;
-    // Gets the currently running program on the given index
-    PrgState getCrtPrg(int index) throws MyListException;
-    // Gets all programs
-    MyIList<PrgState> getPrgStates();
+    // Management Methods
+    List<PrgState> removeCompletedPrg(List<PrgState> inPrgList);
 
-    // Program State Execution Methods
-    // Execute one step - one statement - specific program state
-    PrgState oneStep(PrgState state) throws ControllerException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
-    // Execute one step - one statement
-    void oneStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
+    // Execution Methods
+    // Execute one step for all program states
+    void oneStepForAllPrg(List<PrgState> prgStateList) throws ControllerException;
     // Execute entire program - all statements
-    void allStep() throws ControllerException, MyListException, MyStackException, StmtException, ExpException, MyDictionaryException, RepositoryException;
+    void allStep() throws ControllerException;
 
     // Garbage Collector Related Methods
+    void conservativeGarbageCollector(List<PrgState> prgList);
     Map<Integer, Value> unsafeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
     Map<Integer, Value> safeGarbageCollector(List<Integer> symTableAddr, Map<Integer, Value> heap);
     public List<Integer> getReachableAddresses(List<Integer> symTableAddr, Map<Integer, Value> heap);

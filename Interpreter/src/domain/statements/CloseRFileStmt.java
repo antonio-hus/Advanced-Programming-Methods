@@ -77,8 +77,8 @@ public class CloseRFileStmt implements IStmt {
             throw new StmtException("There was an error closing the file: " + e);
         }
 
-        // Return the new state
-        return state;
+        // Return null
+        return null;
     }
 
     // Returns a copy of the type
