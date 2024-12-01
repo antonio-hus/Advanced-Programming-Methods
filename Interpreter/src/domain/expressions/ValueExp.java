@@ -5,6 +5,8 @@ package domain.expressions;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.state.IHeap;
 import domain.state.ISymTable;
+import domain.types.IntType;
+import domain.types.Type;
 import domain.values.Value;
 
 
@@ -38,5 +40,14 @@ public class ValueExp implements Exp {
     @Override
     public Exp deepCopy() {
         return new ValueExp(this.value.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException {
+
+        // Value expressions return the type of the value
+        return value.getType();
     }
 }

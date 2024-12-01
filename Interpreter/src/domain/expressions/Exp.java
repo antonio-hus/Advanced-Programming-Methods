@@ -2,9 +2,10 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package domain.expressions;
-import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.state.IHeap;
 import domain.state.ISymTable;
+import domain.types.Type;
 import domain.values.Value;
 
 
@@ -18,4 +19,8 @@ public interface Exp {
 
     // Returns a copy of the expression
     Exp deepCopy();
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException;
 }

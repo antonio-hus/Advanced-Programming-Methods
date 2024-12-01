@@ -33,6 +33,7 @@ public class RunExample extends Command {
     @Override
     public void execute() {
         try{
+            // Execute the program
             controller.allStep();
         }
         catch (ControllerException e)  {

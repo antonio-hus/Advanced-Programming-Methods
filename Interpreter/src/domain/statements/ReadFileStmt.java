@@ -13,6 +13,7 @@ import domain.state.IFileTable;
 import domain.state.ISymTable;
 import domain.types.IntType;
 import domain.types.StringType;
+import domain.types.Type;
 import domain.values.IntValue;
 import domain.values.StringValue;
 import domain.values.Value;
@@ -110,5 +111,28 @@ public class ReadFileStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new ReadFileStmt(this.expression.deepCopy(), this.variableName);
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            Type typeExp = expression.typeCheck(typeEnv);
+            Type typeVar = typeEnv.get(variableName);
+
+            if(!typeExp.equals(new StringType())){
+                throw new StmtException("READ FILE STATEMENT ERROR - Filename must be of type String");
+            }
+
+            if(!typeVar.equals(new IntType())){
+                throw new StmtException("READ FILE STATEMENT ERROR - Variable must be of type Integer");
+            }
+
+            return typeEnv;
+
+        } catch (MyDictionaryException | ExpException exp) {
+            throw new StmtException("READ FILE STATEMENT ERROR - " + exp);
+        }
     }
 }

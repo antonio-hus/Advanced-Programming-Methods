@@ -6,6 +6,8 @@ import domain.datastructures.dictionary.MyDictionaryException;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.state.IHeap;
 import domain.state.ISymTable;
+import domain.types.IntType;
+import domain.types.Type;
 import domain.values.Value;
 
 
@@ -46,5 +48,18 @@ public class VarExp implements Exp {
     @Override
     public Exp deepCopy() {
         return new VarExp(this.variableName);
+    }
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException {
+
+        // Variable expressions return the type of the associated variable
+        try {
+            return typeEnv.get(variableName);
+        } catch (MyDictionaryException exp) {
+            throw new ExpException("VARIABLE EXPRESSION ERROR - variable not found");
+        }
     }
 }

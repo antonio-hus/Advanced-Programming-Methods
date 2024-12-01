@@ -8,6 +8,7 @@ import domain.state.ISymTable;
 import domain.statements.AssignStmt;
 import domain.statements.IStmt;
 import domain.types.IntType;
+import domain.types.Type;
 import domain.values.IntValue;
 import domain.values.Value;
 
@@ -104,5 +105,24 @@ public class ArithExp implements Exp {
     @Override
     public Exp deepCopy() {
         return new ArithExp(this.e1.deepCopy(), this.e2.deepCopy(), this.option);
+    }
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException {
+
+        // Get the type of the two composing expressions
+        Type type1, type2;
+        type1 = e1.typeCheck(typeEnv);
+        type2 = e2.typeCheck(typeEnv);
+
+        // Both operands must be of type Integer
+        if((!type1.equals(new IntType())) || (!type2.equals(new IntType()))) {
+            throw new ExpException("ARITHMETIC EXPRESSION ERROR - Both operands must be of integer type");
+        }
+
+        // Arithmetic expressions return an Integer type
+        return new IntType();
     }
 }

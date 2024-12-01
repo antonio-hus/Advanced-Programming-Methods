@@ -63,4 +63,16 @@ public class VarDeclStmt implements IStmt {
     public IStmt deepCopy() {
         return new VarDeclStmt(this.variableName, this.variableType.deepCopy());
     }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            typeEnv.put(variableName, variableType);
+            return typeEnv;
+        } catch (MyDictionaryException exp) {
+            throw new StmtException("VARIABLE DECLARATION STATEMENT ERROR - " + exp);
+        }
+    }
 }

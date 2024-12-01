@@ -3,8 +3,10 @@
 ////////////////////////
 package domain.statements;
 import domain.PrgState;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.stack.*;
 import domain.state.IExeStack;
+import domain.types.Type;
 
 
 //////////////////////////
@@ -47,5 +49,14 @@ public class CompStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new CompStmt(this.firstIStmt.deepCopy(), this.secondIStmt.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+
+        // Type Check bot statements
+        return secondIStmt.typeCheck(firstIStmt.typeCheck(typeEnv));
     }
 }

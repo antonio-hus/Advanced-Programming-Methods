@@ -7,7 +7,9 @@ package domain.expressions;
 import domain.datastructures.dictionary.MyIDictionary;
 import domain.state.IHeap;
 import domain.state.ISymTable;
+import domain.types.BoolType;
 import domain.types.IntType;
+import domain.types.Type;
 import domain.values.BoolValue;
 import domain.values.IntValue;
 import domain.values.Value;
@@ -108,5 +110,24 @@ public class RelationExp implements Exp {
     @Override
     public Exp deepCopy() {
         return new RelationExp(this.e1.deepCopy(), this.e2.deepCopy(), this.option);
+    }
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException {
+
+        // Get the type of the two composing expressions
+        Type type1, type2;
+        type1 = e1.typeCheck(typeEnv);
+        type2 = e2.typeCheck(typeEnv);
+
+        // Both operands must be of type Integer
+        if((!type1.equals(new IntType())) || (!type2.equals(new IntType()))) {
+            throw new ExpException("RELATIONAL EXPRESSION ERROR - Both operands must be of integer type");
+        }
+
+        // Relational expressions return a Boolean type
+        return new BoolType();
     }
 }

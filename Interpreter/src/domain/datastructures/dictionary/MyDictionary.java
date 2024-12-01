@@ -2,6 +2,9 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package domain.datastructures.dictionary;
+import domain.state.SymTable;
+import domain.values.Value;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
@@ -144,5 +147,22 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
 
         // Returning the State
         return state.toString();
+    }
+
+    // Deep Copy
+    @Override
+    public MyIDictionary<K, V> deepCopy() {
+        MyIDictionary<K, V> newDictionary = new MyDictionary<>();
+
+        for (K key : this.dictionary.keySet()) {
+            try {
+                V value = this.dictionary.get(key);
+                newDictionary.put(key, value);
+            } catch (MyDictionaryException e) {
+                throw new RuntimeException("Error during dictionary deep copy: " + e.getMessage());
+            }
+        }
+
+        return newDictionary;
     }
 }

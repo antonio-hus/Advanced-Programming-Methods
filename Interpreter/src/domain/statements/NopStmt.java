@@ -3,7 +3,9 @@
 ////////////////////////
 package domain.statements;
 import domain.PrgState;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.ExpException;
+import domain.types.Type;
 
 
 //////////////////////////
@@ -30,5 +32,12 @@ public class NopStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new NopStmt();
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        return typeEnv;
     }
 }

@@ -25,7 +25,7 @@ public class RefType implements Type {
     // REF TYPE METHODS
     // Getter Methods
     // Gets the inner type of the Ref Type
-    Type getInner() { return this.inner; }
+    public Type getInner() { return this.inner; }
 
     // Returns True if the other object is of instance RefType and inner has the same type
     @Override

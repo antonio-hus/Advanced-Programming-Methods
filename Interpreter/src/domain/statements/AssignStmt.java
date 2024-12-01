@@ -70,4 +70,26 @@ public class AssignStmt implements IStmt {
     public IStmt deepCopy() {
         return new AssignStmt(this.id, this.expression.deepCopy());
     }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try{
+            // Get the types of the composing variable and expression
+            Type typeVar = typeEnv.get(id);
+            Type typeExp = expression.typeCheck(typeEnv);
+
+            // The two types must correspond
+            if(!typeVar.equals(typeExp)){
+                throw new StmtException("ASSIGNMENT STATEMENT ERROR - The type of the variable and of the expression must correspond");
+            }
+
+            // Return the typechecking dictionary
+            return typeEnv;
+        } catch (MyDictionaryException | ExpException exp) {
+            throw new StmtException("ASSIGNMENT STATEMENT ERROR - There was an error evaluating the statement: " + exp);
+        }
+
+    }
 }

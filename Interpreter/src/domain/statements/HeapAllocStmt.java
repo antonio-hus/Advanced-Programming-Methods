@@ -4,11 +4,13 @@
 package domain.statements;
 import domain.PrgState;
 import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.Exp;
 import domain.expressions.ExpException;
 import domain.state.IHeap;
 import domain.state.ISymTable;
 import domain.types.RefType;
+import domain.types.Type;
 import domain.values.RefValue;
 import domain.values.Value;
 
@@ -74,5 +76,27 @@ public class HeapAllocStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new HeapAllocStmt(variableName, expression.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            // Check the type of the variable and of the expression
+            Type typeVar = typeEnv.get(variableName);
+            Type typeExp = expression.typeCheck(typeEnv);
+
+            // The type of the variable must be a reference to the type of the expression
+            if(!typeVar.equals(new RefType(typeExp))) {
+                throw new StmtException("HEAP ALLOCATION STATEMENT ERROR - The type of the variable must be RefType( type of expression )");
+            }
+
+            // Return the typechecking dictionary
+            return typeEnv;
+
+        } catch(MyDictionaryException | ExpException exp) {
+            throw new StmtException("HEAP ALLOCATION STATEMENT ERROR - " + exp);
+        }
     }
 }

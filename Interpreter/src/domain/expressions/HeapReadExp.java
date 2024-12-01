@@ -3,9 +3,12 @@
 ////////////////////////
 package domain.expressions;
 import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.state.IHeap;
 import domain.state.ISymTable;
+import domain.types.IntType;
 import domain.types.RefType;
+import domain.types.Type;
 import domain.values.RefValue;
 import domain.values.Value;
 
@@ -57,5 +60,23 @@ public class HeapReadExp implements Exp {
     @Override
     public Exp deepCopy() {
         return new HeapReadExp(this.expression.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Returns the return type of the expression
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws ExpException {
+
+        // Get the type of the composing expression
+        Type type = expression.typeCheck(typeEnv);
+
+        // Operand must be of RefType
+        if(!(type instanceof RefType)) {
+            throw new ExpException("READ HEAP EXPRESSION ERROR - Operand must be of RefType");
+        }
+
+        // Read Heap expressions returns the contained inner type
+        RefType refType = (RefType) type;
+        return refType.getInner();
     }
 }

@@ -7,6 +7,7 @@ import domain.datastructures.dictionary.MyIDictionary;
 import domain.datastructures.list.MyIList;
 import domain.state.IOutList;
 import domain.state.ISymTable;
+import domain.types.Type;
 import domain.values.*;
 import domain.expressions.*;
 
@@ -51,5 +52,17 @@ public class PrintStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new PrintStmt(this.expression.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            expression.typeCheck(typeEnv);
+            return typeEnv;
+        } catch(ExpException exp) {
+            throw new StmtException("PRINT STATEMENT EXCEPTION - " + exp);
+        }
     }
 }

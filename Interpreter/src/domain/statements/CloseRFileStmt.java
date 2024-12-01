@@ -13,6 +13,7 @@ import domain.state.IFileTable;
 import domain.state.ISymTable;
 import domain.types.IntType;
 import domain.types.StringType;
+import domain.types.Type;
 import domain.values.StringValue;
 import domain.values.Value;
 import java.io.BufferedReader;
@@ -85,5 +86,24 @@ public class CloseRFileStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new CloseRFileStmt(this.expression.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+
+            // Check expression type - must be string
+            Type type = expression.typeCheck(typeEnv);
+            if(!type.equals(new StringType())){
+                throw new StmtException("CLOSE READ FILE STATEMENT ERROR - Type of the expression must be StringType");
+            }
+
+            // Return the typechecking dictionary
+            return typeEnv;
+        } catch (ExpException exp) {
+            throw new StmtException("CLOSE READ FILE STATEMENT ERROR - " + exp);
+        }
     }
 }

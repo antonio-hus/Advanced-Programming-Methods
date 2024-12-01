@@ -4,8 +4,10 @@
 package domain.statements;
 import domain.PrgState;
 import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.ExpException;
 import domain.state.ExeStack;
+import domain.types.Type;
 
 
 //////////////////////////
@@ -38,5 +40,14 @@ public class ForkStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new ForkStmt(this.innerStmt.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+
+        // Type check the inner statement
+        return innerStmt.typeCheck(typeEnv);
     }
 }

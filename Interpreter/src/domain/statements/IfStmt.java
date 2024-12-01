@@ -75,4 +75,22 @@ public class IfStmt implements IStmt {
         return new IfStmt(this.expression.deepCopy(), this.thenStatement.deepCopy(), this.elseStatement.deepCopy());
     }
 
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try{
+            Type type = expression.typeCheck(typeEnv);
+            if(!type.equals(new BoolType())) {
+                throw new StmtException("IF STATEMENT ERROR - Condition must be of Boolean type");
+            }
+
+            thenStatement.typeCheck(typeEnv.deepCopy());
+            elseStatement.typeCheck(typeEnv.deepCopy());
+            return typeEnv;
+
+        } catch(ExpException exp) {
+            throw new StmtException("IF STATEMENT ERROR - " + exp);
+        }
+    }
 }

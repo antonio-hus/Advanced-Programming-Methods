@@ -4,10 +4,12 @@
 package domain.statements;
 import domain.PrgState;
 import domain.datastructures.dictionary.MyDictionaryException;
+import domain.datastructures.dictionary.MyIDictionary;
 import domain.expressions.*;
 import domain.state.IExeStack;
 import domain.state.ISymTable;
 import domain.types.BoolType;
+import domain.types.Type;
 import domain.values.BoolValue;
 import domain.values.Value;
 
@@ -68,5 +70,23 @@ public class WhileStmt implements IStmt {
     @Override
     public IStmt deepCopy() {
         return new WhileStmt(this.expression.deepCopy(), this.statement.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            Type typeExp = expression.typeCheck(typeEnv);
+            if(!typeExp.equals(new BoolType())){
+                throw new StmtException("WHILE STATEMENT ERROR - Expression must be of Boolean Type");
+            }
+
+            statement.typeCheck(typeEnv);
+
+            return typeEnv;
+        } catch(ExpException exp) {
+            throw new StmtException("WHILE STATEMENT ERROR - " + exp);
+        }
     }
 }
