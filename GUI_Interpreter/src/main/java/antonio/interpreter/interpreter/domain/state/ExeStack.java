@@ -6,7 +6,7 @@ import antonio.interpreter.interpreter.domain.datastructures.stack.MyIStack;
 import antonio.interpreter.interpreter.domain.datastructures.stack.MyStack;
 import antonio.interpreter.interpreter.domain.datastructures.stack.MyStackException;
 import antonio.interpreter.interpreter.domain.statements.IStmt;
-import antonio.interpreter.interpreter.domain.statements.CompStmt;
+import antonio.interpreter.interpreter.domain.utils.StmtParsing;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,25 +88,6 @@ public class ExeStack implements IExeStack {
         return newStack;
     }
 
-    // Infix Traversal of Execution Stack
-    private void infixTraversal(IStmt stmt, List<IStmt> result) {
-        if (stmt instanceof CompStmt compStmt) {
-
-            // Traverse left child
-            infixTraversal(compStmt.firstIStmt, result);
-
-            // Visit root
-            // result.add(stmt);
-
-            // Traverse right child
-            infixTraversal(compStmt.secondIStmt, result);
-        } else if (stmt != null) {
-
-            // If it's not a CompStmt, add it as a leaf node
-            result.add(stmt);
-        }
-    }
-
     // To List
     // Gets the execution stack as a list
     @Override
@@ -121,7 +102,7 @@ public class ExeStack implements IExeStack {
 
                 // Perform infix traversal starting from the current statement
                 IStmt root = tempStack.pop();
-                infixTraversal(root, result);
+                StmtParsing.infixTraversal(root, result);
 
             } catch (MyStackException e) {
                 throw new RuntimeException("Error during infix traversal: " + e.getMessage());

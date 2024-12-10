@@ -1,9 +1,7 @@
-package antonio.interpreter.interpreter;
-
 ////////////////////////
 // PACKAGES & IMPORTS //
 ////////////////////////
-
+package antonio.interpreter.interpreter;
 import antonio.interpreter.interpreter.domain.expressions.*;
 import antonio.interpreter.interpreter.domain.statements.*;
 import antonio.interpreter.interpreter.domain.types.*;
@@ -19,7 +17,7 @@ import java.util.Scanner;
 //////////////////////////
 public class CLI_Interpreter {
 
-    public static void main(String[] args) throws StmtException {
+    public static void main(String[] args) {
 
         // IMPLEMENTATION USING USER INTERFACE
         //

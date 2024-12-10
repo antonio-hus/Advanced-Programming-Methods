@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="antonio.interpreter.interpreter.services.ProgramDashboardServices"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <VBox spacing="10" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+
+        <!-- TextField for Number of PrgStates -->
+        <HBox spacing="10">
+            <Label text="Number of PrgStates:" />
+            <TextField fx:id="txtNumberOfPrgStates" prefWidth="100.0" editable="false"/>
+        </HBox>
+
+        <!-- TableView for HeapTable -->
+        <VBox spacing="5">
+            <Label text="HeapTable" />
+            <TableView fx:id="heapTable" prefHeight="150.0">
+                <columns>
+                    <TableColumn text="Address" fx:id="heapAddressColumn" prefWidth="150.0"/>
+                    <TableColumn text="Value" fx:id="heapValueColumn" prefWidth="150.0"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- ListView for Out -->
+        <VBox spacing="5">
+            <Label text="Out" />
+            <ListView fx:id="listOut" prefHeight="100.0" />
+        </VBox>
+
+        <!-- ListView for FileTable -->
+        <VBox spacing="5">
+            <Label text="FileTable" />
+            <ListView fx:id="listFileTable" prefHeight="100.0" />
+        </VBox>
+
+        <!-- ListView for PrgState Identifiers -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <VBox spacing="5">
+                <Label text="PrgState Identifiers" />
+                <ListView fx:id="listPrgStateIds" prefHeight="150.0" prefWidth="120.0" />
+            </VBox>
+
+            <!-- TableView for SymTable -->
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="SymTable" />
+                <TableView fx:id="symTable" prefHeight="150.0">
+                    <columns>
+                        <TableColumn text="Variable Name" fx:id="symTableVariableNameColumn" prefWidth="120.0"/>
+                        <TableColumn text="Value" fx:id="symTableValueColumn" prefWidth="120.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- ListView for ExeStack -->
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="ExeStack" />
+                <ListView fx:id="listExeStack" prefHeight="150.0" />
+            </VBox>
+        </HBox>
+
+        <!-- Run One Step Button -->
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Run One Step" fx:id="btnRunOneStep" />
+        </HBox>
+    </VBox>
+
+</AnchorPane>

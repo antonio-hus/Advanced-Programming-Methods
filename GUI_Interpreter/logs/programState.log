@@ -1,10 +1,8 @@
 ID = 1
 Execution Stack = 
-Ref(int) v
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+int v
+v=2
+print(v)
 
 Symbols Table = {}
 Output List = {}
@@ -15,11 +13,9 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-Ref(int) v
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+int v
+v=2
+print(v)
 
 Symbols Table = {}
 Output List = {}
@@ -30,11 +26,9 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-Ref(int) v
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+int v
+v=2
+print(v)
 
 Symbols Table = {}
 Output List = {}
@@ -45,12 +39,10 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+v=2
+print(v)
 
-Symbols Table = {v->(0, int)}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
@@ -59,12 +51,10 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+v=2
+print(v)
 
-Symbols Table = {v->(0, int)}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
@@ -73,12 +63,10 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+v=2
+print(v)
 
-Symbols Table = {v->(0, int)}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
@@ -87,12 +75,10 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-new(v, 20)
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+v=2
+print(v)
 
-Symbols Table = {v->(0, int)}
+Symbols Table = {v->0}
 Output List = {}
 File Table = {}
 Heap = {}
@@ -101,133 +87,33 @@ Heap = {}
 
 ID = 1
 Execution Stack = 
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+print(v)
 
-Symbols Table = {v->(1, int)}
+Symbols Table = {v->2}
 Output List = {}
 File Table = {}
-Heap = {1=20}
+Heap = {}
 ====================>
 
 
 ID = 1
 Execution Stack = 
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
+print(v)
 
-Symbols Table = {v->(1, int)}
+Symbols Table = {v->2}
 Output List = {}
 File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-print(rH(v))
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-wH(v,30)
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=20}
-====================>
-
-
-ID = 1
-Execution Stack = 
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=30}
-====================>
-
-
-ID = 1
-Execution Stack = 
-print(rH(v)+5)
-
-Symbols Table = {v->(1, int)}
-Output List = {20}
-File Table = {}
-Heap = {1=30}
+Heap = {}
 ====================>
 
 
 ID = 1
 Execution Stack = 
 (EMPTY)
-Symbols Table = {v->(1, int)}
-Output List = {20,35}
+Symbols Table = {v->2}
+Output List = {2}
 File Table = {}
-Heap = {1=30}
+Heap = {}
 ====================>
 
 
