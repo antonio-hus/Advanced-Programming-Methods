@@ -154,4 +154,46 @@ public class PrgState {
         // Returning the state as String
         return state.toString();
     }
+
+    // String Logging Formatting
+    public String toLogString() {
+        // Creating the string format of the state
+        StringBuilder state = new StringBuilder();
+
+        // Id
+        state.append("ID = ");
+        state.append(programID.toString());
+        state.append("\n");
+
+        // Execution Stack
+        state.append("Execution Stack = \n");
+        state.append(executionStack.toFString());
+        state.append("\n");
+
+        // Symbols Table
+        state.append("Symbols Table = ");
+        state.append(symbolsTable.toString());
+        state.append("\n");
+
+        // Output List
+        state.append("Output List = ");
+        state.append(outputList.toString());
+        state.append("\n");
+
+        // File Table
+        state.append("File Table = ");
+        state.append(fileTable.toString());
+        state.append("\n");
+
+        // Heap
+        state.append("Heap = ");
+        state.append(heap.toString());
+        state.append("\n");
+
+        state.append("====================>");
+        state.append("\n\n\n");
+
+        // Returning the state as String
+        return state.toString();
+    }
 }

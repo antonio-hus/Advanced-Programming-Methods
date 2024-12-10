@@ -4,6 +4,10 @@
 package antonio.interpreter.interpreter.domain.datastructures.stack;
 
 
+import antonio.interpreter.interpreter.domain.statements.IStmt;
+
+import java.util.List;
+
 ///////////////////////////
 // INTERFACE DESCRIPTION //
 ///////////////////////////
@@ -33,4 +37,8 @@ public interface MyIStack<T> {
     // Size
     // Returns the size of the structure ( number of elements in the collection )
     int size();
+
+    // To List
+    // Gets the stack as a list
+    List<T> toList();
 }

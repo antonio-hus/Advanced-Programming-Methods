@@ -5,6 +5,8 @@ package antonio.interpreter.interpreter.domain.state;
 import antonio.interpreter.interpreter.domain.datastructures.stack.MyStackException;
 import antonio.interpreter.interpreter.domain.statements.IStmt;
 
+import java.util.List;
+
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -39,4 +41,11 @@ public interface IExeStack {
     // Returns a deep copy of the structure
     IExeStack deepCopy();
 
+    // To List
+    // Gets the execution stack as a list
+    List<IStmt> toList();
+
+    // To Formatted String
+    // Gets the execution stack list as a string
+    String toFString();
 }

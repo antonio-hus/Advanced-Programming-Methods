@@ -2,7 +2,10 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package antonio.interpreter.interpreter.domain.datastructures.stack;
+import antonio.interpreter.interpreter.domain.statements.IStmt;
+
 import java.util.LinkedList;
+import java.util.List;
 
 
 //////////////////////////
@@ -92,5 +95,12 @@ public class MyStack<T> implements MyIStack<T> {
 
         // Returning the State
         return state.toString();
+    }
+
+    // To List
+    // Gets the execution stack as a list
+    @Override
+    public List<T> toList() {
+        return stack.stream().toList();
     }
 }

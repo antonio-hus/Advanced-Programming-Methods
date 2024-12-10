@@ -4,12 +4,7 @@ package antonio.interpreter.interpreter;
 // PACKAGES & IMPORTS //
 ////////////////////////
 
-import antonio.interpreter.interpreter.controller.*;
-import antonio.interpreter.interpreter.domain.datastructures.dictionary.*;
-import antonio.interpreter.interpreter.domain.datastructures.list.*;
-import antonio.interpreter.interpreter.domain.datastructures.stack.*;
 import antonio.interpreter.interpreter.domain.expressions.*;
-import antonio.interpreter.interpreter.domain.state.*;
 import antonio.interpreter.interpreter.domain.statements.*;
 import antonio.interpreter.interpreter.domain.types.*;
 import antonio.interpreter.interpreter.domain.values.*;
@@ -22,7 +17,7 @@ import java.util.Scanner;
 //////////////////////////
 // CLASS IMPLEMENTATION //
 //////////////////////////
-public class Interpreter {
+public class CLI_Interpreter {
 
     public static void main(String[] args) throws StmtException {
 

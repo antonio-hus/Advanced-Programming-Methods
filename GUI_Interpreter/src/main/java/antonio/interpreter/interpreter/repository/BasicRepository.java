@@ -69,7 +69,7 @@ public class BasicRepository implements Repository {
             PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
 
             // Write the contents of the current program
-            logFile.write(state.toString());
+            logFile.write(state.toLogString());
 
             // Close output stream
             logFile.close();

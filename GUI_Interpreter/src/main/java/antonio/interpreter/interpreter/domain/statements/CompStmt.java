@@ -16,8 +16,8 @@ public class CompStmt implements IStmt {
 
     // COMPOSED STATEMENT STRUCTURE
     // A Composed Statement is formed of two statements
-    IStmt firstIStmt;
-    IStmt secondIStmt;
+    public IStmt firstIStmt;
+    public IStmt secondIStmt;
 
 
     // COMPOSED STATEMENT CONSTRUCTORS
