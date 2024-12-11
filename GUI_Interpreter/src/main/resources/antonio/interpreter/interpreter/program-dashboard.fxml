@@ -68,7 +68,7 @@
 
         <!-- Run One Step Button -->
         <HBox spacing="10" alignment="CENTER">
-            <Button text="Run One Step" fx:id="btnRunOneStep" />
+            <Button text="Run One Step" fx:id="btnRunOneStep" onAction="#handleRunOneStep" />
         </HBox>
     </VBox>
 

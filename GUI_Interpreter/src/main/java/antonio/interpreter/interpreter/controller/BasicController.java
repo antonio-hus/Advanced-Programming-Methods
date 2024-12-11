@@ -111,6 +111,32 @@ public class BasicController implements Controller {
         repository.setPrgList(prgStateList);
     }
 
+    // Execute one step for all program states
+    @Override
+    public void oneStepForAllPrg() throws ControllerException {
+
+        // Create new thread pool
+        executor = Executors.newFixedThreadPool(2);
+
+        // Remove the completed programs
+        List<PrgState> prgStateList = removeCompletedPrg(repository.getPrgList());
+
+        if(prgStateList.isEmpty())
+            throw new ControllerException("The execution stack is empty!");
+
+        // Display the current states before beginning work
+        prgStateList.forEach(System.out::println);
+
+        // Call conservative garbage collector
+        conservativeGarbageCollector(prgStateList);
+
+        // Execute one step of the program
+        oneStepForAllPrg(prgStateList);
+
+        // Display the current states
+        prgStateList.forEach(System.out::println);
+    }
+
     // Execute entire program - all statements
     @Override
     public void allStep() throws ControllerException {

@@ -120,6 +120,7 @@ public class ProgramDashboardServices {
         symTableVariableNameColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getKey()));
         symTableValueColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getValue()));
         symTable.setItems(symTableData);
+        symTable.refresh();
     }
 
     private void updateExecStack() {
@@ -149,7 +150,7 @@ public class ProgramDashboardServices {
     @FXML
     private void handleRunOneStep() {
         try{
-            this.controller.oneStepForAllPrg(this.controller.getPrgList());
+            this.controller.oneStepForAllPrg();
             updateDashboard();
         } catch (ControllerException e) {
             showErrorAlert("Program One Step Run Failed", e.toString());

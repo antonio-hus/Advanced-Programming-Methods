@@ -29,6 +29,8 @@ public interface Controller {
     // Execution Methods
     // Execute one step for all program states
     void oneStepForAllPrg(List<PrgState> prgStateList) throws ControllerException;
+    // Execute one step for all program states
+    void oneStepForAllPrg() throws ControllerException;
     // Execute entire program - all statements
     void allStep() throws ControllerException;
 
