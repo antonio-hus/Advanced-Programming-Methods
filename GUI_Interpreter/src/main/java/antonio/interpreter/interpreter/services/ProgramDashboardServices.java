@@ -1,51 +1,105 @@
+////////////////////////
+// PACKAGES & IMPORTS //
+////////////////////////
 package antonio.interpreter.interpreter.services;
-
+import antonio.interpreter.interpreter.controller.BasicController;
+import antonio.interpreter.interpreter.controller.Controller;
+import antonio.interpreter.interpreter.domain.PrgState;
+import antonio.interpreter.interpreter.domain.state.*;
 import antonio.interpreter.interpreter.domain.statements.IStmt;
+import antonio.interpreter.interpreter.domain.values.StringValue;
+import antonio.interpreter.interpreter.domain.values.Value;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.Map;
+
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
 public class ProgramDashboardServices {
 
-    private IStmt programStatement;
+    // PROGRAM DASHBOARD SERVICES STRUCTURE
+    // Backend Elements
+    private PrgState prgState;
+    private Controller controller;
 
-    @FXML
-    private TextField txtNumberOfPrgStates;
+    // Frontend Elements
+    @FXML private TextField txtNumberOfPrgStates;
+    @FXML private TableView<Map.Entry<Integer, Value>> heapTable;
+    @FXML private TableColumn<Map.Entry<Integer, Value>, Integer> heapAddressColumn;
+    @FXML private TableColumn<Map.Entry<Integer, Value>, Value> heapValueColumn;
+    @FXML private ListView<Value> listOut;
+    @FXML private ListView<StringValue> listFileTable;
+    @FXML private ListView<Integer> listPrgStateIds;
+    @FXML private TableView<?> symTable;
+    @FXML private ListView<String> listExeStack;
+    @FXML private Button btnRunOneStep;
 
-    @FXML
-    private TableView<?> heapTable;
 
-    @FXML
-    private ListView<String> listOut;
 
-    @FXML
-    private ListView<String> listFileTable;
+    // PROGRAM DASHBOARD SERVICES INITIALIZE
+    public void initializeDashboard(IStmt programStatement, String logFilePath) {
 
-    @FXML
-    private ListView<Integer> listPrgStateIds;
+        // Creating program
+        this.prgState = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), programStatement);
+        this.controller = new BasicController(1, logFilePath, this.prgState);
 
-    @FXML
-    private TableView<?> symTable;
-
-    @FXML
-    private ListView<String> listExeStack;
-
-    @FXML
-    private Button btnRunOneStep;
-
-    public void setProgramStatement(IStmt programStatement) {
-        this.programStatement = programStatement;
-        initializeDashboard();
+        // Update View
+        updateDashboard();
     }
 
-    private void initializeDashboard() {
-        // Populate UI elements with data from the programStatement
-        txtNumberOfPrgStates.setText("1"); // Example, replace with actual logic
-        listExeStack.getItems().add(programStatement.toString()); // Example for ExeStack
+    private void updateDashboard() {
+        updateProgramStateCount();
+        updateHeapTable();
+        updateOutList();
+        updateFileList();
+        updateIdentifierList();
     }
 
+
+    // PROGRAM DASHBOARD SERVICES HELPER METHODS
+    private void updateProgramStateCount() {
+        txtNumberOfPrgStates.setText(controller.getPrgListCount().toString());
+    }
+
+    private void updateHeapTable() {
+        ObservableList<Map.Entry<Integer, Value>> heapData = FXCollections.observableArrayList(
+                controller.getPrgList().getFirst().getHeap().getContent().entrySet()
+        );
+
+        heapAddressColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getKey()));
+        heapValueColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getValue()));
+        heapTable.setItems(heapData);
+    }
+
+    private void updateOutList() {
+        ObservableList<Value> outputListData = FXCollections.observableArrayList(controller.getPrgList().getFirst().getOutputList().getContent());
+
+        listOut.setItems(outputListData);
+    }
+
+    private void updateFileList() {
+        ObservableList<StringValue> fileTableList = FXCollections.observableArrayList(controller.getPrgList().getFirst().getFileTable().keySet());
+
+        listFileTable.setItems(fileTableList);
+    }
+
+    private void updateIdentifierList() {
+        ObservableList<Integer> identifierList = FXCollections.observableArrayList();
+        controller.getPrgList().forEach(prgState -> identifierList.add(prgState.getProgramID()));
+
+        listPrgStateIds.setItems(identifierList);
+    }
+
+
+    // PROGRAM DASHBOARD SERVICES HANDLERS
     @FXML
     private void handleRunOneStep() {
-        // Logic to execute one step and refresh UI
-        System.out.println("Run one step for: " + programStatement);
+        System.out.println("Run one step");
     }
 }

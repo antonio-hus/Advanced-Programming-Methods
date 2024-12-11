@@ -5,6 +5,8 @@ package antonio.interpreter.interpreter.domain.state;
 import antonio.interpreter.interpreter.domain.datastructures.list.MyListException;
 import antonio.interpreter.interpreter.domain.values.Value;
 
+import java.util.List;
+
 
 ///////////////////////////
 // INTERFACE DESCRIPTION //
@@ -36,6 +38,10 @@ public interface IOutList {
     // Gets the element found at the specified position
     // Throws an exception if specified index is invalid
     Value get(int index) throws MyListException;
+
+    // Get Content
+    // Gets the entire content of the output list
+    List<Value> getContent();
 
     // Is Empty
     // Returns True if the structure is empty

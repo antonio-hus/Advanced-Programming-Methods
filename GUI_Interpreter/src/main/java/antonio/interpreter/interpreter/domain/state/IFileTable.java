@@ -7,6 +7,7 @@ import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyDictio
 import antonio.interpreter.interpreter.domain.values.StringValue;
 
 import java.io.BufferedReader;
+import java.util.Set;
 
 
 ///////////////////////////
@@ -40,6 +41,10 @@ public interface IFileTable {
     // Gets the value associated to the given key from the dictionary
     // Throws an exception if the key is not present inside the dictionary
     BufferedReader get(StringValue key) throws MyDictionaryException;
+
+    // Get KeySet
+    // Returns the set of keys
+    Set<StringValue> keySet();
 
     // Is Empty
     // Returns True if the structure is empty

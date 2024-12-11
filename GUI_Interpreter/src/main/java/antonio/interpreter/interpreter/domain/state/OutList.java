@@ -7,6 +7,8 @@ import antonio.interpreter.interpreter.domain.datastructures.list.MyList;
 import antonio.interpreter.interpreter.domain.datastructures.list.MyListException;
 import antonio.interpreter.interpreter.domain.values.Value;
 
+import java.util.List;
+
 
 //////////////////////////
 // CLASS IMPLEMENTATION //
@@ -57,6 +59,13 @@ public class OutList implements IOutList {
     @Override
     public Value get(int index) throws MyListException {
         return this.outputList.get(index);
+    }
+
+    // Get Content
+    // Gets the entire content of the output list
+    @Override
+    public List<Value> getContent() {
+        return this.outputList.getContent();
     }
 
     // Is Empty

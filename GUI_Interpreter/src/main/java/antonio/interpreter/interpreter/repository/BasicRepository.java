@@ -35,6 +35,10 @@ public class BasicRepository implements Repository {
 
 
     // BASIC REPOSITORY METHODS
+    // Gets the number of all programs
+    @Override
+    public Integer getPrgListCount() { return  this.programStates.size(); }
+
     // Gets the list of all programs
     @Override
     public List<PrgState> getPrgList() {

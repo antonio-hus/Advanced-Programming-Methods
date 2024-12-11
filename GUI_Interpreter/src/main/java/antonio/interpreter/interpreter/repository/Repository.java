@@ -14,6 +14,9 @@ import java.util.List;
 public interface Repository {
 
     // REPOSITORY METHODS
+    // Gets the number of all programs
+    Integer getPrgListCount();
+
     // Gets the list of all programs
     List<PrgState> getPrgList();
 

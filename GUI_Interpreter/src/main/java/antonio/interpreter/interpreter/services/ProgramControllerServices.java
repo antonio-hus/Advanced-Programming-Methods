@@ -2,6 +2,7 @@
 // PACKAGES & IMPORTS //
 ////////////////////////
 package antonio.interpreter.interpreter.services;
+import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyDictionary;
 import antonio.interpreter.interpreter.domain.expressions.*;
 import antonio.interpreter.interpreter.domain.statements.*;
 import antonio.interpreter.interpreter.domain.types.BoolType;
@@ -81,9 +82,12 @@ public class ProgramControllerServices {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/antonio/interpreter/interpreter/program-dashboard.fxml"));
             Parent root = loader.load();
 
+            // Type check selected statement
+            stmt.typeCheck(new MyDictionary<>());
+
             // Pass the selected IStmt to the Dashboard controller
             ProgramDashboardServices controller = loader.getController();
-            controller.setProgramStatement(stmt);
+            controller.initializeDashboard(stmt, textArea.getText());
 
             // Apply the CSS stylesheet
             root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/antonio/interpreter/interpreter/styles.css")).toExternalForm());
@@ -96,6 +100,8 @@ public class ProgramControllerServices {
 
         } catch (IOException e) {
             showErrorAlert("Error", "Dashboard Launch Failed", "Could not load the dashboard: " + e.getMessage());
+        } catch (StmtException e) {
+            showErrorAlert("Error", "Dashboard Launch Failed", "The selected statement fails typechecking: " + e.getMessage());
         }
     }
 

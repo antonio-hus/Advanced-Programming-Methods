@@ -16,6 +16,13 @@ import java.util.Map;
 public interface Controller {
 
     // CONTROLLER METHODS
+    // Getter Methods
+    // Gets the number of all programs
+    Integer getPrgListCount();
+
+    // Gets the list of all programs
+    List<PrgState> getPrgList();
+
     // Management Methods
     List<PrgState> removeCompletedPrg(List<PrgState> inPrgList);
 

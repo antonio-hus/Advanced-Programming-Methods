@@ -43,6 +43,19 @@ public class BasicController implements Controller {
     }
 
     // BASIC CONTROLLER METHODS
+    // Getter Methods
+    // Gets the number of all programs
+    @Override
+    public Integer getPrgListCount() {
+        return this.repository.getPrgListCount();
+    }
+
+    // Gets the list of all programs
+    @Override
+    public List<PrgState> getPrgList() {
+        return this.repository.getPrgList();
+    }
+
     // Management Methods
     @Override
     public List<PrgState> removeCompletedPrg(List<PrgState> inPrgList) {

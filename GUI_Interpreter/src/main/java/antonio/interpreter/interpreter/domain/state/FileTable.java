@@ -9,6 +9,7 @@ import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyIDicti
 import antonio.interpreter.interpreter.domain.values.StringValue;
 
 import java.io.BufferedReader;
+import java.util.Set;
 
 
 //////////////////////////
@@ -62,6 +63,11 @@ public class FileTable implements IFileTable {
     public BufferedReader get(StringValue key) throws MyDictionaryException {
         return this.fileTable.get(key);
     }
+
+    // Get KeySet
+    // Returns the set of keys
+    @Override
+    public Set<StringValue> keySet() { return this.fileTable.keySet(); }
 
     // Is Empty
     // Returns True if the structure is empty
