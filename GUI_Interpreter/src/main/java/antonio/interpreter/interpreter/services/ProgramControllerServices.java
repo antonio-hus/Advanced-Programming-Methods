@@ -31,12 +31,8 @@ public class ProgramControllerServices {
     // Backend Elements
     List<IStmt> stmtList;
     // Frontend Elements
-    // List View displays existing programs
-    @FXML
-    private ListView<String> listView;
-    // Text Area for logfile path
-    @FXML
-    private TextArea textArea;
+    @FXML private ListView<String> listView;
+    @FXML private TextArea textArea;
 
 
     // PROGRAM CONTROLLER SERVICES INITIALIZE

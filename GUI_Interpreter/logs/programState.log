@@ -4838,3 +4838,1847 @@ Heap = {1=22}
 ====================>
 
 
+ID = 1
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 1
+Execution Stack = 
+(EMPTY)
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+(EMPTY)
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+String varf
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+String varf
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+String varf
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->""}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->""}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->""}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+varf=C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->""}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+openRFile(varf)
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+int varc
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->0}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+readFile(varf,varc)
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->15}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(varc)
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15,50}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+closeRFile(varf)
+
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15,50}
+File Table = {C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in->java.io.BufferedReader@5d788901}
+Heap = {}
+====================>
+
+
+ID = 3
+Execution Stack = 
+(EMPTY)
+Symbols Table = {varf->C:\Users\anton\OneDrive\Documents\GitHub\Advanced-Programming-Methods\Interpreter\files\test1.in, varc->50}
+Output List = {15,50}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int a
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int a
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int a
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+int b
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+a=2+3*5
+b=a+1
+print(b)
+
+Symbols Table = {a->0, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+b=a+1
+print(b)
+
+Symbols Table = {a->17, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+b=a+1
+print(b)
+
+Symbols Table = {a->17, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+b=a+1
+print(b)
+
+Symbols Table = {a->17, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+b=a+1
+print(b)
+
+Symbols Table = {a->17, b->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(b)
+
+Symbols Table = {a->17, b->18}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+print(b)
+
+Symbols Table = {a->17, b->18}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 1
+Execution Stack = 
+(EMPTY)
+Symbols Table = {a->17, b->18}
+Output List = {18}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+int v
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+Ref(int) a
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+v=10
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->0}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+new(a, 22)
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(0, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {}
+====================>
+
+
+ID = 2
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+fork((wH(a,30);(v=32;(print(v);print(rH(a))))))
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 3
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 3
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 3
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 3
+Execution Stack = 
+wH(a,30)
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {}
+File Table = {}
+Heap = {1=22}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 2
+Execution Stack = 
+(EMPTY)
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+v=32
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->10}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(v)
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+print(rH(a))
+
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32}
+File Table = {}
+Heap = {1=30}
+====================>
+
+
+ID = 3
+Execution Stack = 
+(EMPTY)
+Symbols Table = {a->(1, int), v->32}
+Output List = {10,30,32,30}
+File Table = {}
+Heap = {1=30}
+====================>
+
+

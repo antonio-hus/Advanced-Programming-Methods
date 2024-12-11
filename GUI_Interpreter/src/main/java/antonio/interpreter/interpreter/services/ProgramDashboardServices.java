@@ -26,7 +26,6 @@ public class ProgramDashboardServices {
 
     // PROGRAM DASHBOARD SERVICES STRUCTURE
     // Backend Elements
-    private PrgState prgState;
     private Controller controller;
 
     // Frontend Elements
@@ -48,9 +47,9 @@ public class ProgramDashboardServices {
     // PROGRAM DASHBOARD SERVICES INITIALIZE
     public void initializeDashboard(IStmt programStatement, String logFilePath) {
 
-        // Creating program
-        this.prgState = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), programStatement);
-        this.controller = new BasicController(1, logFilePath, this.prgState);
+        // Creating program & controller
+        PrgState prgState = new PrgState(new ExeStack(), new SymTable(), new OutList(), new FileTable(), new Heap(), programStatement);
+        this.controller = new BasicController(1, logFilePath, prgState);
 
         // Update View
         updateDashboard();
@@ -63,6 +62,8 @@ public class ProgramDashboardServices {
     }
 
     private void updateDashboard() {
+
+        // Updating all elements of the screen
         updateProgramStateCount();
         updateHeapTable();
         updateOutList();
@@ -74,10 +75,12 @@ public class ProgramDashboardServices {
 
 
     // PROGRAM DASHBOARD SERVICES HELPER METHODS
+    // Update Program State List Count
     private void updateProgramStateCount() {
         txtNumberOfPrgStates.setText(controller.getPrgListCount().toString());
     }
 
+    // Update Heap Table entries
     private void updateHeapTable() {
         ObservableList<Map.Entry<Integer, Value>> heapData = FXCollections.observableArrayList(
                 controller.getPrgList().getFirst().getHeap().getContent().entrySet()
@@ -88,18 +91,21 @@ public class ProgramDashboardServices {
         heapTable.setItems(heapData);
     }
 
+    // Update Output List entries
     private void updateOutList() {
         ObservableList<Value> outputListData = FXCollections.observableArrayList(controller.getPrgList().getFirst().getOutputList().getContent());
 
         listOut.setItems(outputListData);
     }
 
+    // Update File List entries
     private void updateFileList() {
         ObservableList<StringValue> fileTableList = FXCollections.observableArrayList(controller.getPrgList().getFirst().getFileTable().keySet());
 
         listFileTable.setItems(fileTableList);
     }
 
+    // Update Program State Identifier List entries
     private void updateIdentifierList() {
         ObservableList<Integer> identifierList = FXCollections.observableArrayList();
         controller.getPrgList().forEach(prgState -> identifierList.add(prgState.getProgramID()));
@@ -107,6 +113,7 @@ public class ProgramDashboardServices {
         listPrgStateIds.setItems(identifierList);
     }
 
+    // Update Symbols Table entries
     private void updateSymTable() {
         int selectedIndex = listPrgStateIds.getSelectionModel().getSelectedIndex();
         if (selectedIndex < 0 || selectedIndex > this.controller.getPrgListCount()) {
@@ -123,6 +130,7 @@ public class ProgramDashboardServices {
         symTable.refresh();
     }
 
+    // Update Execution Stack entries
     private void updateExecStack() {
         int selectedIndex = listPrgStateIds.getSelectionModel().getSelectedIndex();
         if (selectedIndex < 0 || selectedIndex > this.controller.getPrgListCount()) {
@@ -135,14 +143,19 @@ public class ProgramDashboardServices {
         listExeStack.setItems(execStackList);
     }
 
-
     // Show alert
     // Creates & Launches Error Alert
     private void showErrorAlert(String header, String content) {
+
+        // Create a new alert
         Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        // Set alert content
         alert.setTitle("Error");
         alert.setHeaderText(header);
         alert.setContentText(content);
+
+        // Launch alert
         alert.showAndWait();
     }
 
@@ -150,9 +163,16 @@ public class ProgramDashboardServices {
     @FXML
     private void handleRunOneStep() {
         try{
+
+            // Run one step for all programs
             this.controller.oneStepForAllPrg();
+
+            // Update dashboard view
             updateDashboard();
+
         } catch (ControllerException e) {
+
+            // Notify errors
             showErrorAlert("Program One Step Run Failed", e.toString());
         }
     }
