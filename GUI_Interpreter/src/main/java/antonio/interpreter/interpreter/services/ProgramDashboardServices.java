@@ -4,6 +4,7 @@
 package antonio.interpreter.interpreter.services;
 import antonio.interpreter.interpreter.controller.BasicController;
 import antonio.interpreter.interpreter.controller.Controller;
+import antonio.interpreter.interpreter.controller.ControllerException;
 import antonio.interpreter.interpreter.domain.PrgState;
 import antonio.interpreter.interpreter.domain.state.*;
 import antonio.interpreter.interpreter.domain.statements.IStmt;
@@ -36,8 +37,10 @@ public class ProgramDashboardServices {
     @FXML private ListView<Value> listOut;
     @FXML private ListView<StringValue> listFileTable;
     @FXML private ListView<Integer> listPrgStateIds;
-    @FXML private TableView<?> symTable;
-    @FXML private ListView<String> listExeStack;
+    @FXML private TableView<Map.Entry<String, Value>> symTable;
+    @FXML private TableColumn<Map.Entry<String, Value>, String> symTableVariableNameColumn;
+    @FXML private TableColumn<Map.Entry<String, Value>, Value> symTableValueColumn;
+    @FXML private ListView<IStmt> listExeStack;
     @FXML private Button btnRunOneStep;
 
 
@@ -51,6 +54,12 @@ public class ProgramDashboardServices {
 
         // Update View
         updateDashboard();
+
+        // Event Listeners
+        listPrgStateIds.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            updateExecStack();
+            updateSymTable();
+        });
     }
 
     private void updateDashboard() {
@@ -59,6 +68,8 @@ public class ProgramDashboardServices {
         updateOutList();
         updateFileList();
         updateIdentifierList();
+        updateExecStack();
+        updateSymTable();
     }
 
 
@@ -96,10 +107,52 @@ public class ProgramDashboardServices {
         listPrgStateIds.setItems(identifierList);
     }
 
+    private void updateSymTable() {
+        int selectedIndex = listPrgStateIds.getSelectionModel().getSelectedIndex();
+        if (selectedIndex < 0 || selectedIndex > this.controller.getPrgListCount()) {
+            return;
+        }
+
+        ObservableList<Map.Entry<String, Value>> symTableData = FXCollections.observableArrayList(
+                controller.getPrgList().get(selectedIndex).getSymbolsTable().getContent().getContent().entrySet()
+        );
+
+        symTableVariableNameColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getKey()));
+        symTableValueColumn.setCellValueFactory(data -> new SimpleObjectProperty<>(data.getValue().getValue()));
+        symTable.setItems(symTableData);
+    }
+
+    private void updateExecStack() {
+        int selectedIndex = listPrgStateIds.getSelectionModel().getSelectedIndex();
+        if (selectedIndex < 0 || selectedIndex > this.controller.getPrgListCount()) {
+            return;
+        }
+
+        ObservableList<IStmt> execStackList = FXCollections.observableArrayList();
+        execStackList.addAll(controller.getPrgList().get(selectedIndex).getExecutionStack().toList());
+
+        listExeStack.setItems(execStackList);
+    }
+
+
+    // Show alert
+    // Creates & Launches Error Alert
+    private void showErrorAlert(String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 
     // PROGRAM DASHBOARD SERVICES HANDLERS
     @FXML
     private void handleRunOneStep() {
-        System.out.println("Run one step");
+        try{
+            this.controller.oneStepForAllPrg(this.controller.getPrgList());
+            updateDashboard();
+        } catch (ControllerException e) {
+            showErrorAlert("Program One Step Run Failed", e.toString());
+        }
     }
 }

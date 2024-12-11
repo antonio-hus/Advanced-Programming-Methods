@@ -3,16 +3,8 @@
 ////////////////////////
 package antonio.interpreter.interpreter.services;
 import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyDictionary;
-import antonio.interpreter.interpreter.domain.expressions.*;
 import antonio.interpreter.interpreter.domain.statements.*;
-import antonio.interpreter.interpreter.domain.types.BoolType;
-import antonio.interpreter.interpreter.domain.types.IntType;
-import antonio.interpreter.interpreter.domain.types.RefType;
-import antonio.interpreter.interpreter.domain.types.StringType;
 import antonio.interpreter.interpreter.domain.utils.StmtParsing;
-import antonio.interpreter.interpreter.domain.values.BoolValue;
-import antonio.interpreter.interpreter.domain.values.IntValue;
-import antonio.interpreter.interpreter.domain.values.StringValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +17,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import java.util.Objects;
@@ -99,18 +90,17 @@ public class ProgramControllerServices {
             stage.show();
 
         } catch (IOException e) {
-            showErrorAlert("Error", "Dashboard Launch Failed", "Could not load the dashboard: " + e.getMessage());
+            showErrorAlert("Dashboard Launch Failed", "Could not load the dashboard: " + e.getMessage());
         } catch (StmtException e) {
-            showErrorAlert("Error", "Dashboard Launch Failed", "The selected statement fails typechecking: " + e.getMessage());
+            showErrorAlert("Dashboard Launch Failed", "The selected statement fails typechecking: " + e.getMessage());
         }
     }
 
-
     // Show alert
     // Creates & Launches Error Alert
-    private void showErrorAlert(String title, String header, String content) {
+    private void showErrorAlert(String header, String content) {
         Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("Error");
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
@@ -125,7 +115,7 @@ public class ProgramControllerServices {
 
         // If no item is selected
         if (selectedIndex == -1) {
-            showErrorAlert("Error", "No item selected", "Please select an item from the list.");
+            showErrorAlert("No item selected", "Please select an item from the list.");
         } else {
             IStmt selectedStmt = stmtList.get(selectedIndex);
             launchDashboard(selectedStmt);
