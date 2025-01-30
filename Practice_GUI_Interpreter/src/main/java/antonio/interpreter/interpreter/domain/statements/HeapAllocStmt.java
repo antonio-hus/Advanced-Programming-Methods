@@ -1,0 +1,103 @@
+////////////////////////
+// PACKAGES & IMPORTS //
+////////////////////////
+package antonio.interpreter.interpreter.domain.statements;
+import antonio.interpreter.interpreter.domain.PrgState;
+import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyDictionaryException;
+import antonio.interpreter.interpreter.domain.datastructures.dictionary.MyIDictionary;
+import antonio.interpreter.interpreter.domain.datastructures.stack.MyStackException;
+import antonio.interpreter.interpreter.domain.expressions.Exp;
+import antonio.interpreter.interpreter.domain.expressions.ExpException;
+import antonio.interpreter.interpreter.domain.state.IHeap;
+import antonio.interpreter.interpreter.domain.state.ISymTable;
+import antonio.interpreter.interpreter.domain.types.RefType;
+import antonio.interpreter.interpreter.domain.types.Type;
+import antonio.interpreter.interpreter.domain.values.RefValue;
+import antonio.interpreter.interpreter.domain.values.Value;
+
+
+//////////////////////////
+// CLASS IMPLEMENTATION //
+//////////////////////////
+public class HeapAllocStmt implements IStmt {
+
+    // HEAP ALLOCATION STATEMENT STRUCTURE
+    String variableName;
+    Exp expression;
+
+
+    // HEAP ALLOCATION STATEMENT CONSTRUCTOR
+    public HeapAllocStmt(String variableName, Exp expression) { this.variableName=variableName; this.expression=expression; }
+
+
+    // HEAP ALLOCATION STATEMENT METHODS
+    // To String Method
+    @Override
+    public String toString() {
+        return "new("+ variableName + ", " + this.expression.toString() + ")";
+    }
+
+    // Executes the statement of the program defined by Program State
+    @Override
+    public PrgState execute(PrgState state) throws StmtException, ExpException, MyDictionaryException, MyStackException {
+
+        // Get the current program state
+        IHeap heap = state.getHeap();
+        ISymTable symTbl = state.getSymbolsTable();
+
+        // Check if the variable name is in the symbols table
+        if(!symTbl.containsKey(variableName))
+            throw new StmtException("HEAP ALLOCATION ERROR - The variable was not declared");
+
+        // Check type of the value
+        // Must be RefType
+        Value val = symTbl.get(variableName);
+        if(!(val.getType() instanceof RefType))
+            throw new StmtException("HEAP ALLOCATION ERROR - Variable is not of reference type");
+
+        // Safely cast to RefValue
+        RefValue refVal = (RefValue) val;
+
+        // Evaluate new expression
+        Value expVal = expression.eval(symTbl, heap);
+        if(!expVal.getType().equals(refVal.getLocationType()))
+            throw new StmtException("HEAP ALLOCATION ERROR - The expression does not match variable inner type");
+
+        // Appending to the heap
+        int address = heap.put(expVal);
+
+        // Updating the symbols table
+        symTbl.update(variableName, new RefValue(address, refVal.getLocationType()));
+
+        // Return null
+        return null;
+    }
+
+    // Returns a copy of the statement
+    @Override
+    public IStmt deepCopy() {
+        return new HeapAllocStmt(variableName, expression.deepCopy());
+    }
+
+    // Typechecking mechanism
+    // Ensure statement can be run
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws StmtException {
+        try {
+            // Check the type of the variable and of the expression
+            Type typeVar = typeEnv.get(variableName);
+            Type typeExp = expression.typeCheck(typeEnv);
+
+            // The type of the variable must be a reference to the type of the expression
+            if(!typeVar.equals(new RefType(typeExp))) {
+                throw new StmtException("HEAP ALLOCATION STATEMENT ERROR - The type of the variable must be RefType( type of expression )");
+            }
+
+            // Return the typechecking dictionary
+            return typeEnv;
+
+        } catch(MyDictionaryException | ExpException exp) {
+            throw new StmtException("HEAP ALLOCATION STATEMENT ERROR - " + exp);
+        }
+    }
+}
